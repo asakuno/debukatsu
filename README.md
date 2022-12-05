@@ -68,3 +68,6 @@ README〜ER図作成：12/4 〆切
 メイン機能実装：12/5 - 1/16
  β版をRUNTEQ内リリース（MVP）：1/17〆切
  本番リリース：1月末
+
+## 画面遷移図
+[Figma]https://www.figma.com/file/FdSL8iq7NFYdhNdAKCz9vu/debukatsu?node-id=0%3A1&t=sFwcyd81H5tvgpQ6-0
