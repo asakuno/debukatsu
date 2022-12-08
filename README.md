@@ -71,3 +71,6 @@ README〜ER図作成：12/4 〆切
 
 ## 画面遷移図
 [Figma]https://www.figma.com/file/FdSL8iq7NFYdhNdAKCz9vu/debukatsu?node-id=0%3A1&t=sFwcyd81H5tvgpQ6-0
+
+## ER図
+[ER図]https://drive.google.com/file/d/1jpRPIF0Nu2khecZdIuPp6b5VGalITEMo/view?usp=sharing
