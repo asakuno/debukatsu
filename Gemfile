@@ -35,6 +35,10 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'webdrivers'
+  gem 'factory_bot_rails'
 end
 
 group :development do
