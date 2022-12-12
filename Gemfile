@@ -53,6 +53,7 @@ group :development do
   gem 'spring'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'solargraph'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
