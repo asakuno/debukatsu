@@ -39,6 +39,7 @@ group :development, :test do
   gem 'capybara'
   gem 'webdrivers'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -51,8 +52,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'foreman'
   gem 'spring'
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'solargraph'
   gem 'annotate'
 end
@@ -60,3 +61,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rails-i18n'
+gem 'sorcery'

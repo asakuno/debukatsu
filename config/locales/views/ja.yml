@@ -1,4 +1,20 @@
 ja:
+  defaults:
+    login: 'ログイン'
+    signin: '新規登録'
+    logout: 'ログアウト'
+    back: '戻る'
+    title: 'デブかつApp'
+    message:
+      require_login: 'ログインしてください'
+      logout_confirm: 'ログアウトしますか？'
   homes:
     index:
-      title: "デブかつ"
+      title: 'デブかつApp'
+  users:
+    new:
+      title: 'ユーザー新規登録'
+      to_home: '戻る'
+  user_sessions:
+    new:
+      title: 'ログイン'
