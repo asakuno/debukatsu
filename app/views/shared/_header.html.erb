@@ -6,7 +6,7 @@
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
       <li>
-        <%= link_to (t"defaults.logout"), logout_path, method: :delete, class: 'nav-link' %>
+        <%= link_to (t"defaults.logout"), logout_path, method: :delete, class: 'nav-link', data: { confirm: t('defaults.message.logout_confirm') } %>
       </li>
     </ul>
   </div>
