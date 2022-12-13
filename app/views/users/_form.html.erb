@@ -18,21 +18,21 @@
 
   <div class="input-group-md">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: "input input-bordered w-full max-w-xs", placeholder: "Type email" %>
   </div>
 
   <div class="input-group-md">
     <%= form.label :password %>
-    <%= form.text_field :password %>
+    <%= form.text_field :password, class: "input input-bordered w-full max-w-xs", placeholder: "Type Password" %>
   </div>
 
   <div class="input-group-md">
     <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation %>
+    <%= form.text_field :password_confirmation, class: "input input-bordered w-full max-w-xs", placeholder: "Type Password Again" %>
   </div>
 
 
-  <button class="btn btn-primary">
-    <%= form.submit %>
+  <button class="input-group-md">
+    <%= form.submit class:"btn btn-primary" %>
   </button>
 <% end %>

@@ -1,5 +1,7 @@
-
-      <div class="text-accent text-7xl" >Topページ仮置き</div>
-      <%= t'.title' %>
-      <button class="btn btn-info">始める</button>
+<div class="text-accent text-7xl" >Topページ仮置き</div>
+  <%= t'.title' %>
+<button class="btn btn-info">始める</button>
+<% if logged_in? %>
+<%= link_to (t"defaults.logout"), logout_path, method: :delete, class: 'dropdown-item' %>
+<% end %>
 
