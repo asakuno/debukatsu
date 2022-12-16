@@ -1,0 +1,15 @@
+<%= form_with(model: food, local: true) do |form| %>
+  <div class="input-group-md">
+    <%= form.label :food_name %>
+    <%= form.text_field :food_name, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.label :calorie %>
+    <%= form.text_field :calorie, class: "input input-bordered w-full max-w-xs" %>kcal
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>
