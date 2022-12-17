@@ -10,7 +10,7 @@
   <tbody>
     <% @foods.each do |food| %>
       <tr>
-      <td><%= food.food_name %></td>
+      <td><%= link_to food.food_name, food, class: "link link-primary" %></td>
       <td><%= food.calorie %>kcal</td>
       <% if current_user.own?(food) %>
         <td><%= link_to 'Edit', '#', class:"btn btn-primary" %></td>
