@@ -1,0 +1,14 @@
+<p>
+  <strong>Title:</strong>
+  <%= @food.food_name %>
+</p>
+
+<p>
+  <strong>Calorie:</strong>
+  <%= @food.calorie %>
+</p>
+<p class="hoge">jQuerytest</p>
+<% if current_user.own?(@food) %>
+  <%= link_to 'Edit', "#" %> |
+<% end %>
+<%= link_to 'Back', foods_path %>
