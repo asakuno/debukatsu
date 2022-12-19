@@ -1,0 +1,8 @@
+<% @groups.each do |group| %>
+  <div class="card-body">
+    <%= link_to "#{group.group_name}", group_path(group) %><br>
+    <%= group.food_ids %>
+  </div>
+<% end %><br>
+<%= link_to 'newgroup', new_group_path %><br>
+<%= link_to 'foods' , foods_path %>
