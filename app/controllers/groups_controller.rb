@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.user_id = current_user.id
-    @group.food_ids.delete_if {|id| id % 2 == 0 }
+    @group.food_ids = @group.food_ids.delete_if {|id| id % 2 == 0 }
     if @group.save
       redirect_to groups_path
     else
