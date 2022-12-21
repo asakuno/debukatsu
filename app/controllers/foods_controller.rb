@@ -18,7 +18,7 @@ class FoodsController < ApplicationController
     if @food.save
       redirect_to foods_path
     else
-      flash.now[:danger] = "エラーメッセージ"
+      flash.now[:danger] = 'エラーメッセージ'
       render :new
     end
   end
