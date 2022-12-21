@@ -15,13 +15,42 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.user_id = current_user.id
-    #@group.food_ids = @group.food_ids.delete_if {|id| id % 2 == 0 }
-    @price = Array.new
-    byebug
-    @group.food_ids.each do |i|
-      @price << Food.find(i).price
+
+    amount = @group.maximum_amount#上限金額
+    n = @group.food_ids.size #数量
+
+    #値段とカロリーの配列を作成
+    price_calorie = Array.new(n) { Array.new() }
+
+    @group.food_ids.each_with_index do |id, i|
+      price_calorie[i] << Food.find(id).price
+      price_calorie[i] << Food.find(id).calorie
     end
-    byebug
+
+    dp = Array.new(n + 1) { Array.new(amount + 1, 0) }#ここと
+    selection = Array.new(n + 1) { Array.new(amount + 1, "") }#ここのコードが負荷やばそう
+    
+    price_calorie.each_with_index do |(price, calorie), i|
+      (0..amount).each do |j|
+        dp[i + 1][j] = dp[i][j]
+        selection[i + 1][j] = selection[i][j] + "0"
+        if j - price >= 0 && (dp[i + 1][j] < dp[i][j - price] + calorie)
+          dp[i + 1][j] = dp[i][j - price] + calorie
+          selection[i + 1][j] = selection[i][j - price] + "1"
+        end
+      end
+    end
+
+    answer = Array.new
+
+    (0..n-1).each do |i|
+      if selection[-1][-1].split('')[i] == "1"
+        answer << @group.food_ids[i]
+      end
+    end
+
+    @group.food_ids = answer
+
     if @group.save
       redirect_to groups_path
     else
