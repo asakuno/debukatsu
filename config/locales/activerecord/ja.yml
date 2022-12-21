@@ -8,4 +8,8 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード再確認'
+      food:
+        food_name: '名前'
+        calorie: 'カロリー'
+        price: '値段'
 

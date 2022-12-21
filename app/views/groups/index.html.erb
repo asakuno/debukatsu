@@ -1,0 +1,21 @@
+<div class="md:flex flex-col gap-6">
+  <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+    <% @groups.each do |group| %>
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">
+          <%= link_to "#{group.group_name}", group_path(group) %><br>
+        </h2>
+        <%= group.food_ids %><br>
+        <%= group.user.name %><br>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to 'newgroup', new_group_path, class: "link link-primary" %><br>
+  <%= link_to 'foods' , foods_path %>
+</div>
+
+
+
+  

@@ -1,0 +1,24 @@
+<%= form_with(model: @group, local: true, group_id: @group.id) do |form| %>
+  <div class="input-group-md">
+    <%= form.label :group_name %>
+    <%= form.text_field :group_name, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.label :maximum_amount %>
+    <%= form.text_field :maximum_amount, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
+      <%= food.object.food_name %>
+      <%= food.object.calorie %>kcal
+      <%= food.label(class: "check_box") { food.check_box(checked: true) } %><br>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', groups_path %>

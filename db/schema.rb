@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_13_032731) do
+ActiveRecord::Schema.define(version: 2022_12_20_083942) do
 
   create_table "foods", charset: "utf8mb4", force: :cascade do |t|
     t.string "food_name", null: false
@@ -18,7 +18,27 @@ ActiveRecord::Schema.define(version: 2022_12_13_032731) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price", null: false
     t.index ["user_id"], name: "index_foods_on_user_id"
+  end
+
+  create_table "groups", charset: "utf8mb4", force: :cascade do |t|
+    t.string "group_name", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "maximum_amount", null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "select_foods", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "food_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_id", "group_id"], name: "index_select_foods_on_food_id_and_group_id", unique: true
+    t.index ["food_id"], name: "index_select_foods_on_food_id"
+    t.index ["group_id"], name: "index_select_foods_on_group_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -32,4 +52,7 @@ ActiveRecord::Schema.define(version: 2022_12_13_032731) do
   end
 
   add_foreign_key "foods", "users"
+  add_foreign_key "groups", "users"
+  add_foreign_key "select_foods", "foods"
+  add_foreign_key "select_foods", "groups"
 end
