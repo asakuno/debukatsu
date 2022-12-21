@@ -15,7 +15,13 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.user_id = current_user.id
-    @group.food_ids = @group.food_ids.delete_if {|id| id % 2 == 0 }
+    #@group.food_ids = @group.food_ids.delete_if {|id| id % 2 == 0 }
+    @price = Array.new
+    byebug
+    @group.food_ids.each do |i|
+      @price << Food.find(i).price
+    end
+    byebug
     if @group.save
       redirect_to groups_path
     else
@@ -26,7 +32,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:group_name, food_ids:[])
+    params.require(:group).permit(:group_name, :maximum_amount, food_ids:[])
   end
 end
 
