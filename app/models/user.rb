@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def own?(object)
     object.user_id == id
   end
+
+  def self.guest_user_generate
+    random_email = SecureRandom.hex(4)
+    User.find_or_create_by!(name: 'Guest', email: "guest_#{random_email}@example.com") do |user|
+      user.password = SecureRandom.alphanumeric(10)
+      user.password_confirmation = user.password
+    end
+  end
 end

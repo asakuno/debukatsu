@@ -1,3 +1,5 @@
 <div class="text-accent text-7xl" >Topページ仮置き</div>
-
+<% unless logged_in? %>
+  <%= link_to 'ゲストユーザーでログインしてみる', guest_path, method: :post, class: 'btn btn-success' %>
+<% end %>
 
