@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.includes(:foods)
+    @groups = Group.includes([:user, :foods]).references(:all).order(created_at: :desc) 
   end
 
   def show
@@ -29,12 +29,14 @@ class GroupsController < ApplicationController
 
     dp = Array.new(n + 1) { Array.new(amount + 1, 0) } # ここと
     selection = Array.new(n + 1) { Array.new(amount + 1, '') } # ここのコードが負荷やばそう
-
+    
     price_calorie.each_with_index do |(price, calorie), i|
       (0..amount).each do |j|
+        # 商品i+1を選ばない場合
         dp[i + 1][j] = dp[i][j]
         selection[i + 1][j] = "#{selection[i][j]}0"
         if j - price >= 0 && (dp[i + 1][j] < dp[i][j - price] + calorie)
+          # 商品i+1を選ぶ場合
           dp[i + 1][j] = dp[i][j - price] + calorie
           selection[i + 1][j] = "#{selection[i][j - price]}1"
         end
