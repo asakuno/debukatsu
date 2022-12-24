@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user_id = current_user.id
 
-    amount = @group.maximum_amount # 上限金額
+    maximum_amount = @group.maximum_amount # 上限金額
     n = @group.food_ids.size # 数量
 
     # 値段とカロリーの配列を作成
@@ -26,12 +26,13 @@ class GroupsController < ApplicationController
       price_calorie[i] << Food.find(id).price
       price_calorie[i] << Food.find(id).calorie
     end
-
-    dp = Array.new(n + 1) { Array.new(amount + 1, 0) } # ここと
-    selection = Array.new(n + 1) { Array.new(amount + 1, '') } # ここのコードが負荷やばそう
+    
+    # if文で分岐させたほうがいいかも？
+    dp = Array.new(n + 1) { Array.new(maximum_amount + 1, 0) } 
+    selection = Array.new(n + 1) { Array.new(maximum_amount + 1, '') }
     
     price_calorie.each_with_index do |(price, calorie), i|
-      (0..amount).each do |j|
+      (0..maximum_amount).each do |j|
         # 商品i+1を選ばない場合
         dp[i + 1][j] = dp[i][j]
         selection[i + 1][j] = "#{selection[i][j]}0"
@@ -43,15 +44,15 @@ class GroupsController < ApplicationController
       end
     end
 
-    answer = []
+    best_foods = []
 
     (0..n - 1).each do |i|
       if selection[-1][-1].split('')[i] == '1'
-        answer << @group.food_ids[i]
+        best_foods << @group.food_ids[i]
       end
     end
 
-    @group.food_ids = answer
+    @group.food_ids = best_foods
 
     if @group.save
       redirect_to groups_path
