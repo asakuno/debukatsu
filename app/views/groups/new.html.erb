@@ -7,8 +7,9 @@
 
   <div class="input-group-md">
     <%= form.label :maximum_amount %>
-    <%= form.number_field :maximum_amount, in: 100...500001, type: 'range', id: 'group_input' %>
+    <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...500001 %>
     <span id="value_display">100</span>円
+    <%= form.range_field :maximum_amount, in: 100...500001, id: 'maximum_amount_input',class: "range range-xs range-primary" %>
   </div>
 
   <div class="input-group-md">
