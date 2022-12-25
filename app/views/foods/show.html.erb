@@ -5,7 +5,11 @@
 
 <p>
   <strong>Calorie:</strong>
-  <%= @food.calorie %>
+  <%= @food.calorie %> kcal
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @food.price %> 円
 </p>
 <p class="hoge">jQuerytest</p>
 <% if current_user.own?(@food) %>

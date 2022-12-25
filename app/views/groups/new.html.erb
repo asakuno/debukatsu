@@ -7,20 +7,33 @@
 
   <div class="input-group-md">
     <%= form.label :maximum_amount %>
-    <%= form.text_field :maximum_amount, class: "input input-bordered w-full max-w-xs" %>円
+    <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...100001, step: 100 %>
+    <span id="value_display">100</span>円
+    <%= form.range_field :maximum_amount, in: 100...100001, id: 'maximum_amount_input',class: "range range-xs range-primary", step: 100 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 
   <div class="input-group-md">
-    <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
-      <%= food.object.food_name %>
-      <%= food.object.calorie %>kcal
-      <%= food.label( class: "check_box" ) { food.check_box(checked: true) } %><br>
+    <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <%= food.label( class: "check_box" ) { food.check_box(checked: true) } %>
+          <h2 class="card-title">
+            <%= food.object.food_name %>
+          </h2>
+          <%= food.object.calorie %>kcal
+        </div>
+      </div>
     <% end %>
-  </div>
-  <div class="actions">
-    <%= form.submit class:"btn btn-primary" %>
+    </div>
   </div>
   <% end %>
 </div>
 
 <%= link_to 'Back', groups_path %>
+
+<%= javascript_pack_tag 'groups/new' %>
