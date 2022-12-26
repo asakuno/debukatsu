@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.includes([:user, :groups]).references(:all).order(created_at: :desc)
+    @foods = Food.includes([:user, :groups]).references(:all).order(created_at: :desc).page(params[:page])
   end
 
   def show
