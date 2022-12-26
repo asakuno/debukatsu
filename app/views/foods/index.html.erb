@@ -22,6 +22,6 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @foods %>
 <%= link_to 'NewFood', new_food_path, class:"btn btn-primary"%>
 <%= link_to 'Groups', groups_path, class:"btn btn-secondary" %>
