@@ -2,6 +2,6 @@ class GroupJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    # Do something later
+    p 'Hello Rails.com'
   end
 end

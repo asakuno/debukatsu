@@ -1,4 +1,6 @@
 class HomesController < ApplicationController
   skip_before_action :require_login, only: [:index]
-  def index; end
+  def index
+    GroupJob.perform_later
+  end
 end
