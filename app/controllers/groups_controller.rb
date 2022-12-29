@@ -13,16 +13,9 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
-    @group.user_id = current_user.id
-
-    @group.high_calorie(@group.maximum_amount, @group.food_ids)
-
-    if @group.save
-      redirect_to groups_path
-    else
-      render :new
-    end
+    GroupJob.perform_later(current_user.id, group_params)
+    #group.food_ids = @best_foods
+    redirect_to groups_path, notice: 'Group was successfully created.' 
   end
 
   private
