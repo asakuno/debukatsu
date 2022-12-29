@@ -1,13 +1,13 @@
-class Group < ApplicationRecord
-  belongs_to :user
-  has_many :select_foods, dependent: :destroy
-  has_many :foods, through: :select_foods
+class GroupJob < ApplicationJob
+  queue_as :default
+  sidekiq_options retry: false
 
-  validates :group_name, presence: true
-  validates :maximum_amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 3_000_000 }
+  def perform(user_id, group_params)
+    @group = Group.new(group_params)
+    @group.user_id = user_id
 
-  # 長すぎるとrubocopに指摘された[<17, 61, 10> 64.11/25]
-  def high_calorie(maximum_amount, food_ids)
+    maximum_amount = @group.maximum_amount
+    food_ids = @group.food_ids
     quantity = food_ids.size
     price_calorie = Array.new(quantity) { [] }
 
@@ -40,6 +40,8 @@ class Group < ApplicationRecord
         @best_foods << food_ids[i]
       end
     end
-    self.food_ids = @best_foods
+    @group.food_ids = @best_foods
+
+    @group.save!(group_name: @group.group_name, maximum_amount: @group.maximum_amount, food_ids: @best_foods)
   end
 end

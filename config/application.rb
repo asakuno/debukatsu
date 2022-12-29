@@ -38,6 +38,8 @@ module Debukatsu
       g.test_framework false
     end
 
+    config.active_job.queue_adapter = :sidekiq
+
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end
