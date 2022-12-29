@@ -14,8 +14,8 @@ class GroupsController < ApplicationController
 
   def create
     GroupJob.perform_later(current_user.id, group_params)
-    #group.food_ids = @best_foods
-    redirect_to groups_path, notice: 'Group was successfully created.' 
+    # group.food_ids = @best_foods
+    redirect_to groups_path, notice: 'Group was successfully created.'
   end
 
   private
