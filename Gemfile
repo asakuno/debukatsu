@@ -70,5 +70,5 @@ gem 'kaminari'
 gem 'sidekiq'
 gem 'redis-rails'
 # 画像アップロード
-gem "shrine"
-gem "aws-sdk-s3"
+gem 'shrine'
+gem 'aws-sdk-s3'
