@@ -72,3 +72,6 @@ gem 'redis-rails'
 # 画像アップロード
 gem 'shrine'
 gem 'aws-sdk-s3'
+# 画像のリサイズ・バリデーション
+gem 'image_processing'
+gem 'mini_magick'

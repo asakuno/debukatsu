@@ -16,7 +16,7 @@
 
   <div class ="file">
     <%= form.label :image_data %>
-    <%= form.hidden_field :image, value: @food.cached_image_data %>
+    <%= form.hidden_field :image, value: @food.cached_image_data, class:"file hover:bg-gray-100" %>
     <%= form.file_field :image, class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
   </div>
 
