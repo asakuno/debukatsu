@@ -14,7 +14,6 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.user_id = current_user.id
-
     if @food.save
       redirect_to foods_path
     else
@@ -23,9 +22,15 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food = current_user.foods.find(params[:id])
+    @food.destroy!
+    redirect_to foods_path, success: '削除しました'
+  end
+
   private
 
   def food_params
-    params.require(:food).permit(:food_name, :calorie, :price)
+    params.require(:food).permit(:food_name, :calorie, :price, :image)
   end
 end

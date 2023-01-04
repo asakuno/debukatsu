@@ -4,7 +4,8 @@
       <th>Name</th>
       <th>Calorie</th>
       <th>Price</th>
-      <th colspan="3"></th>
+      <th>image</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -16,8 +17,9 @@
       <td><%= food.price %>円</td>
       <% if current_user.own?(food) %>
         <td><%= link_to 'Edit', '#', class:"btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary" %></td>
       <% end %>
+      <td><%= image_tag food.image_url(:small).to_s, height: "300" %></td>
       </tr>
     <% end %>
   </tbody>

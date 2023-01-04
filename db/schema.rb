@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_20_083942) do
+ActiveRecord::Schema.define(version: 2022_12_29_120043) do
 
   create_table "foods", charset: "utf8mb4", force: :cascade do |t|
     t.string "food_name", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_12_20_083942) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price", null: false
+    t.text "image_data"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
@@ -48,6 +49,10 @@ ActiveRecord::Schema.define(version: 2022_12_20_083942) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "activation_state"
+    t.string "activation_token"
+    t.datetime "activation_token_expires_at"
+    t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
