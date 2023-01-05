@@ -3,9 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("./jquery.validationEngine")
-require("./jquery.validationEngine-ja")
-require("./signup")
+
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
