@@ -75,3 +75,5 @@ gem 'aws-sdk-s3'
 # 画像のリサイズ・バリデーション
 gem 'image_processing'
 gem 'mini_magick'
+# バリデーション
+gem 'stimulus-rails'
