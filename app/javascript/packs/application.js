@@ -18,3 +18,5 @@ import "test.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+import "controllers"
+
