@@ -1,17 +1,20 @@
-<%= form_with(model: food, local: true) do |form| %>
+<%= form_with(model: food, data: { controller: "newfoods", action: "input->newfoods#validSubmit" }) do |form| %>
   <div class="input-group-md">
     <%= form.label :food_name %>
-    <%= form.text_field :food_name, class: "input input-bordered w-full max-w-xs" %>
+    <%= form.text_field :food_name, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "food_name", action: "input->newfoods#food_nameValidation" }  %>
+    <p data-newfoods-target="error_food_name"></p>
   </div>
 
   <div class="input-group-md">
     <%= form.label :calorie %>
-    <%= form.text_field :calorie, class: "input input-bordered w-full max-w-xs" %>kcal
+    <%= form.number_field :calorie, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "calorie", action: "input->newfoods#calorieValidation" }, in: 0...30000 %>kcal
+    <p data-newfoods-target="error_calorie"></p>
   </div>
 
   <div class="input-group-md">
     <%= form.label :price %>
-    <%= form.text_field :price, class: "input input-bordered w-full max-w-xs" %>円
+    <%= form.number_field :price, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "price", action: "input->newfoods#priceValidation" } %>円
+    <p data-newfoods-target="error_price"></p>
   </div>
 
   <div class ="file">
@@ -21,6 +24,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class:"btn btn-primary" %>
+    <%= form.submit class:"btn btn-primary", disabled: true, data: { newfoods_target: "submit" } %>
   </div>
 <% end %>
