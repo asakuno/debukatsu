@@ -88,4 +88,18 @@ export default class extends Controller {
       }
     }
   }
+
+  validSubmit() {
+    const submitBtn = this.submitTarget
+
+    if((this.nameTarget.value !== "") && (this.emailTarget.value !== "") && (this.passwordTarget.value !== "") && (this.password_confirmationTarget.value !== "")){
+      if((this.error_nameTarget.textContent === "") && (this.error_emailTarget.textContent === "") && (this.error_passwordTarget.textContent === "") && (this.error_password_confirmationTarget.textContent === "")){
+        submitBtn.disabled = false
+      }else{
+        submitBtn.disabled = true
+      }
+    }else{
+      submitBtn.disabled = true
+    }
+  }
 }
