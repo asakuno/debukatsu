@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: debukatsu_production
-  username: root
-  password: password
-  socket: /var/lib/mysql.sock
+  database: clckra1uj0004byqu9bhjd3mj
+  username: clckra1uh0002byqud5ek1gfe
+  password: <%= ENV['DEBUKATSU_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
