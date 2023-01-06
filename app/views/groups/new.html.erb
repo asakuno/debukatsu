@@ -1,27 +1,30 @@
 <div class="form-control">
-  <%= form_with(model: @group, local: true, group_id: @group.id) do |form| %>
+  <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups", action: "input->newgroups#validSubmit" }) do |form| %>
   <div class="input-group-md">
     <%= form.label :group_name %>
-    <%= form.text_field :group_name, class: "input input-bordered w-full max-w-xs" %>
+    <%= form.text_field :group_name, class: "input input-bordered w-full max-w-xs", data: { newgroups_target: "group_name", action: "input->newgroups#group_nameValidation" } %>
+    <p data-newgroups-target="error_group_name"></p>
   </div>
 
-  <div class="input-group-md">
-    <%= form.label :maximum_amount %>
-    <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...3000001, step: 100 %>
-    <span id="value_display">100</span>円
-    <%= form.range_field :maximum_amount, in: 100...3000001, id: 'maximum_amount_input',class: "range range-xs range-primary", step: 100 %>
+  <div data-action="input->newgroups#maximum_amountValidation">
+    <div class="input-group-md">
+      <%= form.label :maximum_amount %>
+      <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...3000001, step: 100, data: { newgroups_target: "maximum_amount" } %>円
+      <p data-newgroups-target="error_maximum_amount"></p>
+      <%= form.range_field :maximum_amount, in: 100...3000001, id: 'maximum_amount_input',class: "range range-xs range-primary", step: 100, data: { newgroups_target: "maximum_amount" } %>
+    </div>
   </div>
 
   <div class="actions">
     <%= form.submit class:"btn btn-primary" %>
   </div>
 
-  <div class="input-group-md">
+  <div class="input-group-md" data-action="input->newgroups#checkboxValidation">
     <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
       <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
-          <%= food.label( class: "check_box" ) { food.check_box(checked: true) } %>
+          <%= food.label( class: "check_box" ) { food.check_box(checked: true, data: { newgroups_target: "checkbox" }) } %>
           <h2 class="card-title">
             <%= food.object.food_name %>
           </h2>

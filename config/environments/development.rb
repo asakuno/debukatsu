@@ -3,7 +3,7 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
-  config.active_job.queue_adapter = :test
+  config.active_job.queue_adapter = :sidekiq
   config.after_initialize do
     Bullet.enable        = true
     Bullet.alert         = true
