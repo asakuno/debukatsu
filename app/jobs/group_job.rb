@@ -43,5 +43,6 @@ class GroupJob < ApplicationJob
     @group.food_ids = @best_foods
 
     @group.save!(group_name: @group.group_name, maximum_amount: @group.maximum_amount, food_ids: @best_foods)
+
   end
 end
