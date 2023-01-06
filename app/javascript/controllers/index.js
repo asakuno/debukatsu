@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import NewfoodsController from "./newfoods_controller"
 application.register("newfoods", NewfoodsController)
 
+import NewgroupsController from "./newgroups_controller"
+application.register("newgroups", NewgroupsController)
+
 import SignupController from "./signup_controller"
 application.register("signup", SignupController)
