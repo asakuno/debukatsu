@@ -5,6 +5,6 @@ set -e
 bin/rails db:migrate
 #bin/rails db:seed
 #redis-server &
-redis-server /usr/local/etc/redis.conf &
+redis-server /etc/redis/redis.conf &
 bundle exec sidekiq
 rm -f tmp/pids/server.pid && bin/rails s
