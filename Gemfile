@@ -77,3 +77,5 @@ gem 'image_processing'
 gem 'mini_magick'
 # バリデーション
 gem 'stimulus-rails'
+# タグ機能
+gem 'acts-as-taggable-on'
