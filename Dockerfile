@@ -49,7 +49,6 @@ RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile ass
 && yarn cache clean \
 && rm -rf /$APP_NAME/node_modules /$APP_NAME/tmp/cache
 
-COPY redis.conf /etc/redis/redis.conf
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
