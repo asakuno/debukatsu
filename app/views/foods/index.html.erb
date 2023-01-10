@@ -20,9 +20,9 @@
         <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary" %></td>
       <% end %>
       <td><%= image_tag food.image_url(:small).to_s, height: "300" %></td>
-      <% if @tags.present? %>
+      <% if food.tag_list.present? %>
         <% @tags.each do |tag| %>
-          <%= link_to "#{tag.name}(#{tag.taggings_count})", foods_path(tag: tag.name) %>
+          <td><%= link_to "#{tag.name}", foods_path(tag: tag.name) %></td>
         <% end %>
       <% end %>
     <% end %>

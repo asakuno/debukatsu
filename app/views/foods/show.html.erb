@@ -11,7 +11,8 @@
   <strong>Price:</strong>
   <%= @food.price %> 円
 </p>
-<p class="hoge">jQuerytest</p>
+
+<%= link_to 'Destroy', food_path(@food), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary" %>
 <% if current_user.own?(@food) %>
   <%= link_to 'Edit', "#" %> |
 <% end %>
