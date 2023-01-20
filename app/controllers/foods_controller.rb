@@ -28,8 +28,7 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    #@food = current_user.foods.find(params[:id])
-    @food = Food.find(params[:id])
+    @food = current_user.foods.find(params[:id])
     @food.destroy!
     redirect_to foods_path, success: '削除しました'
   end
