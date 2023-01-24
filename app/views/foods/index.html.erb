@@ -22,7 +22,7 @@
       <td><%= image_tag food.image_url(:small).to_s, height: "300" %></td>
       <% if food.tag_list.present? %>
         <% (food.tag_list).each do |tag| %>
-          <td><%= link_to tag, foods_path(food, tag_name: tag) %></td>
+          <td><%= link_to tag, foods_path(food, tag_name: tag), class: "tag" %></td>
         <% end %>
       <% end %>
     <% end %>

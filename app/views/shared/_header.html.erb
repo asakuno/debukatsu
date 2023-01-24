@@ -6,27 +6,18 @@
   <div class="flex-none">
     <div class="dropdown dropdown-end">
     <label tabindex="0" class="btn m-1">お気に入り</label>
-    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-      <li><a>Item 1</a></li>
-      <li><a>Item 2</a></li>
-    </ul>
-    </div>
-    <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <img src="https://placeimg.com/80/80/people" />
-        </div>
-      </label>
+      <div class="dropdown dropdown-end">
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li>
           <a class="justify-between">
             Profile
-            <span class="badge">New</span>
           </a>
         </li>
-        <li><a>Settings</a></li>
+        <li><%= link_to "食品一覧", foods_path, class: 'nav-link' %></li>
+        <li><%= link_to "食べ合わせ検索", groups_path, class: 'nav-link' %></li>
         <li><%= link_to (t"defaults.logout"), logout_path, method: :delete, class: 'nav-link', data: { confirm: t('defaults.message.logout_confirm') } %></li>
       </ul>
+    </div>
     </div>
   </div>
 </div>

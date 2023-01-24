@@ -21,6 +21,9 @@ $(document).on('turbolinks:load', function() {
         this.tagList.push(newTag)
         this.myTagList.push(newTag)
       },
+      alertRemove () {
+        alert('タグを取り消しました');
+      }
     },
   })
 });
