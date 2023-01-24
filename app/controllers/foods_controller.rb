@@ -1,10 +1,9 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
-
-    @tags = Food.tag_counts_on(:tags).order('count DESC')
-    if @tag = params[:tag]
-      @foods = Food.tagged_with(params[:tag]).includes(%i[taggings user groups]).references(:all).page(params[:page])
+    if params[:tag_name].present?
+      @foods = Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).references(:all).page(params[:page])
+    else
+      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
     end
   end
 
@@ -28,8 +27,7 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    #@food = current_user.foods.find(params[:id])
-    @food = Food.find(params[:id])
+    @food = current_user.foods.find(params[:id])
     @food.destroy!
     redirect_to foods_path, success: '削除しました'
   end

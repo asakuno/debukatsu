@@ -11,7 +11,9 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "stylesheets/application.css"
 import "jquery"
-import "test.js"
+import "@vueform/multiselect"
+import "vue"
+import "./tags.js"
 
 Rails.start()
 Turbolinks.start()
