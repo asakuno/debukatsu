@@ -24,7 +24,7 @@
       <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
-          <%= food.label( class: "check_box" ) { food.check_box(checked: true, data: { newgroups_target: "checkbox" }) } %>
+          <%= food.label( class: "check_box" ) { food.check_box(checked: true, class:"form-tick checkbox checkbox-secondary", data: { newgroups_target: "checkbox" }) } %>
           <h2 class="card-title">
             <%= food.object.food_name %>
           </h2>

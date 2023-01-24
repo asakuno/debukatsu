@@ -12,26 +12,30 @@
   <% end %>
 
   <div class="input-group-md">
-    <%= form.label :name %><br />
+    <%= form.label :name %>
+      <span class="text-red-500 required-dot">*</span><br />
     <%= form.text_field :name, class: "input input-bordered w-full max-w-xs", placeholder: "Type name", data: { signup_target: "name", action: "input->signup#nameValidation" } %>
     <p data-signup-target="error_name"></p>
   </div>
 
   <div class="input-group-md">
-    <%= form.label :email %><br />
+    <%= form.label :email %>
+    <span class="text-red-500 required-dot">*</span><br />
     <%= form.text_field :email, class: "input input-bordered w-full max-w-xs", placeholder: "Type email", data: { signup_target: "email", action: "input->signup#emailValidation" } %>
     <p data-signup-target="error_email"></p>
   </div>
 
   <div data-action="input->signup#passwordValidation">
     <div class="input-group-md">
-      <%= form.label :password %><br />
+      <%= form.label :password %>
+      <span class="text-red-500 required-dot">*</span><br />
       <%= form.password_field :password, class: "input input-bordered w-full max-w-xs", placeholder: "Type Password", data: { signup_target: "password" } %>
       <p data-signup-target="error_password"></p>
     </div>
 
     <div class="input-group-md">
-      <%= form.label :password_confirmation %><br />
+      <%= form.label :password_confirmation %>
+      <span class="text-red-500 required-dot">*</span><br />
       <%= form.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs", placeholder: "Type Password Again", data: { signup_target: "password_confirmation" } %>
       <p data-signup-target="error_password_confirmation"></p>
     </div>
