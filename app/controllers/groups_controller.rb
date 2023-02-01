@@ -9,7 +9,11 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @foods = Food.all
+    if params[:tag_name].present?
+      @foods = Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+    else
+      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+    end
   end
 
   def create
@@ -28,10 +32,8 @@ class GroupsController < ApplicationController
         food.group_id = @group.id
       end
     end
-    #byebug
 
     if @group.save
-      #byebug
       redirect_to groups_path
     else
       render :new
