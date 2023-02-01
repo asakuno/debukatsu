@@ -28,7 +28,12 @@
           <h2 class="card-title">
             <%= food.object.food_name %>
           </h2>
-          <%= food.object.calorie %>kcal
+          <%= food.object.calorie %>kcal</br>
+          <% if food.object.tag_list.present? %>
+            <% (food.object.tag_list).each do |tag| %>
+              <%= link_to tag, new_group_path(food, tag_name: tag), class: "tag" %></td>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
