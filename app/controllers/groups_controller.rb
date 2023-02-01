@@ -20,8 +20,18 @@ class GroupsController < ApplicationController
     @group.user_id = current_user.id
 
     @group.high_calorie(@group.maximum_amount, @group.food_ids)
+    
+    group_params[:food_ids].each do |groupg|
+      foods = @group.foods.pluck(:food_id)
+      unless foods.include?(groupg.to_i)
+        food = SelectFood.new(food_id: groupg)
+        food.group_id = @group.id
+      end
+    end
+    #byebug
 
     if @group.save
+      #byebug
       redirect_to groups_path
     else
       render :new

@@ -1,1 +1,11 @@
-<h1>こんにちは</h1>
+<div>
+  <!-- <%= @group.group_name %></br>
+  <%= @group.user.name %></br>
+  <%= @group.foods.sum {|hash| hash[:calorie]} %>kcal</br> -->
+  <%= @group.foods.each do |food| %>
+    <!-- <%= food.food_name %>
+    <%= food.calorie %>
+    <%= image_tag food.image_url(:small).to_s, height: "300" %> -->
+  <% end %>
+</div>
+

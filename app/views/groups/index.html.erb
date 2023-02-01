@@ -6,7 +6,7 @@
         <h2 class="card-title">
           <%= link_to "#{group.group_name}", group_path(group) %><br>
         </h2>
-        <%= group.food_ids %><br>
+        <p>合計: <%= group.foods.sum { |hash| hash[:calorie]} %>kcal</p><br>
         <%= group.user.name %><br>
       </div>
     </div>
