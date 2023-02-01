@@ -32,10 +32,8 @@ class GroupsController < ApplicationController
         food.group_id = @group.id
       end
     end
-    byebug
 
     if @group.save
-      byebug
       redirect_to groups_path
     else
       render :new
