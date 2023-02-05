@@ -1,3 +1,9 @@
+<div data-controller="modal" class="flex justify-center my-20">
+  <button data-action="click->modal#open" class="p-4 bg-gray-600 text-white">
+    モーダルボタン
+  </button>
+  <%= render 'modal' %>
+</div>
 <table>
   <thead>
     <tr>
@@ -13,7 +19,7 @@
   <tbody>
     <% @foods.each do |food| %>
       <tr>
-      <td><%= link_to food.food_name, food, class: "link link-primary" %></td>
+        <td><%= link_to food.food_name, food, class: "link link-primary" %></td>
       <td><%= food.calorie %>kcal</td>
       <td><%= food.price %>円</td>
       <% if current_user.own?(food) %>
