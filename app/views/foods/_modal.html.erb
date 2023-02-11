@@ -20,8 +20,9 @@
 <%# Trick the browser into centering modal contents %>
  <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
- <div class="relative inline-block align-bottom rounded-lg text-left overflow-hidden transition-all sm:my-8 sm:align-middle sm:w-3/4 inset-0">
- <!-- content will go here -->
+ <div class="relative inline-block align-bottom rounded-lg text-left overflow-hidden transition-all sm:my-8 sm:align-middle sm:w-3/4 inset-0 rounded">
+   <h1 data-modal-target="foodName" class="text-3xl bg-white"></h1>
+   <%= image_tag('data:image/png;base64', data: { "modal-target": "imagePreview" }, class: "w-screen h-auto") %>
  </div>
  </div>
 </div>
