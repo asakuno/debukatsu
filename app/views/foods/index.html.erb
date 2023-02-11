@@ -1,40 +1,7 @@
-<div data-controller="modal" class="flex justify-center my-20">
-  <button data-action="click->modal#open" class="p-4 bg-gray-600 text-white">
-    モーダルボタン
-  </button>
-  <%= render 'modal' %>
-</div>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Calorie</th>
-      <th>Price</th>
-      <th>image</th>
-      <th>Tags</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @foods.each do |food| %>
-      <tr>
-        <td><%= link_to food.food_name, food, class: "link link-primary" %></td>
-      <td><%= food.calorie %>kcal</td>
-      <td><%= food.price %>円</td>
-      <% if current_user.own?(food) %>
-        <td><%= link_to 'Edit', '#', class:"btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary" %></td>
-      <% end %>
-      <td><%= image_tag food.image_url(:small).to_s, height: "300" %></td>
-      <% if food.tag_list.present? %>
-        <% (food.tag_list).each do |tag| %>
-          <td><%= link_to tag, foods_path(food, tag_name: tag), class: "tag" %></td>
-        <% end %>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @foods %>
 <%= link_to 'NewFood', new_food_path, class:"btn btn-primary"%>
 <%= link_to 'Groups', groups_path, class:"btn btn-secondary" %>
+<%= render 'shared/modal' %>
+<div id="foods" class="grid grid-cols-2 gap-4">
+  <%= render @foods %>
+</div>
+<%= paginate @foods %>
