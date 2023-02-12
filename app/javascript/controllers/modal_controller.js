@@ -1,11 +1,16 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ['modal', "background", "imagePreview", "foodName"];
+  static targets = ['modal', "background", "imagePreview", "foodName", "foodCalorie"];
 
   showPreview(params) {
-    this.imagePreviewTarget.src = params.source;
+    if(params.source) {
+      this.imagePreviewTarget.src = params.source;
+    } else {
+      this.imagePreviewTarget.src = NoImage
+    }
     this.foodNameTarget.textContent = params.name;
+    this.foodCalorieTarget.textContent = params.calorie + "kcal"
   }
 
   handleOpen(event) {
