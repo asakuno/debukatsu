@@ -7,7 +7,7 @@ export default class extends Controller {
     if(params.source) {
       this.imagePreviewTarget.src = params.source;
     } else {
-      this.imagePreviewTarget.src = NoImage
+      this.imagePreviewTarget.src = "media/images/no_image.jpg"
     }
     this.foodNameTarget.textContent = params.name;
     this.foodCalorieTarget.textContent = params.calorie + "kcal"
