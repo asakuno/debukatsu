@@ -12,11 +12,11 @@ export default class extends Controller {
 
   saveState(event) {
     const checkbox = event.currentTarget;
-    localStorage.setItem(checkbox.id, checkbox.checked);
+    sessionStorage.setItem(checkbox.id, checkbox.checked);
   }
 
   restoreState(checkbox) {
-    const checked = localStorage.getItem(checkbox.id) === 'true';
+    const checked = sessionStorage.getItem(checkbox.id) === 'true';
     checkbox.checked = checked
   }
 }
