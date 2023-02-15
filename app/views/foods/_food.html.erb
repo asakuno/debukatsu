@@ -1,11 +1,11 @@
 <div class="card w-96 bg-base-100 shadow-xl" id="<%= dom_id food %>">
   <% if food.image.present? %>
-    <%= image_tag food.image_url(:small).to_s, data: {"modal-source-param": food.image_url(:small),
+    <%= image_tag food.image_url(:medium).to_s, data: {"modal-source-param": food.image_url(:medium),
                                                       "modal-name-param": food.food_name,
                                                       "modal-calorie-param": food.calorie,
                                                       action: "click->modal#handleOpen" }%>
   <% else %>
-    <%= image_tag 'no_image.jpeg', data: {"modal-source-param": food.image_url(:small),
+    <%= image_tag 'no_image.jpeg', data: {"modal-source-param": food.image_url(:medium),
                                           "modal-name-param": food.food_name,
                                           "modal-calorie-param": food.calorie,
                                           action: "click->modal#handleOpen" }%>
