@@ -21,6 +21,7 @@ CSV.foreach('db/test.csv', headers: true) do |row|
     image: URI.open(row['Image']),
     price: row['Price'],
     calorie: row['calorie'],
+    tag_list: row['tag'].split(','),
     user_id: user.id
   )
 end
