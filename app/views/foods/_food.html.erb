@@ -1,27 +1,36 @@
-<div class="card w-96 bg-base-100 shadow-xl" id="<%= dom_id food %>">
-  <% if food.image.present? %>
-    <%= image_tag food.image_url(:small).to_s, data: {"modal-source-param": food.image_url(:small),
-                                                      "modal-name-param": food.food_name,
-                                                      "modal-calorie-param": food.calorie,
-                                                      action: "click->modal#handleOpen" }%>
-  <% else %>
-    <%= image_tag 'no_image.jpeg', data: {"modal-source-param": food.image_url(:small),
-                                          "modal-name-param": food.food_name,
-                                          "modal-calorie-param": food.calorie,
-                                          action: "click->modal#handleOpen" }%>
-  <% end %>
-    <h2 class="card-title">
-      <%= link_to food.food_name, food, class: "link link-primary" %>
-    </h2>
-    <p><%= food.calorie %></p><br>
-    <p><%= food.price %></p>
-    <% if current_user.own?(food) %>
-      <%= link_to 'Edit', '#', class:"btn btn-primary" %>
-      <%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary" %>
-    <% end %>
-    <div class="card-actions justify-end">
-      <% food.tag_list.each do |tag| %>
-        <%= link_to tag, foods_path(food, tag_name: tag), class: "tag" %>
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden my-5 p-1">
+  <div class="md:flex">
+    <div class="md:flex-shrink-0">
+      <% if food.image.present? %>
+        <%= image_tag food.image_url(:small).to_s, data: {"modal-source-param": food.image_url(:medium),
+                                                           "modal-name-param": food.food_name,
+                                                           "modal-calorie-param": food.calorie,
+                                                           action: "click->modal#handleOpen" }%>
+      <% else %>
+        <%= image_tag 'no_image.jpeg',:size =>'300x300', data: {"modal-source-param": food.image_url(:medium),
+                                              "modal-name-param": food.food_name,
+                                              "modal-calorie-param": food.calorie,
+                                              action: "click->modal#handleOpen" }%>
+      <% end %>
+    </div>
+    <div class="p-8">
+      <div data-modal-source-param="<%= j food.image_url(:medium) %>"
+     data-modal-name-param="<%= j food.food_name %>"
+     data-modal-calorie-param="<%= j food.calorie %>"
+     data-action="click->modal#handleOpen">
+      <div class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">
+        <%= food.food_name %>
+      </div>
+      <p class="mt-2 text-gray-500"><%= food.price %>円</p>
+      </div>
+      <div class="card-actions justify-end mb-2">
+        <% food.tag_list.each do |tag| %>
+          <%= link_to tag, foods_path(food, tag_name: tag), class: "tag" %>
+        <% end %>
+      </div>
+      <% if current_user.own?(food) %>
+        <%= link_to 'Edit', '#', class:"py-2 px-4 my-100 bg-black hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg mb-2" %>
+        <%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class:"py-2 px-4 mt-10 bg-black hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" %>
       <% end %>
     </div>
   </div>

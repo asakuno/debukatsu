@@ -1,29 +1,42 @@
 <div class="hidden fixed z-30 inset-0 overflow-y-auto" data-modal-target="modal">
- <div class="flex items-center justify-center h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0" data-action="click->modal#handleClose">
-<%# Background %>
- <div class="opacity-0 fixed inset-0 transition-opacity" data-modal-target="background">
- <div class="absolute inset-0 bg-gray-700 bg-opacity-75">
+  <div>
+<%# Background %> 
+    <div class="opacity-0 fixed inset-0 transition-opacity" data-modal-target="background">
+      <div class="absolute inset-0 bg-gray-700 bg-opacity-75">
 <%# top left slide labels %>
- <div class="sm:block absolute top-0 left-0 pt-4 pl-4">
- <span class="text-white font-medium"><!-- will hold the slide name --></span>
- </div>
+        <div class="sm:block absolute top-0 left-0 pt-4 pl-4">
+          <span class="text-white font-medium"><!-- will hold the slide name --></span>
+        </div>
 
 <%# X-close icon in top-right corner %>
- <div class="sm:block absolute top-0 right-0 pt-4 pr-4">
-<%= link_to "#", class: "text-gray-100", data: {action: "click->modal#handleClose"} do %>
- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-<% end %>
- </div>
- </div>
- </div>
+      </div>
+    </div>
 
 <%# Trick the browser into centering modal contents %>
  <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
- <div class="relative inline-block align-bottom rounded-lg text-left overflow-hidden transition-all sm:my-8 sm:align-middle sm:w-3/4 inset-0 rounded">
-   <h1 data-modal-target="foodName" class="text-3xl bg-white"></h1>
-   <p data-modal-target="foodCalorie" class="text-3xl bg-white"></p>
-   <%= image_tag('', data: { "modal-target": "imagePreview" }, class: "w-screen h-auto") %>
- </div>
- </div>
+<div class="fixed z-10 inset-0 overflow-y-auto">
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div class="bg-white rounded-lg overflow-hidden shadow-xl max-w-3xl w-full">
+      <div class="relative">
+        <%= image_tag('', data: { "modal-target": "imagePreview" }, class: "w-full h-64 object-cover") %>
+        <div class="absolute top-0 right-0 m-3">
+             <%= link_to "#", class: "text-gray-500", data: {action: "click->modal#handleClose"} do %>
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+             <% end %>
+          </div>
+        </div>
+      <div class="px-6 py-4">
+        <div data-modal-target="foodName" class="font-bold text-xl mb-2"></div>
+          <p data-modal-target="foodCalorie" class="text-gray-700 text-base"></p>
+        </div>
+        <div class="px-6 py-4">
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">タグ1</span>
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">タグ2</span>
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">タグ3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
