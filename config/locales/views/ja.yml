@@ -29,7 +29,7 @@ ja:
   foods:
     index: 
       new_food: '食品を追加する'
-      groups: '組み合わせ一覧へ'
+      groups: 'みんなの食べ合わせを見てみる'
     new:
       back: '戻る'
     create:
@@ -39,7 +39,7 @@ ja:
       success: '食品を削除しました'
   groups:
     index:
-      new_group: '組み合わせを作る'
+      new_group: '食べ合わせを作る'
       foods: '食品一覧へ'
     create:
       success: '作成に成功しました'

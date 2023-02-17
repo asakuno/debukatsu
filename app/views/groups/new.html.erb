@@ -33,7 +33,11 @@
           <h2 class="card-title">
             <%= food.object.food_name %>
           </h2>
-            <%= image_tag food.object.image_url(:medium).to_s %>
+            <% if food.object.image.present? %>
+              <%= image_tag food.object.image_url(:medium).to_s %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', :size =>'300x300' %>
+            <% end %>
           <div class="p-8">
           <% if food.object.tag_list.present? %>
             <% (food.object.tag_list).each do |tag| %>

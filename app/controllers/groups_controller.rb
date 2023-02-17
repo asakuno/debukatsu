@@ -24,20 +24,37 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user_id = current_user.id
 
-    @group.high_calorie(@group.maximum_amount, @group.food_ids)
+    if @group.maximum_amount <= Food.where(id: @group.food_ids).sum(:price)
 
-    group_params[:food_ids].each do |groupg|
-      foods = @group.foods.pluck(:food_id)
-      unless foods.include?(groupg.to_i)
-        food = SelectFood.new(food_id: groupg)
-        food.group_id = @group.id
+      @group.high_calorie(@group.maximum_amount, @group.food_ids)
+
+      group_params[:food_ids].each do |groupg|
+        foods = @group.foods.pluck(:food_id)
+        unless foods.include?(groupg.to_i)
+          food = SelectFood.new(food_id: groupg)
+          food.group_id = @group.id
+        end
       end
-    end
 
-    if @group.save
-      redirect_to group_path(@group)
+      if @group.save
+        redirect_to group_path(@group)
+      else
+        render :new
+      end
     else
-      render :new
+      group_params[:food_ids].each do |groupg|
+        foods = @group.foods.pluck(:food_id)
+        unless foods.include?(groupg.to_i)
+          food = SelectFood.new(food_id: groupg)
+          food.group_id = @group.id
+        end
+      end
+      
+      if @group.save
+        redirect_to group_path(@group)
+      else
+        render :new
+      end
     end
   end
 
