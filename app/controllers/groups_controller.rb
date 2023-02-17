@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @foods = @group.foods.page(params[:page])
   end
 
   def new
@@ -34,7 +35,7 @@ class GroupsController < ApplicationController
     end
 
     if @group.save
-      redirect_to groups_path
+      redirect_to group_path(@group)
     else
       render :new
     end
