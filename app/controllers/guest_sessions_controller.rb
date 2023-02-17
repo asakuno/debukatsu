@@ -7,7 +7,7 @@ class GuestSessionsController < ApplicationController
     else
       @guest_user = User.guest_user_generate
       auto_login(@guest_user)
-      redirect_to groups_path, notice: t('created')
+      redirect_to groups_path, success: t('.created')
     end
   end
 end
