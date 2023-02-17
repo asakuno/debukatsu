@@ -15,16 +15,34 @@ ja:
     new:
       title: 'ユーザー新規登録'
       to_home: '戻る'
+    create:
+      success: 'ユーザーの作成に成功しました'
+      fail: 'ユーザーの作成に失敗しました'
   user_sessions:
     new:
       title: 'ログイン'
+    create:
+      success: 'ログインに成功しました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
   foods:
     index: 
       new_food: '食品を追加する'
       groups: '組み合わせ一覧へ'
     new:
       back: '戻る'
+    create:
+      success: '食品を追加しました'
+      fail: '食品の追加に失敗しました'
+    destroy:
+      success: '食品を削除しました'
   groups:
     index:
       new_group: '組み合わせを作る'
       foods: '食品一覧へ'
+    create:
+      success: '作成に成功しました'
+      fail: '作成に失敗しました'
+    destroy:
+      success: '削除しました'
