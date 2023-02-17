@@ -1,3 +1,11 @@
 <% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mb-2" role="alert">
+    <div class="flex">
+      <div class="py-1"><svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.65 17.35a1 1 0 1 1-1.41-1.41l16-16a1 1 0 0 1 1.41 0l-16 16z"/></svg></div>
+      <div>
+        <p class="font-bold"> <%= message_type.capitalize %> </p>
+        <p class="text-sm"><%= message %></p>
+      </div>
+    </div>
+  </div>
 <% end %>

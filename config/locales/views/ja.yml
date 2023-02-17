@@ -46,3 +46,6 @@ ja:
       fail: '作成に失敗しました'
     destroy:
       success: '削除しました'
+  guest_sessions:
+    create:
+      created: 'ゲストユーザーでログインしました'
