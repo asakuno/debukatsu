@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
 
+  enum role: { general: 0, guest: 1, admin: 2 }
+
   def own?(object)
     object.user_id == id
   end
@@ -21,6 +23,7 @@ class User < ApplicationRecord
     User.find_or_create_by!(name: 'Guest', email: "guest_#{random_email}@example.com") do |user|
       user.password = SecureRandom.alphanumeric(10)
       user.password_confirmation = user.password
+      user.role = 1
     end
   end
 end

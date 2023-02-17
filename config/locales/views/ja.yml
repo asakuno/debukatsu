@@ -18,3 +18,13 @@ ja:
   user_sessions:
     new:
       title: 'ログイン'
+  foods:
+    index: 
+      new_food: '食品を追加する'
+      groups: '組み合わせ一覧へ'
+    new:
+      back: '戻る'
+  groups:
+    index:
+      new_group: '組み合わせを作る'
+      foods: '食品一覧へ'

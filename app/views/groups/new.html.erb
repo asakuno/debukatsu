@@ -1,5 +1,5 @@
 <div class="form-control">
-  <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups", action: "input->newgroups#validSubmit" }) do |form| %>
+  <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups checkbox" }) do |form| %>
   <div class="input-group-md">
     <%= form.label :group_name %>
     <%= form.text_field :group_name, class: "input input-bordered w-full max-w-xs", data: { newgroups_target: "group_name", action: "input->newgroups#group_nameValidation" } %>
@@ -19,7 +19,12 @@
     <%= form.submit class:"btn btn-primary" %>
   </div>
 
-  <div class="input-group-md" data-action="input->newgroups#checkboxValidation">
+  <div>
+    <button type="button" data-action="click->checkbox#clearAll" class="bg-red-500 hover:bg-red-700 text-gray-200 font-bold py-2 px-4 rounded my-2">全クリア</button>
+    <button type="button" data-action="click->checkbox#checkAll" class="bg-blue-500 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded my-2">全チェック</button>
+  </div>
+
+  <div class="input-group-md">
     <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
       <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
       <div class="card w-96 bg-base-100 shadow-xl">
@@ -28,12 +33,14 @@
           <h2 class="card-title">
             <%= food.object.food_name %>
           </h2>
-          <%= food.object.calorie %>kcal</br>
+            <%= image_tag food.object.image_url(:medium).to_s %>
+          <div class="p-8">
           <% if food.object.tag_list.present? %>
             <% (food.object.tag_list).each do |tag| %>
-              <%= link_to tag, new_group_path(food, tag_name: tag), class: "tag" %></td>
+              <%= link_to tag, new_group_path(food, tag_name: tag), class: "inline-block items-center justify-center py-1 px-2 rounded-md mr-2 bg-white text-red-600 text-xs uppercase shadow-sm transition duration-300 hover:translate-y-0.5 hover:shadow-sm border border-red-500" %>
             <% end %>
           <% end %>
+          </div>
         </div>
       </div>
     <% end %>

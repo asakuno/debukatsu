@@ -19,4 +19,20 @@ export default class extends Controller {
     const checked = sessionStorage.getItem(checkbox.id) === 'true';
     checkbox.checked = checked
   }
+
+  clearAll() {
+    const checkboxes = this.element.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+      sessionStorage.setItem(checkbox.id, false);
+    });
+  }
+
+  checkAll() {
+    const checkboxes = this.element.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = true;
+      sessionStorage.setItem(checkbox.id, true);
+    });
+  }
 }

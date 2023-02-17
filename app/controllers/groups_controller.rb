@@ -9,11 +9,11 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    if params[:tag_name].present?
-      @foods = Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
-    else
-      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
-    end
+    @foods = if params[:tag_name].present?
+               .includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+             else
+               Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+             end
   end
 
   def create
@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
     @group.user_id = current_user.id
 
     @group.high_calorie(@group.maximum_amount, @group.food_ids)
-    
+
     group_params[:food_ids].each do |groupg|
       foods = @group.foods.pluck(:food_id)
       unless foods.include?(groupg.to_i)
@@ -38,7 +38,6 @@ class GroupsController < ApplicationController
     else
       render :new
     end
-    
   end
 
   private

@@ -13,9 +13,10 @@ user = User.find_or_create_by(email: 'admin@example.com') do |u|
   u.name = 'Admin'
   u.password = 'password'
   u.password_confirmation = 'password'
+  u.role = 2
 end
 
-CSV.foreach('db/test.csv', headers: true) do |row|
+CSV.foreach('db/onigiri.csv', headers: true) do |row|
   Food.create!(
     food_name: row['food_name'],
     image: URI.open(row['Image']),

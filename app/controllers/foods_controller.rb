@@ -1,10 +1,10 @@
 class FoodsController < ApplicationController
   def index
-    if params[:tag_name].present?
-      @foods = Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).references(:all).page(params[:page])
-    else
-      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
-    end
+    @foods = if params[:tag_name].present?
+               Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).references(:all).page(params[:page])
+             else
+               Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
+             end
   end
 
   def show
