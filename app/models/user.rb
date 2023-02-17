@@ -23,6 +23,7 @@ class User < ApplicationRecord
     User.find_or_create_by!(name: 'Guest', email: "guest_#{random_email}@example.com") do |user|
       user.password = SecureRandom.alphanumeric(10)
       user.password_confirmation = user.password
+      user.role = 1
     end
   end
 end

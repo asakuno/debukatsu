@@ -8,7 +8,6 @@ export default class extends Controller {
     "checkbox",
     "error_group_name",
     "error_maximum_amount",
-    "error_checkbox"
   ]
 
   group_nameValidation() {
@@ -36,18 +35,6 @@ export default class extends Controller {
     }else {
       maximum_amountInput.style.border = "2px solid lightgreen"
       maximum_amountError.textContent = ""
-    }
-  }
-
-  checkboxValidation() {
-    const checkboxInput = this.checkboxTargets
-    const checkboxError = this.error_checkboxTarget
-
-    if(checkboxInput.some(checkbox => checkbox.checked)) {
-      checkboxError.textContent = ""
-    }else{
-      checkboxError.textContent = "チェックをつけてください"
-      checkboxError.style.color = "red"
     }
   }
 }

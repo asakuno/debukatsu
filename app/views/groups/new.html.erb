@@ -1,5 +1,5 @@
 <div class="form-control">
-  <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups", action: "input->newgroups#validSubmit" }) do |form| %>
+  <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups checkbox", action: "input->newgroups#validSubmit" }) do |form| %>
   <div class="input-group-md">
     <%= form.label :group_name %>
     <%= form.text_field :group_name, class: "input input-bordered w-full max-w-xs", data: { newgroups_target: "group_name", action: "input->newgroups#group_nameValidation" } %>
@@ -19,7 +19,12 @@
     <%= form.submit class:"btn btn-primary" %>
   </div>
 
-  <div class="input-group-md" data-action="input->newgroups#checkboxValidation">
+  <div>
+    <button type="button" data-action="click->checkbox#clearAll">全てクリア</button>
+    <button type="button" data-action="click->checkbox#checkAll">全てチェック</button>
+  </div>
+
+  <div class="input-group-md">
     <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
       <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
       <div class="card w-96 bg-base-100 shadow-xl">
