@@ -14,14 +14,12 @@ export default class extends Controller {
     this.foodPriceTarget.textContent = params.price + "円"
     const foodTagsTarget = this.foodTagsTarget;
     foodTagsTarget.innerHTML = '';
-    if (params.tags) {
-      const tags = JSON.parse(params.tags);
-      tags.forEach((tag) => {
-        const span = document.createElement("span");
-        span.textContent = tag;
-        this.foodTagsTarget.appendChild(span);
-      });
-    }
+    params.tags.forEach((tag) => {
+      const tagDiv = document.createElement('div');
+      tagDiv.textContent = tag;
+      tagDiv.className = 'inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2';
+      foodTagsTarget.appendChild(tagDiv);
+  });
   }
 
   handleOpen(event) {
