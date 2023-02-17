@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ['modal', "background", "imagePreview", "foodName", "foodCalorie"];
+  static targets = ['modal', "background", "imagePreview", "foodName", "foodCalorie", "foodPrice", "foodTags"];
 
   showPreview(params) {
     if(params.source) {
@@ -11,6 +11,17 @@ export default class extends Controller {
     }
     this.foodNameTarget.textContent = params.name;
     this.foodCalorieTarget.textContent = params.calorie + "kcal"
+    this.foodPriceTarget.textContent = params.price + "円"
+    const foodTagsTarget = this.foodTagsTarget;
+    foodTagsTarget.innerHTML = '';
+    if (params.tags) {
+      const tags = JSON.parse(params.tags);
+      tags.forEach((tag) => {
+        const span = document.createElement("span");
+        span.textContent = tag;
+        this.foodTagsTarget.appendChild(span);
+      });
+    }
   }
 
   handleOpen(event) {
@@ -27,5 +38,6 @@ export default class extends Controller {
     this.modalTarget.classList.add("hidden");
     this.backgroundTarget.classList.remove("opacity-100");
     this.backgroundTarget.classList.add("opacity-0");
+    this.foodTagsTarget.innerHTML = '';
   }
 }
