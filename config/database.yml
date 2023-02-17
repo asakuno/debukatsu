@@ -48,6 +48,12 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+#production:
+  #<<: *default
+  #database: clckra1uj0004byqu9bhjd3mj
+  #username: clckra1uh0002byqud5ek1gfe
+  #password: <%= ENV['DEBUKATSU_DATABASE_PASSWORD'] %>
+  #url: <%= ENV['DATABASE_URL'] %>
 production:
   <<: *default
   database: clckra1uj0004byqu9bhjd3mj
