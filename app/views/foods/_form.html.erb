@@ -23,27 +23,27 @@
 
   <div class="input-group-md">
     <%= form.label :protein %>
-    <%= form.number_field :protein, class: "input input-bordered w-full max-w-xs" %>
+    <%= form.number_field :protein, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
   </div>
 
   <div class="input-group-md">
     <%= form.label :lipid %>
-    <%= form.number_field :lipid, class: "input input-bordered w-full max-w-xs" %>
+    <%= form.number_field :lipid, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
   </div>
 
   <div class="input-group-md">
     <%= form.label :sugar %>
-    <%= form.number_field :sugar, class: "input input-bordered w-full max-w-xs" %>
+    <%= form.number_field :sugar, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
   </div>
 
   <div class="input-group-md">
     <%= form.label :dietary_fiber %>
-    <%= form.number_field :dietary_fiber, class: "input input-bordered w-full max-w-xs" %>
+    <%= form.number_field :dietary_fiber, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
   </div>
 
   <div class="input-group-md">
     <%= form.label :table_salt %>
-    <%= form.number_field :table_salt, class: "input input-bordered w-full max-w-xs" %>
+    <%= form.number_field :table_salt, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
   </div>
 
   <div class="input-group-md">
