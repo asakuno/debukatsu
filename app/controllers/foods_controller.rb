@@ -26,6 +26,20 @@ class FoodsController < ApplicationController
     end
   end
 
+  def edit
+    @food = Food.find(params[:id])
+  end
+
+  def update
+    @food = Food.find(params[:id])
+    if @food.update(food_params)
+      redirect_to foods_path, success: '更新に成功しました'
+    else
+      flash.now[:danger] = t('.fail')
+      render :edit
+    end
+  end
+
   def destroy
     @food = current_user.foods.find(params[:id])
     @food.destroy!
