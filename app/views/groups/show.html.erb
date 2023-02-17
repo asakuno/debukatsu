@@ -4,7 +4,7 @@
   <%= @group.foods.sum {|hash| hash[:calorie]} %>kcal</br> -->
   <% @group.foods.each do |food| %>
     <%= food.food_name %>
-    <%= food.calorie %>
+    <%= food.calorie %>kcal
     <%= image_tag food.image_url(:medium).to_s, height: "300" %> 
   <% end %>
 </div>

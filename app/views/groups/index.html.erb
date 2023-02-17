@@ -1,3 +1,7 @@
+<div class="mb-2">
+  <%= link_to t('.new_group'), new_group_path, class: "btn btn-primary" %>
+  <%= link_to t('.foods') , foods_path, class: "btn btn-secondary" %>
+</div>
 <div class="md:flex flex-col gap-6">
   <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
     <% @groups.each do |group| %>
@@ -12,8 +16,6 @@
     </div>
     <% end %>
   </div>
-  <%= link_to 'newgroup', new_group_path, class: "link link-primary" %><br>
-  <%= link_to 'foods' , foods_path %>
   <%= paginate @groups %>
 </div>
 

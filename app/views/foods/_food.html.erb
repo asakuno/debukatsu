@@ -25,7 +25,7 @@
       </div>
       <div class="card-actions justify-end mb-2">
         <% food.tag_list.each do |tag| %>
-          <%= link_to tag, foods_path(food, tag_name: tag), class: "tag" %>
+          <%= link_to tag, foods_path(food, tag_name: tag), class: "inline-block items-center justify-center py-1 px-2 rounded-md mr-2 bg-white text-red-600 text-xs uppercase shadow-sm transition duration-300 hover:translate-y-0.5 hover:shadow-sm border border-red-500" %>
         <% end %>
       </div>
       <% if current_user.own?(food) %>

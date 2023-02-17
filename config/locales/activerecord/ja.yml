@@ -12,4 +12,9 @@ ja:
         food_name: '名前'
         calorie: 'カロリー'
         price: '値段'
+        tags: 'タグ'
+        image_data: '画像'
+      group:
+        group_name: 'タイトル'
+        maximum_amount: '金額上限'
 
