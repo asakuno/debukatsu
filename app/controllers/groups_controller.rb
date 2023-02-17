@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @foods = if params[:tag_name].present?
-               .includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+               Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
              else
                Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
              end
