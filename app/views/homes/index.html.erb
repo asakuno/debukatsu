@@ -1,3 +1,5 @@
+<h1 class="text-5xl font-bold text-gray-600 ml-3 mt-1">日々忙しい方</div>
+<h1 class="text-5xl font-bold text-gray-600 ml-3 mt-1">最速最短で体重を増やしたいあなたに</h1>
 <div class="flex-wrap items-center justify-center gap-8 text-center sm:flex">
     <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
         <div class="flex-shrink-0">
@@ -9,10 +11,10 @@
             </div>
         </div>
         <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
-            Website Design
+            Step1
         </h3>
         <p class="py-4 text-gray-500 text-md dark:text-gray-300">
-            Encompassing today’s website design technology to integrated and build solutions relevant to your business.
+          新規登録orゲストユーザーでログイン
         </p>
     </div>
     <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 sm:mt-16 md:mt-20 lg:mt-24 dark:bg-gray-800">
@@ -25,10 +27,10 @@
             </div>
         </div>
         <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
-            Branding
+            Step2
         </h3>
         <p class="py-4 text-gray-500 text-md dark:text-gray-300">
-            Share relevant, engaging, and inspirational brand messages to create a connection with your audience.
+           食品の組み合わせで最大のカロリーを算出
         </p>
     </div>
     <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
@@ -41,26 +43,14 @@
             </div>
         </div>
         <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
-            SEO Marketing
+            Step3
         </h3>
         <p class="py-4 text-gray-500 text-md dark:text-gray-300">
-            Let us help you level up your search engine game, explore our solutions for digital marketing for your business.
+          算出された食品を食べて体重アップ！
         </p>
     </div>
 </div>
 
-<% unless logged_in? %>
+<% if !logged_in? %>
   <%= link_to 'ゲストユーザーでログインしてみる', guest_path, method: :post, class: 'btn btn-success' %>
 <% end %>
-<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-  <div class="md:flex">
-    <div class="md:flex-shrink-0">
-      <%= image_tag 'no_image.jpg', class:"h-48 w-full object-cover md:w-48" %>
-    </div>
-    <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">カテゴリー</div>
-      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">タイトル</a>
-      <p class="mt-2 text-gray-500">説明文</p>
-    </div>
-  </div>
-</div>

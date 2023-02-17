@@ -19,9 +19,9 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     @food.user_id = current_user.id
     if @food.save
-      redirect_to foods_path
+      redirect_to foods_path, success: t('.success')
     else
-      flash.now[:danger] = 'エラーメッセージ'
+      lash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -29,7 +29,7 @@ class FoodsController < ApplicationController
   def destroy
     @food = current_user.foods.find(params[:id])
     @food.destroy!
-    redirect_to foods_path, success: '削除しました'
+    redirect_to foods_path, success: t('.success')
   end
 
   private
