@@ -21,7 +21,7 @@ class FoodsController < ApplicationController
     if @food.save
       redirect_to foods_path, success: t('.success')
     else
-      lash.now[:danger] = t('.fail')
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
