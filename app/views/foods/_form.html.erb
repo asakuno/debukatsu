@@ -1,18 +1,22 @@
 <%= form_with(model: food, data: { controller: "newfoods", action: "input->newfoods#validSubmit" }) do |form| %>
+  <p class="text-red-500 test-sm">*は必須です</p>
   <div class="input-group-md">
     <%= form.label :food_name %>
+    <span class="text-red-500 required-dot">*</span>
     <%= form.text_field :food_name, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "food_name", action: "input->newfoods#food_nameValidation" }  %>
     <p data-newfoods-target="error_food_name"></p>
   </div>
 
   <div class="input-group-md">
     <%= form.label :calorie %>
+    <span class="text-red-500 required-dot">*</span>
     <%= form.number_field :calorie, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "calorie", action: "input->newfoods#calorieValidation" }, in: 0...30000 %>kcal
     <p data-newfoods-target="error_calorie"></p>
   </div>
 
   <div class="input-group-md">
     <%= form.label :price %>
+    <span class="text-red-500 required-dot">*</span>
     <%= form.number_field :price, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "price", action: "input->newfoods#priceValidation" }, in: 0...300000 %>円
     <p data-newfoods-target="error_price"></p>
   </div>
