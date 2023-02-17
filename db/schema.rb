@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_17_041728) do
+ActiveRecord::Schema.define(version: 2023_02_17_111205) do
 
   create_table "foods", charset: "utf8mb4", force: :cascade do |t|
     t.string "food_name", null: false
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 2023_02_17_041728) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price", null: false
     t.text "image_data"
+    t.float "protein"
+    t.float "lipid"
+    t.float "sugar"
+    t.float "dietary_fiber"
+    t.float "table_salt"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
