@@ -13,8 +13,33 @@
 
   <div class="input-group-md">
     <%= form.label :price %>
-    <%= form.number_field :price, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "price", action: "input->newfoods#priceValidation" } %>円
+    <%= form.number_field :price, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "price", action: "input->newfoods#priceValidation" }, in: 0...300000 %>円
     <p data-newfoods-target="error_price"></p>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.label :protein %>
+    <%= form.number_field :protein, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.label :lipid %>
+    <%= form.number_field :lipid, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.label :sugar %>
+    <%= form.number_field :sugar, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.label :dietary_fiber %>
+    <%= form.number_field :dietary_fiber, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+
+  <div class="input-group-md">
+    <%= form.label :table_salt %>
+    <%= form.number_field :table_salt, class: "input input-bordered w-full max-w-xs" %>
   </div>
 
   <div class="input-group-md">
