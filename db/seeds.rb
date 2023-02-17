@@ -13,6 +13,7 @@ user = User.find_or_create_by(email: 'admin@example.com') do |u|
   u.name = 'Admin'
   u.password = 'password'
   u.password_confirmation = 'password'
+  u.role = 2
 end
 
 CSV.foreach('db/onigiri.csv', headers: true) do |row|
