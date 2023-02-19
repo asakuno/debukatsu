@@ -70,7 +70,6 @@ gem 'kaminari'
 gem 'sidekiq'
 gem 'redis-rails'
 # 画像アップロード
-gem 'uglifier'
 gem 'shrine'
 gem 'aws-sdk-s3'
 # 画像のリサイズ・バリデーション
