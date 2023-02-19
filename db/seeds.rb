@@ -16,18 +16,28 @@ user = User.find_or_create_by(email: 'admin@example.com') do |u|
   u.role = 2
 end
 
-CSV.foreach('db/onigiri.csv', headers: true) do |row|
-  Food.create!(
-    food_name: row['food_name'],
-    image: URI.open(row['Image']),
-    price: row['Price'],
-    calorie: row['calorie'],
-    tag_list: row['tag'].split(','),
-    user_id: user.id
-  )
-end
+#CSV.foreach('db/onigiri.csv', headers: true) do |row|
+  #Food.create!(
+    #food_name: row['food_name'],
+    #image: URI.open(row['Image']),
+    #price: row['Price'],
+    #calorie: row['calorie'],
+    #tag_list: row['tag'].split(','),
+    #user_id: user.id
+  #)
+#end
 
-CSV.foreach('db/rice.csv', headers: true) do |row|
+#CSV.foreach('db/rice.csv', headers: true) do |row|
+  #Food.create!(
+    #food_name: row['food_name'],
+    #image: URI.open(row['Image']),
+    #price: row['Price'],
+    #calorie: row['calorie'],
+    #tag_list: row['tag'].split(','),
+    #user_id: user.id
+  #)
+#end
+CSV.foreach('db/test.csv', headers: true) do |row|
   Food.create!(
     food_name: row['food_name'],
     image: URI.open(row['Image']),
