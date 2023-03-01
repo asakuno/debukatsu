@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :foods, only: %i[index show new create  edit update destroy]
   resources :groups, only: %i[index new create show destroy]
+  mount Shrine.presign_endpoint(:cache) => "/s3/params"
 end
