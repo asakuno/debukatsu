@@ -39,3 +39,5 @@ yarn-debug.log*
 dump.rdb
 /public/uploads/
 /db/seeds.rb
+
+/config/credentials/production.key
