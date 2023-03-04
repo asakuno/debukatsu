@@ -28,4 +28,20 @@ class User < ApplicationRecord
       user.role = 1
     end
   end
+
+  def mine?(object)
+    object.user_id = id
+  end
+
+  def like(food)
+    likes_foods << food
+  end
+
+  def unlike(food)
+    likes_foods.destroy(food)
+  end
+
+  def like?(food)
+    likes_foods.include?(food)
+  end
 end

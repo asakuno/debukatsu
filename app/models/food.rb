@@ -3,6 +3,7 @@ class Food < ApplicationRecord
 
   belongs_to :user
   has_many :select_foods, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :groups, through: :select_foods
 
   acts_as_taggable
