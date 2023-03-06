@@ -46,6 +46,10 @@ class FoodsController < ApplicationController
     redirect_to foods_path, success: t('.success')
   end
 
+  def likes
+    @foods = current_user.likes_foods
+  end
+
   private
 
   def food_params

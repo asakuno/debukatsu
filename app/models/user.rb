@@ -29,10 +29,6 @@ class User < ApplicationRecord
     end
   end
 
-  def mine?(object)
-    object.user_id = id
-  end
-
   def like(food)
     likes_foods << food
   end
