@@ -1,1 +1,2 @@
-$("#js-like-button-for-food-<%= @food.id %>").replaceWith("<%= j(render('foods/like', food: @food)) %>");
+$("#js-like-button-for-food-<%= @food.id %>").replaceWith("<%= j(render('foods/unlike', food: @food)) %>");
+
