@@ -1,0 +1,3 @@
+<%= link_to food_likes_path(food_id: food.id), method: :post, id: "js-like-button-for-food-#{food.id}", remote: true do %>
+  <i class="fa-regular fa-heart"></i>
+<% end %>

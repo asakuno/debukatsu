@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   def index
     @foods = if params[:tag_name].present?
-               Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).references(:all).page(params[:page])
+               Food.tagged_with(params[:tag_name].to_s).includes(%i[taggings user groups]).references(:all).page(params[:page])
              else
                Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
              end
@@ -44,6 +44,10 @@ class FoodsController < ApplicationController
     @food = current_user.foods.find(params[:id])
     @food.destroy!
     redirect_to foods_path, success: t('.success')
+  end
+
+  def likes
+    @foods = current_user.likes_foods
   end
 
   private

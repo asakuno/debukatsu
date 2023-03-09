@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @foods = if params[:tag_name].present?
-               Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+               Food.tagged_with(params[:tag_name].to_s).includes(%i[taggings user groups]).references(:all).page(params[:page])
              else
                Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
              end
@@ -28,33 +28,18 @@ class GroupsController < ApplicationController
 
       @group.high_calorie(@group.maximum_amount, @group.food_ids)
 
-      group_params[:food_ids].each do |groupg|
-        foods = @group.foods.pluck(:food_id)
-        unless foods.include?(groupg.to_i)
-          food = SelectFood.new(food_id: groupg)
-          food.group_id = @group.id
-        end
+    end
+    group_params[:food_ids].each do |groupg|
+      foods = @group.foods.pluck(:food_id)
+      unless foods.include?(groupg.to_i)
+        food = SelectFood.new(food_id: groupg)
+        food.group_id = @group.id
       end
-
-      if @group.save
-        redirect_to group_path(@group)
-      else
-        render :new
-      end
+    end
+    if @group.save
+      redirect_to group_path(@group)
     else
-      group_params[:food_ids].each do |groupg|
-        foods = @group.foods.pluck(:food_id)
-        unless foods.include?(groupg.to_i)
-          food = SelectFood.new(food_id: groupg)
-          food.group_id = @group.id
-        end
-      end
-      
-      if @group.save
-        redirect_to group_path(@group)
-      else
-        render :new
-      end
+      render :new
     end
   end
 

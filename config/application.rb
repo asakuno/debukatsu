@@ -15,7 +15,7 @@ require 'action_text/engine'
 require 'action_view/railtie'
 require 'action_cable/engine'
 require 'sprockets/railtie'
-#require 'uglifier'
+# require 'uglifier'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -28,8 +28,6 @@ module Debukatsu
     config.load_defaults 6.1
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
-
-    
 
     config.i18n.default_locale = :ja
 

@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :foods, dependent: :destroy
   has_many :groups, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :likes_foods, through: :likes, source: :food
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -25,5 +27,17 @@ class User < ApplicationRecord
       user.password_confirmation = user.password
       user.role = 1
     end
+  end
+
+  def like(food)
+    likes_foods << food
+  end
+
+  def unlike(food)
+    likes_foods.destroy(food)
+  end
+
+  def like?(food)
+    likes_foods.include?(food)
   end
 end
