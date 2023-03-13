@@ -2,6 +2,7 @@ class Group < ApplicationRecord
   belongs_to :user
   has_many :select_foods, dependent: :destroy
   has_many :foods, through: :select_foods
+  has_many :comments, dependent: :destroy
 
   validates :group_name, presence: true
   validates :maximum_amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 3_000_000 }
