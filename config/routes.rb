@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get :likes
     end
   end
-  resources :groups, only: %i[index new create show destroy]
+  resources :groups, only: %i[index new create show destroy] do
+    resources :comments, only: %i[create destroy], shallow: true
+  end
   mount Shrine.presign_endpoint(:cache) => '/s3/params'
 end
