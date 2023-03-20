@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @foods = @group.foods.page(params[:page])
+    @comment = Comment.new
   end
 
   def new

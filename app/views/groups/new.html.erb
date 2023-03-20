@@ -9,9 +9,9 @@
   <div data-action="input->newgroups#maximum_amountValidation">
     <div class="input-group-md">
       <%= form.label :maximum_amount %>
-      <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...3000001, step: 100, data: { newgroups_target: "maximum_amount" } %>円
+      <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...30001, step: 100, data: { newgroups_target: "maximum_amount" } %>円
       <p data-newgroups-target="error_maximum_amount"></p>
-      <%= form.range_field :maximum_amount, in: 100...3000001, id: 'maximum_amount_input',class: "range range-xs range-primary", step: 100, data: { newgroups_target: "maximum_amount" } %>
+      <%= form.range_field :maximum_amount, in: 100...30001, id: 'maximum_amount_input',class: "range range-xs range-primary", step: 100, data: { newgroups_target: "maximum_amount" } %>
     </div>
   </div>
 
