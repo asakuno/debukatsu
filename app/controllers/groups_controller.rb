@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @foods = @group.foods.page(params[:page])
     @comment = Comment.new
+    @comments = @group.comments.includes(:user).order(created_at: :desc)
   end
 
   def new

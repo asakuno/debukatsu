@@ -6,6 +6,20 @@
       <p>コメント数：<%= @group.comments.count %></p>
       <i class="fa fa-comment"></i>
       <i class="fa fa-commenting"></i>
+      <div class="row mb-3">
+  <div class="col-lg-8 offset-lg-2">
+    <%= form_with model: @comment, url: [@group, @comment], local: true do |f| %>
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control mb-3', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body) %>
+      <%= f.submit t('defaults.post'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <div>
+    <% @comments.each do |comment| %>
+      <%= comment.body %>
+    <% end %>
+  </div>
+</div>
     </div>
     <%= button_tag "コメントする", data: { controller: "comments-modal" }, class: "btn btn-primary", data: { action: "click->comments-modal#open" } %>
   </div>
