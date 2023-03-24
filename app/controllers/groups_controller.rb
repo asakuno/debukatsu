@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.includes(%i[user foods]).references(:all).order(created_at: :desc).page(params[:page])
+    @groups = Group.includes(%i[user foods comments]).references(:all).order(created_at: :desc).page(params[:page])
   end
 
   def show

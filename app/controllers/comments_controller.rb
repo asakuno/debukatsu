@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to group_path(@comment.group)
     else
-      redirect_to group_path(@comment.group) , danger: t('defaults.message.created', item: Comment_name.human)
+      redirect_to group_path(@comment.group)
     end
   end
 
