@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy!
+    redirect_to group_path(@comment.group)
   end
 
   private
