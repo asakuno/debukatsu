@@ -47,9 +47,10 @@
       </div>
       <div class="comment-text bg-gray-100 p-4 rounded-lg">
         <%= comment.body %>
-        <i class="fa-solid fa-trash-can"></i>
         <% if current_user.own?(comment) %>
-          <%= link_to "削除", comment_path(comment), class: "btn btn-primary", method: :delete %>
+          <%= link_to comment_path(comment), method: :delete do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
         <% end %>
       </div>
     </li>
