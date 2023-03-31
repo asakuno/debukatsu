@@ -22,3 +22,9 @@
   background-color: red;
   color: #fffff;
 }
+
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility
+}

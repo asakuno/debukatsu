@@ -22,4 +22,8 @@ ja:
       group:
         group_name: 'タイトル'
         maximum_amount: '金額上限'
-
+  time:
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y年%m月%d日(%a)'
+      short: ! '%m/%d'

@@ -7,6 +7,9 @@ import { application } from "./application"
 import CheckboxController from "./checkbox_controller"
 application.register("checkbox", CheckboxController)
 
+import CommentsModalController from "./comments_modal_controller"
+application.register("comments-modal", CommentsModalController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

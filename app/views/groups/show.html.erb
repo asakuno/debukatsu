@@ -1,18 +1,77 @@
-<div class="flex flex-wrap">
-  <% @foods.each do |food| %>
-  <div class="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-md mr-4 mb-4">
-    <% if food.image.present? %>
-      <%= image_tag food.image_url(:medium).to_s, height: "300" %> 
-    <% else %>
-      <%= image_tag 'no_image.jpg', :size =>'300x300' %>
-    <% end %>
-    <div class="p-4">
-      <h2 class="text-xl font-bold mb-2"><%= food.food_name %></h2>
-      <p class="text-gray-700"><%= food.calorie %>kcal</p>
+<div class="grid grid-cols-3 flex flex-row-reverse gap-4">
+  <div class="container flex flex-wrap h-64 overflow-y-scroll">
+    <div class="comments w-1/3">
+      <h1><%= @group.group_name %></h1>
+      <p>合計: <%= @group.foods.sum { |hash| hash[:calorie]} %>kcal</p>
+      <% if @group.comments.present? %>
+        <i class="fa fa-commenting"></i><%= @group.comments.count %>
+      <% else %>
+        <i class="fa fa-comment"></i>
+      <% end %>
     </div>
   </div>
-<% end %>
+  <% @foods.each do |food| %>
+    <div class="bg-white rounded-md overflow-hidden shadow-md">
+      <% if food.image.present? %>
+        <%= image_tag food.image_url(:medium).to_s, height: "300" %> 
+      <% else %>
+        <%= image_tag 'no_image.jpg', :size =>'300x300' %>
+      <% end %>
+      <div class="p-4">
+        <h2 class="text-xl font-bold mb-2"><%= food.food_name %></h2>
+        <p class="text-gray-700"><%= food.calorie %>kcal</p>
+      </div>
+    </div>
+  <% end %>
 </div>
+<div class="comment-form mt-8">
+  <h3 class="text-lg font-bold mb-4">コメント投稿</h3>
+  <div class="form-group mb-4">
+    <%= form_with model: @comment, url: [@group, @comment], local: true do |f| %>
+      <%= f.label :body, class: "block font-bold" %>
+      <%= f.text_area :body, class: 'w-full py-2 px-4 border border-gray-400 rounded-lg', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body) %>
+      <%= f.submit t('defaults.post'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+<div>
+<div class="comments mt-8">
+  <h3 class="text-lg font-bold mb-4">Comments</h3>
+  <ul class="comment-list">
+    <% @comments.each do |comment| %>
+    <li class="comment mb-4">
+      <div class="comment-meta flex justify-between mb-1">
+          <div class="comment-author font-bold">
+          <%= comment.user.name %>
+          </div>
+        <span class="comment-date text-gray-400"><%= l comment.created_at %></span>
+      </div>
+      <div class="comment-text bg-gray-100 p-4 rounded-lg">
+        <%= comment.body %>
+        <div class="flex justify-end">
+          <% if current_user.own?(comment) %>
+            <%= link_to comment_path(comment), method: :delete, class: "black hover:text-purple-700" do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
+  <div class="modal" data-controller="comments-modal">
+    <div class="modal-background" data-action="click->comments-modal#close"></div>
+    <div class="modal-content">
+      <div class="box">
+        <%= render partial: "comments/form", locals: { group: @group } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <%= paginate @foods %>
 <%= link_to '戻る', groups_path, class: "btn btn-primary" %>
 
