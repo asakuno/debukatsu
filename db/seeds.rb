@@ -37,7 +37,18 @@ end
     #user_id: user.id
   #)
 #end
-CSV.foreach('db/test.csv', headers: true) do |row|
+CSV.foreach('db/onigiri.csv', headers: true) do |row|
+  Food.create!(
+    food_name: row['food_name'],
+    image: URI.open(row['Image']),
+    price: row['Price'],
+    calorie: row['calorie'],
+    tag_list: row['tag'].split(','),
+    user_id: user.id
+  )
+end
+
+CSV.foreach('db/rice.csv', headers: true) do |row|
   Food.create!(
     food_name: row['food_name'],
     image: URI.open(row['Image']),
