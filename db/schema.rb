@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_04_144448) do
+ActiveRecord::Schema.define(version: 2023_04_04_145140) do
 
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.text "body", null: false
@@ -117,6 +117,9 @@ ActiveRecord::Schema.define(version: 2023_04_04_144448) do
     t.string "activation_token"
     t.datetime "activation_token_expires_at"
     t.integer "role", default: 0, null: false
+    t.integer "age", null: false
+    t.integer "gender", null: false
+    t.integer "weight", null: false
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
