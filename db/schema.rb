@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 2023_04_04_145140) do
     t.string "activation_token"
     t.datetime "activation_token_expires_at"
     t.integer "role", default: 0, null: false
-    t.integer "age", null: false
-    t.integer "gender", null: false
-    t.integer "weight", null: false
+    t.integer "age"
+    t.integer "gender"
+    t.integer "weight"
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

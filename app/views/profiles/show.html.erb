@@ -21,13 +21,32 @@
       </label>
       <span class="text-gray-700"><%= l @user.created_at %></span>
     </div>
-    <% if !@user.guest? %>
-    <div class="mb-4">
-      <label class="block text-gray-700 font-bold mb-2" for="created-at">
-        個人情報
-      </label>
-      <span class="text-gray-700">aaa</span>
-    </div>
+    <% if @user.profile_complete? %>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="created-at">
+          年齢
+        </label>
+        <span class="text-gray-700"><%= @user.age %></span>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="created-at">
+          性別
+        </label>
+        <span class="text-gray-700"><%= @user.gender %></span>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="created-at">
+          体重
+        </label>
+        <span class="text-gray-700"><%= @user.weight %></span>
+      </div>
+    <% else %>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="created-at">
+          個人情報
+        </label>
+        <span class="text-gray-700">登録されていません</span>
+      </div>
     <% end %>
     <div class="flex items-center justify-between">
       <%= link_to "Profile編集", edit_profile_path, class: "btn btn-primary" %>
