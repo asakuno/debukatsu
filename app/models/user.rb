@@ -15,6 +15,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, presence: true
   validates :name, presence: true
+  validates :age, presence: true
+  validates :gender, presence: true
+  validates :weight, presence: true
 
   enum role: { general: 0, guest: 1, admin: 2 }
 
