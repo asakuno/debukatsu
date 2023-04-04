@@ -45,4 +45,8 @@ class User < ApplicationRecord
   def like?(food)
     likes_foods.include?(food)
   end
+
+  def profile_complete?
+    age.present? && gender.present? && weight.present?
+  end
 end
