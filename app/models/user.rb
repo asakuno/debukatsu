@@ -17,6 +17,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   enum role: { general: 0, guest: 1, admin: 2 }
+  enum gender: { female: 0, male: 1, unanswered: 2 }
 
   def own?(object)
     object.user_id == id
