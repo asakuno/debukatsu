@@ -20,15 +20,25 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profileform = ProfileForm.new(User.find(current_user.id))
+    @user.build_profile if @user.profile.nil?
   end
 
   def update
+    if @user.update(profile_params)
+      redirect_to root_path, notice: 'ユーザー情報を更新しました'
+    else
+      render :edit
+    end
   end
 
   private
   
   def set_user
     @user = User.find(current_user.id)
+  end
+
+  def profile_params
+    params.require(:user).permit(:name, :age, :gender, :weight,
+                                 profile_attributes: [:id, :momentum])
   end
 end

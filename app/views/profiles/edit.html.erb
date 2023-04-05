@@ -1,2 +1,17 @@
-<%= form_with model: @profileform, url: profile_path, method: :post, class: 'transaction-form-wrap',local: true do |f| %>
+<%= form_with(model: @user, url: profile_path, local: true) do |form| %>
+  <%= form.label :age %>
+  <%= form.number_field :email %>
+
+  <%= form.label :gender %>
+  <%= form.number_field :gender %>
+
+  <%= form.label :weight %>
+  <%= form.number_field :weight %>
+
+  <%= form.fields_for :profile do |profile_form| %>
+    <%= profile_form.label :momentum %>
+    <%= profile_form.number_field :momentum %>
+  <% end %>
+
+  <%= form.submit '更新する' %>
 <% end %>
