@@ -23,8 +23,7 @@ class GroupsController < ApplicationController
     # GroupJob.perform_later(current_user.id, group_params)
     # group.food_ids = @best_foods
     # redirect_to groups_path, notice: 'Group was successfully created.'
-    @group = Group.new(group_params)
-    @group.user_id = current_user.id
+    @group = current_user.groups.new(group_params)
 
     if @group.maximum_amount <= Food.where(id: @group.food_ids).sum(:price)
 
