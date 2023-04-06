@@ -429,6 +429,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara
+  enum_help
   enum_select_rails
   factory_bot_rails
   faker
