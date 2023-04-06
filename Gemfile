@@ -79,3 +79,6 @@ gem 'mini_magick'
 gem 'stimulus-rails'
 # タグ機能
 gem 'acts-as-taggable-on'
+# enum機能
+gem 'enum_select_rails'
+gem 'enum_help'

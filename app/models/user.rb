@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :likes_foods, through: :likes, source: :food
   has_many :comments, dependent: :destroy
+  has_one :profile
+  accepts_nested_attributes_for :profile
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -16,6 +18,9 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   enum role: { general: 0, guest: 1, admin: 2 }
+  enum gender: { female: 0, male: 1, unanswered: 2 }
+  enum age: { school_child: 0, teenager: 1, young_adult: 2, middle_adulthood: 3, young_old: 4 }
+  enum weight: { low: 0, midle: 1, high: 2 }
 
   def own?(object)
     object.user_id == id
@@ -40,5 +45,9 @@ class User < ApplicationRecord
 
   def like?(food)
     likes_foods.include?(food)
+  end
+
+  def profile_complete?
+    age.present? && gender.present? && weight.present?
   end
 end

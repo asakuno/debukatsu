@@ -121,6 +121,11 @@ GEM
     down (5.4.0)
       addressable (~> 2.8)
     e2mmap (0.1.0)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
+    enum_select_rails (0.3.0)
+      enum_help
+      rails
     erubi (1.11.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -424,6 +429,8 @@ DEPENDENCIES
   bullet
   byebug
   capybara
+  enum_help
+  enum_select_rails
   factory_bot_rails
   faker
   foreman

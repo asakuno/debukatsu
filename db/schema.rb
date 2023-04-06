@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_10_143707) do
+ActiveRecord::Schema.define(version: 2023_04_04_145140) do
 
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.text "body", null: false
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2023_03_10_143707) do
     t.index ["food_id"], name: "index_likes_on_food_id"
     t.index ["user_id", "food_id"], name: "index_likes_on_user_id_and_food_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "profiles", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "estimated_calories"
+    t.integer "momentum"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "select_foods", charset: "utf8mb4", force: :cascade do |t|
@@ -108,6 +117,9 @@ ActiveRecord::Schema.define(version: 2023_03_10_143707) do
     t.string "activation_token"
     t.datetime "activation_token_expires_at"
     t.integer "role", default: 0, null: false
+    t.integer "age"
+    t.integer "gender"
+    t.integer "weight"
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
@@ -118,6 +130,7 @@ ActiveRecord::Schema.define(version: 2023_03_10_143707) do
   add_foreign_key "groups", "users"
   add_foreign_key "likes", "foods"
   add_foreign_key "likes", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "select_foods", "foods"
   add_foreign_key "select_foods", "groups"
   add_foreign_key "taggings", "tags"
