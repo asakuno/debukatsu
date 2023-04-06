@@ -1,4 +1,20 @@
 ja:
+  enums:
+    user:
+      age:
+        school_child: '12歳以下'
+        teenager: '13~19歳'
+        young_adult: '20~39歳'
+        middle_adulthood: '40~59歳'
+        young_old: '60歳以上'
+      gender:
+        female: '女性'
+        male: '男性'
+        unanswered: '不詳'
+      weight:
+        low: '低い'
+        midle: '普通'
+        high: '高い'
   activerecord:
     models:
       user: 'ユーザー'
@@ -8,6 +24,9 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード再確認'
+        age: '年齢'
+        gender: '性別'
+        weight: '運動量'
       food:
         food_name: '名前'
         calorie: 'カロリー'
@@ -22,8 +41,11 @@ ja:
       group:
         group_name: 'タイトル'
         maximum_amount: '金額上限'
+      profile:
+        momentum: 増やしたい体重量
   time:
     formats:
       default: ! '%Y/%m/%d'
       long: ! '%Y年%m月%d日(%a)'
       short: ! '%m/%d'
+
