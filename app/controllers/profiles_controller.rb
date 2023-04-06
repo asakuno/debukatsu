@@ -16,13 +16,13 @@ class ProfilesController < ApplicationController
   end
 
   private
-  
+
   def set_user
     @user = User.find(current_user.id)
   end
 
   def profile_params
     params.require(:user).permit(:name, :age, :gender, :weight,
-                                 profile_attributes: [:id, :momentum])
+                                 profile_attributes: %i[id momentum])
   end
 end
