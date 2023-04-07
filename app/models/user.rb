@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   enum role: { general: 0, guest: 1, admin: 2 }
-  enum gender: { female: 0, male: 1, unanswered: 2 }
+  enum gender: { unanswered: 0, male: 1, female: 2 }
   enum age: { school_child: 0, teenager: 1, young_adult: 2, middle_adulthood: 3, young_old: 4 }
   enum weight: { low: 0, midle: 1, high: 2 }
 
