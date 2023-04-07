@@ -9,34 +9,8 @@
 require 'csv'
 require "open-uri"
 
-user = User.find_or_create_by(email: 'admin@example.com') do |u|
-  u.name = 'Admin'
-  u.password = 'password'
-  u.password_confirmation = 'password'
-  u.role = 2
-end
+user = User.find_by(name: 'Admin', role: 2)
 
-#CSV.foreach('db/onigiri.csv', headers: true) do |row|
-  #Food.create!(
-    #food_name: row['food_name'],
-    #image: URI.open(row['Image']),
-    #price: row['Price'],
-    #calorie: row['calorie'],
-    #tag_list: row['tag'].split(','),
-    #user_id: user.id
-  #)
-#end
-
-#CSV.foreach('db/rice.csv', headers: true) do |row|
-  #Food.create!(
-    #food_name: row['food_name'],
-    #image: URI.open(row['Image']),
-    #price: row['Price'],
-    #calorie: row['calorie'],
-    #tag_list: row['tag'].split(','),
-    #user_id: user.id
-  #)
-#end
 CSV.foreach('db/onigiri.csv', headers: true) do |row|
   Food.create!(
     food_name: row['food_name'],

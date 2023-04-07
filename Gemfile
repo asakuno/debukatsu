@@ -82,3 +82,5 @@ gem 'acts-as-taggable-on'
 # enum機能
 gem 'enum_select_rails'
 gem 'enum_help'
+# データの更新
+gem 'seed-fu'
