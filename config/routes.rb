@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/guest', to: 'guest_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
   resources :users, only: %i[new create]
+  namespace :mypage do
+  end
   resource :profile, only: %i[show edit update]
   resources :foods, only: %i[index show new create edit update destroy] do
     resources :likes, only: %i[create destroy]
