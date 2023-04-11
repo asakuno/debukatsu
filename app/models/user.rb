@@ -44,7 +44,7 @@ class User < ApplicationRecord
   end
 
   def like?(food)
-    likes_foods.include?(food)
+    likes_foods.pluck(:user_id).include?(id)
   end
 
   def profile_complete?

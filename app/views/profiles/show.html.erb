@@ -44,7 +44,11 @@
         <label class="block text-gray-700 font-bold mb-2" for="created-at">
           目標体重
         </label>
-        <span class="text-gray-700">＋<%= @user.profile.momentum %>kg</span>
+        <% if @user.profile.momentum.present? %>
+          <span class="text-gray-700">＋<%= @user.profile.momentum %>kg</span>
+        <% else %>
+          <span class="text-gray-700">＋0kg</span>
+        <% end %>
       </div>
     <% else %>
       <div class="mb-4">

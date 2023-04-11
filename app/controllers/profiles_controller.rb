@@ -15,6 +15,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def bookmarks
+    @bookmark_foods = current_user.likes_foods.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def set_user
