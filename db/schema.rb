@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2023_04_04_145140) do
   end
 
   create_table "likes", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "food_id", null: false
+    t.bigint "user_id"
+    t.bigint "food_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["food_id"], name: "index_likes_on_food_id"

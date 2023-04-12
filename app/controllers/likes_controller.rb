@@ -5,7 +5,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @food = current_user.likes_foods.find(params[:food_id])
+    @food = current_user.likes.find(params[:id]).food
     current_user.unlike(@food)
   end
 end
