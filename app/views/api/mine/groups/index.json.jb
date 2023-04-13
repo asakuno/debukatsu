@@ -1,0 +1,12 @@
+groups = @groups.map do |group|
+  {
+    id: group.id,
+    title: group.group_name,
+    start: group.created_at,
+    url: group_path(group)
+  }
+end
+
+{
+  groups: groups
+}

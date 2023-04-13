@@ -84,3 +84,4 @@ gem 'enum_select_rails'
 gem 'enum_help'
 # データの更新
 gem 'seed-fu'
+gem 'jb'
