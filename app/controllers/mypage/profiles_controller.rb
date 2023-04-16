@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class Mypage::ProfilesController < Mypage::BaseController
   before_action :set_user, only: %i[show edit update]
 
   def show; end
@@ -9,14 +9,10 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(profile_params)
-      redirect_to profile_path, notice: 'ユーザー情報を更新しました'
+      redirect_to mypage_profile_path, success: 'ユーザー情報を更新しました'
     else
       render :edit
     end
-  end
-
-  def bookmarks
-    @bookmark_foods = current_user.likes_foods.includes(:user).order(created_at: :desc)
   end
 
   private

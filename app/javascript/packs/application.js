@@ -15,6 +15,8 @@ import "jquery"
 import "@vueform/multiselect"
 import "vue"
 import "./tags.js"
+import "../calendar"
+import "chartkick/chart.js"
 
 Rails.start()
 Turbolinks.start()

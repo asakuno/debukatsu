@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :groups, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :likes_foods, through: :likes, source: :food
+  has_many :like_foods, through: :likes, source: :food
   has_many :comments, dependent: :destroy
   has_one :profile
   accepts_nested_attributes_for :profile
@@ -36,15 +36,15 @@ class User < ApplicationRecord
   end
 
   def like(food)
-    likes_foods << food
+    like_foods << food
   end
 
   def unlike(food)
-    likes_foods.destroy(food)
+    like_foods.destroy(food)
   end
 
   def like?(food)
-    likes_foods.pluck(:user_id).include?(id)
+    food.likes.pluck(:user_id).include?(id)
   end
 
   def profile_complete?

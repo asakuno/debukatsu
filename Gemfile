@@ -84,3 +84,8 @@ gem 'enum_select_rails'
 gem 'enum_help'
 # データの更新
 gem 'seed-fu'
+# api通信
+gem 'jb'
+# チャート描画
+gem 'chartkick'
+
