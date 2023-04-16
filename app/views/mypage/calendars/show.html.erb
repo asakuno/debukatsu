@@ -1,4 +1,5 @@
 <div>
   今週の摂取総カロリー<%= @weak_total_calories %>kcal
+  <%= column_chart current_user.groups.group_by_day_of_week(:created_at, format: "%a").count %>
 </div>
 <div id='calendar'></div>
