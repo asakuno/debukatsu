@@ -88,4 +88,6 @@ gem 'seed-fu'
 gem 'jb'
 # チャート描画
 gem 'chartkick'
+# 検索機能
+gem 'ransack'
 
