@@ -1,4 +1,5 @@
 <%= render 'foods/modal' %>
+<%= render 'shared/search_food_form', url: mypage_likes_path %>
 <div class="flex flex-wrap">
   <%= render partial: 'food', collection: @likes %>
 </div>
