@@ -1,3 +1,4 @@
+<%= render 'foods/modal' %>
 <div class="form-control">
   <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups checkbox" }) do |form| %>
   <div class="input-group-md">
@@ -24,6 +25,16 @@
     <button type="button" data-action="click->checkbox#checkAll" class="bg-blue-500 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded my-2">全チェック</button>
   </div>
 
+  <div>
+    <p>タグで絞り込み</p>
+    <%= link_to "全て", new_group_path(nil), class: "inline-block items-center justify-center py-1 px-2 rounded-md mr-2 bg-white text-red-600 text-xs uppercase shadow-sm transition duration-300 hover:translate-y-0.5 hover:shadow-sm border border-red-500" %>
+    <% if @tags.present? %>
+      <% @tags.each do |tag| %>
+        <%= link_to "#{tag.name}", new_group_path(tag_name: tag.name), class: "inline-block items-center justify-center py-1 px-2 rounded-md mr-2 bg-white text-red-600 text-xs uppercase shadow-sm transition duration-300 hover:translate-y-0.5 hover:shadow-sm border border-red-500" %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="input-group-md">
     <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
       <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
@@ -34,10 +45,24 @@
             <%= food.object.food_name %>
           </h2>
             <% if food.object.image.present? %>
-              <%= image_tag food.object.image_url(:medium).to_s %>
+              <%= image_tag food.object.image_url(:medium).to_s, data: {"modal-source-param": food.object.image_url(:medium),
+                                                                        "modal-name-param": food.object.food_name,
+                                                                        "modal-calorie-param": food.object.calorie,
+                                                                        "modal-price-param": food.object.price,
+                                                                        "modal-tags-param": food.object.tag_list,
+                                                                        action: "click->modal#handleOpen" }%>
             <% else %>
-              <%= image_tag 'no_image.jpg', :size =>'300x300' %>
+              <%= image_tag 'no_image.jpg', :size =>'300x300', data: {"modal-source-param": food.object.image_url(:medium),
+                                                                        "modal-name-param": food.object.food_name,
+                                                                        "modal-calorie-param": food.object.calorie,
+                                                                        "modal-price-param": food.object.price,
+                                                                        "modal-tags-param": food.object.tag_list,
+                                                                        action: "click->modal#handleOpen" }%>
             <% end %>
+          <div>
+            <%= food.object.calorie%>kcal<br>
+            <%= food.object.price %>円
+          </div>
           <div class="p-8">
           <% if food.object.tag_list.present? %>
             <% (food.object.tag_list).each do |tag| %>
@@ -53,6 +78,6 @@
   <% end %>
 </div>
 
-<%= link_to 'Back', groups_path, class:"btn btn-primary" %>
+<%= link_to '戻る', groups_path, class:"btn btn-primary" %>
 
 <%= javascript_pack_tag 'groups/new' %>
