@@ -1,9 +1,10 @@
 <%= link_to t('.new_food'), new_food_path, class:"btn btn-primary"%>
 <%= link_to t('.groups'), groups_path, class:"btn btn-secondary" %>
-<%= render 'modal' %>
-<%= render 'shared/search_food_form', url: foods_path %>
-<div class="flex flex-wrap">
-  <%= render @foods %>
+<div class="mx-auto max-w-screen-lg">
+  <%= render 'modal' %>
+  <%= render 'shared/search_food_form', url: foods_path %>
+  <div class="flex flex-wrap">
+    <%= render @foods %>
+  </div>
+  <%= paginate @foods %>
 </div>
-
-<%= paginate @foods %>

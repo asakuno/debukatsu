@@ -15,12 +15,10 @@
   </head>
 
   <body class="bg-original" data-controller="modal">
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <%= render 'shared/header' %>
     <%= render 'shared/flash_message' %>
+    <div>
+    <%= render 'mypage/shared/sidebar' %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>

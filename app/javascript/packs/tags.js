@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   const tagList = $("#app").data("tag-list");
   const myTagList = $("#app").data("my-tag-list");
 

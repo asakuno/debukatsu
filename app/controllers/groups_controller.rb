@@ -11,18 +11,16 @@ class GroupsController < ApplicationController
   end
 
   def new
+    @tags = Food.tags_on(:tags)
     @group = Group.new
-    @foods = if params[:tag_name].present?
-               Food.tagged_with(params[:tag_name].to_s).includes(%i[taggings user groups]).references(:all).page(params[:page])
-             else
-               Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
-             end
+    if params[:tag_name].present?
+      @foods = Food.tagged_with(params[:tag_name].to_s).includes(%i[taggings user groups]).references(:all).page(params[:page])
+    else
+      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+    end
   end
 
   def create
-    # GroupJob.perform_later(current_user.id, group_params)
-    # group.food_ids = @best_foods
-    # redirect_to groups_path, notice: 'Group was successfully created.'
     @group = current_user.groups.new(group_params)
 
     if @group.maximum_amount <= Food.where(id: @group.food_ids).sum(:price)

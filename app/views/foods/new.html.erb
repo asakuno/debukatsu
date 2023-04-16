@@ -1,3 +1,10 @@
-<%= render 'form', food: @food %>
+<div class="max-w-md mx-auto justify-center">
+  <div class="bg-white shadow-md rounded px-15 pt-6 pb-8 mb-4 mt-5">
+    <div class="mb-4">
+      <h1 class="text-3xl font-bold">食品の追加</h1>
+    </div>
+  <%= render 'form', food: @food %>
+  </div>
+</div>
 
 <%= link_to 'Back', foods_path, class: "btn btn-primary" %>

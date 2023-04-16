@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   root to: 'homes#index'
   get 'login', to: 'user_sessions#new'
+  resource :homes, only: %i[index] do
+    collection do
+      get 'service'
+      get 'privacy'
+    end
+  end
   post 'login', to: 'user_sessions#create'
   post '/guest', to: 'guest_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
