@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
 
   namespace :mypage do
+    root 'profile#show'
     resources :likes, only: %i[index]
     resource :calendars, only: %i[show]
     resource :profile, only: %i[show edit update]

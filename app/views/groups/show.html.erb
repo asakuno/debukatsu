@@ -29,8 +29,8 @@
   <div class="form-group mb-4">
     <%= form_with model: @comment, url: [@group, @comment], local: true do |f| %>
       <%= f.label :body, class: "block font-bold" %>
-      <%= f.text_area :body, class: 'w-full py-2 px-4 border border-gray-400 rounded-lg', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body) %>
-      <%= f.submit t('defaults.post'), class: 'btn btn-primary' %>
+      <%= f.text_area :body, class: 'w-full py-2 px-4 border border-gray-400 rounded-lg', id: 'js-new-comment-body', row: 4, placeholder: "コメントを入力してください" %>
+      <%= f.submit "コメント投稿", class: 'btn btn-primary' %>
     <% end %>
   </div>
 <div>
@@ -59,18 +59,6 @@
     <% end %>
   </ul>
 </div>
-
-
-  <div class="modal" data-controller="comments-modal">
-    <div class="modal-background" data-action="click->comments-modal#close"></div>
-    <div class="modal-content">
-      <div class="box">
-        <%= render partial: "comments/form", locals: { group: @group } %>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <%= paginate @foods %>
 <%= link_to '戻る', groups_path, class: "btn btn-primary" %>
