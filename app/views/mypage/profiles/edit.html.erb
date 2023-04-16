@@ -1,6 +1,17 @@
 <div class="max-w-md mx-auto bg-white">
   <h1 class="text-3xl font-bold mb-8">プロフィールを編集する</h1>
-<%= form_with(model: @user, url: profile_path, local: true) do |form| %>
+<%= form_with(model: @user, url: mypage_profile_path, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="mb-6">
     <%= form.label :name, class: "block text-gray-700 font-bold mb-2" %>
     <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
@@ -30,7 +41,7 @@
   <%= form.fields_for :profile do |profile_form| %>
     <div class="mb-6">
       <%= profile_form.label :momentum, class: "block text-gray-700 font-bold mb-2" %>
-      <%= profile_form.number_field :momentum, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <%= profile_form.number_field :momentum, in: 0...100, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
   <% end %>
   <%= form.submit '更新する', class: "btn btn-primary" %>

@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   namespace :mypage do
     resources :likes, only: %i[index]
     resource :calendars, only: %i[show]
+    resource :profile, only: %i[show edit update]
   end
 
-  resource :profile, only: %i[show edit update]
   resources :foods, only: %i[index show new create edit update destroy] do
     resources :likes, only: %i[create destroy]
   end
