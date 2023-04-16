@@ -50,4 +50,95 @@ class User < ApplicationRecord
   def profile_complete?
     age.present? && gender.present? && weight.present?
   end
+
+  def required_calories
+    calorie_table = {
+      school_child: {
+        low: {
+          unanswered: 1900,
+          male: 1950,
+          female: 1850
+        },
+        midle: {
+          unanswered: 2175,
+          male: 2250,
+          female: 2100
+        },
+        high: {
+          unanswered: 2425,
+          male: 2500,
+          female: 2350
+        }
+      },
+      teenager: {
+        low: {
+          unanswered: 2000,
+          male: 2300,
+          female: 1700
+        },
+        midle: {
+          unanswered: 2325,
+          male: 2650,
+          female: 2000
+        },
+        high: {
+          unanswered: 2675,
+          male: 3050,
+          female: 2300
+        }
+      },
+      young_adult: {
+        low: {
+          unanswered: 2025,
+          male: 2300,
+          female: 1750
+        },
+        midle: {
+          unanswered: 2375,
+          male: 2700,
+          female: 2050
+        },
+        high: {
+          unanswered: 2700,
+          male: 3050,
+          female: 2350
+        }
+      },
+      middle_adulthood: {
+        low: {
+          unanswered: 1925,
+          male: 2200,
+          female: 1650
+        },
+        midle: {
+          unanswered: 2280,
+          male: 2600,
+          female: 1960
+        },
+        high: {
+          unanswered: 2600,
+          male: 2950,
+          female: 2250
+        }
+      },
+      young_old: {
+        low: {
+          unanswered: 1800,
+          male: 2050,
+          female: 1550
+        },
+        midle: {
+          unanswered: 2125,
+          male: 2400,
+          female: 1850
+        },
+        high: {
+          unanswered: 2425,
+          male: 2750,
+          female: 2100
+        }
+      }
+    }
+    calorie_table[age.to_sym][weight.to_sym][gender.to_sym]
+  end
 end
