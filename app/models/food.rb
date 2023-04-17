@@ -10,6 +10,7 @@ class Food < ApplicationRecord
 
   validates :food_name, presence: true
   validates :calorie, presence: true
+  validates :price, presence: true
   validates :protein, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
   validates :lipid, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
   validates :sugar, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
