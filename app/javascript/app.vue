@@ -1,5 +1,4 @@
 <template>
-  <div id="vue-app">
   <h1 class="text-5xl font-bold text-gray-600 ml-3 mt-1">日々忙しい方</h1>
   <h1 class="text-5xl font-bold text-gray-600 ml-3 mt-1">最速最短で体重を増やしたいあなたに</h1>
   <div class="flex-wrap items-center justify-center gap-8 text-center sm:flex">
@@ -51,7 +50,6 @@
             算出された食品を食べて体重アップ！
           </p>
       </div>
-  </div>
   </div>
   </template>
   
