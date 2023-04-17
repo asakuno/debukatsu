@@ -5,15 +5,15 @@
   </div>
   <div class="flex-none">
     <div class="dropdown dropdown-end">
-    <label tabindex="0" class="btn m-1"><i class="fa fa-bars"></i></label>
+    <label tabindex="0" class="btn m-1" id="menu-button"><i class="fa fa-bars"></i></label>
       <div class="dropdown dropdown-end">
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><%= link_to "マイページ", mypage_profile_path, class: 'justify-between' %></li>
         <li><%= link_to "食品一覧", foods_path, class: 'nav-link' %></li>
         <li><%= link_to "食べ合わせ検索", groups_path, class: 'nav-link' %></li>
-        <li><%= link_to (t"defaults.logout"), logout_path, method: :delete, class: 'nav-link', data: { confirm: t('defaults.message.logout_confirm') } %></li>
+        <li><%= link_to (t"defaults.logout"), logout_path, method: :delete, id: "logout_button", class: 'nav-link', data: { confirm: t('defaults.message.logout_confirm') } %></li>
       </ul>
-    </div>
+      </div>
     </div>
   </div>
 </div>
