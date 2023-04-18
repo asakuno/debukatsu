@@ -1,41 +1,28 @@
-<div class="grid grid-cols-3 flex flex-row-reverse gap-4">
-  <div class="container flex flex-wrap h-64 overflow-y-scroll">
+<div class="container flex flex-wrap h-64 overflow-y-scroll">
     <div class="comments w-1/3">
-      <h1><%= @group.group_name %></h1>
+      <h1 class="font-bold text-2xl"><%= @group.group_name %></h1>
       <p>合計: <%= @group.foods.sum { |hash| hash[:calorie]} %>kcal</p>
       <% if @group.comments.present? %>
         <i class="fa fa-commenting"></i><%= @group.comments.count %>
       <% else %>
-        <i class="fa fa-comment"></i>
+        <i class="fa fa-comment"></i><%= @group.comments.count %>
       <% end %>
     </div>
   </div>
-  <% @foods.each do |food| %>
-    <div class="bg-white rounded-md overflow-hidden shadow-md">
-      <% if food.image.present? %>
-        <%= image_tag food.image_url(:medium).to_s, height: "300" %> 
-      <% else %>
-        <%= image_tag 'no_image.jpg', :size =>'300x300' %>
-      <% end %>
-      <div class="p-4">
-        <h2 class="text-xl font-bold mb-2"><%= food.food_name %></h2>
-        <p class="text-gray-700"><%= food.calorie %>kcal</p>
-      </div>
-    </div>
-  <% end %>
+<div class="grid grid-cols-3 flex flex-row-reverse gap-4">
+  <%= render partial: "foods/food", collection: @foods %>
 </div>
 <div class="comment-form mt-8">
   <h3 class="text-lg font-bold mb-4">コメント投稿</h3>
   <div class="form-group mb-4">
     <%= form_with model: @comment, url: [@group, @comment], local: true do |f| %>
-      <%= f.label :body, class: "block font-bold" %>
       <%= f.text_area :body, class: 'w-full py-2 px-4 border border-gray-400 rounded-lg', id: 'js-new-comment-body', row: 4, placeholder: "コメントを入力してください" %>
       <%= f.submit "コメント投稿", class: 'btn btn-primary' %>
     <% end %>
   </div>
 <div>
 <div class="comments mt-8">
-  <h3 class="text-lg font-bold mb-4">Comments</h3>
+  <h3 class="text-lg font-bold mb-4">コメント一覧</h3>
   <ul class="comment-list">
     <% @comments.each do |comment| %>
     <li class="comment mb-4">
