@@ -7,7 +7,7 @@ module FlashMessageHelper
       when 'alert' then 'bg-yellow-100 border-t-4 border-yellow-500 text-yellow-700'
     end
   end
-        
+
   def flash_icon(img)
     case img
       when 'notice' then content_tag :i, '', class: 'fa-light fa-circle-info', style: 'color: #293f66;'

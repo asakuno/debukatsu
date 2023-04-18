@@ -4,5 +4,5 @@ class HomesController < ApplicationController
 
   def service; end
 
-  def privacy; end 
+  def privacy; end
 end

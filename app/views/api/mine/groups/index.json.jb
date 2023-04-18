@@ -8,5 +8,5 @@ groups = @groups.map do |group|
 end
 
 {
-  groups: groups
+  groups:
 }
