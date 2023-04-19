@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2023_04_04_145140) do
   end
 
   create_table "profiles", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "estimated_calories"
     t.integer "momentum"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
