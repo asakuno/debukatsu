@@ -16,6 +16,14 @@
     </div>
   </div>
 
+  <div>
+    <%= form.radio_button :publish, true %>
+    <%= form.label :publish, '公開' %>
+    <%= form.radio_button :publish, false %>
+    <%= form.label :publish, '非公開', value: false %>
+  </div>
+
+
   <div class="actions">
     <%= form.submit class:"btn btn-primary" %>
   </div>

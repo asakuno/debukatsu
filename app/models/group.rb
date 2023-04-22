@@ -5,7 +5,8 @@ class Group < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :group_name, presence: true
-  validates :maximum_amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 3_000_000 }
+  validates :maximum_amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 30000 }
+  validates :publish, inclusion:{in: [true, false]}
 
   # 長すぎるとrubocopに指摘された[<17, 61, 10> 64.11/25]
   def high_calorie(maximum_amount, food_ids)
