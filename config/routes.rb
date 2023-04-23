@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy]
   end
   resources :groups, only: %i[index new create show destroy] do
+    collection do
+      get :mine
+    end
     resources :comments, only: %i[create destroy], shallow: true
   end
 
