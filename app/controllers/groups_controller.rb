@@ -1,11 +1,16 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.includes(%i[user foods comments]).references(:all).order(created_at: :desc).page(params[:page])
+    @groups = Group.includes(%i[user foods comments]).references(:all).where(publish: true).order(created_at: :desc).page(params[:page])
+  end
+
+  def mine
+    @groups = current_user.groups.includes(%i[user foods comments]).references(:all).order(created_at: :desc).page(params[:page])
+    render :index
   end
 
   def show
     @group = Group.find(params[:id])
-    @foods = @group.foods.page(params[:page])
+    @foods = @group.foods.includes(%i[taggings user groups]).references(:all).page(params[:page])
     @comment = Comment.new
     @comments = @group.comments.includes(:user).order(created_at: :desc)
   end
@@ -51,6 +56,6 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:group_name, :maximum_amount, food_ids: [])
+    params.require(:group).permit(:group_name, :maximum_amount, :publish, food_ids: [])
   end
 end

@@ -1,5 +1,5 @@
 <% if current_user.like?(food) %>
- <%= render 'unlike', { food: food } %>
+ <%= render 'foods/unlike', { food: food } %>
 <% else %>
- <%= render 'like', { food: food } %>
+ <%= render 'foods/like', { food: food } %>
 <% end %>

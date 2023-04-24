@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_04_145140) do
+ActiveRecord::Schema.define(version: 2023_04_19_040424) do
 
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.text "body", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2023_04_04_145140) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "maximum_amount", null: false
+    t.boolean "publish", default: true, null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
@@ -58,7 +59,6 @@ ActiveRecord::Schema.define(version: 2023_04_04_145140) do
   end
 
   create_table "profiles", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "estimated_calories"
     t.integer "momentum"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
