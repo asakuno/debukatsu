@@ -1,0 +1,18 @@
+<li class="comment mb-4">
+  <div class="comment-meta flex justify-between mb-1">
+    <div class="comment-author font-bold">
+      <%= comment.user.name %>
+    </div>
+    <span class="comment-date text-gray-400"><%= l comment.created_at %></span>
+  </div>
+  <div class="comment-text bg-gray-100 p-4 rounded-lg">
+    <%= comment.body %>
+    <div class="flex justify-end">
+      <% if current_user.own?(comment) %>
+        <%= link_to comment_path(comment), method: :delete, class: "black hover:text-purple-700" do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</li>

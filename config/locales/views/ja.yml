@@ -5,6 +5,8 @@ ja:
     logout: 'ログアウト'
     back: '戻る'
     title: 'デブかつApp'
+    delete: '削除'
+    edit: '編集'
     message:
       require_login: 'ログインしてください'
       logout_confirm: 'ログアウトしますか？'
@@ -46,6 +48,9 @@ ja:
       fail: '作成に失敗しました'
     destroy:
       success: '削除しました'
+    nav:
+      new_group: '食べ合わせを作る'
+      foods: '食品一覧へ'
   guest_sessions:
     create:
       created: 'ゲストユーザーでログインしました'
