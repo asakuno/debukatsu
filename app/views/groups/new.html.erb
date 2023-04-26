@@ -1,6 +1,6 @@
 <%= render 'foods/modal' %>
 <div class="form-control">
-  <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups checkbox" }) do |form| %>
+  <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups checkbox", action: "input->newgroups#validSubmit" } ) do |form| %>
   <div class="input-group-md">
     <%= form.label :group_name %>
     <%= form.text_field :group_name, class: "input input-bordered w-full max-w-xs", data: { newgroups_target: "group_name", action: "input->newgroups#group_nameValidation" } %>
@@ -25,7 +25,7 @@
 
 
   <div class="actions">
-    <%= form.submit class:"btn btn-primary" %>
+    <%= form.submit class:"btn btn-primary", disabled: true, data: { newgroups_target: "submit" } %>
   </div>
 
   <div>

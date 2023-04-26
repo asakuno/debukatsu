@@ -5,9 +5,9 @@ export default class extends Controller {
   static targets = [
     "group_name",
     "maximum_amount",
-    "checkbox",
     "error_group_name",
     "error_maximum_amount",
+    "submit"
   ]
 
   group_nameValidation() {
@@ -35,6 +35,20 @@ export default class extends Controller {
     }else {
       maximum_amountInput.style.border = "2px solid lightgreen"
       maximum_amountError.textContent = ""
+    }
+  }
+
+  validSubmit() {
+    const submitBtn = this.submitTarget
+
+    if((this.group_nameTarget.value !== "") && (this.maximum_amountTarget.value !== "")){
+      if((this.error_group_nameTarget.textContent === "") && (this.error_maximum_amountTarget.textContent === "")){
+        submitBtn.disabled = false
+      }else{
+        submitBtn.disabled = true
+      }
+    }else{
+      submitBtn.disabled = true
     }
   }
 }
