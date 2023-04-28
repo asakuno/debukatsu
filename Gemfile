@@ -89,3 +89,5 @@ gem 'jb'
 gem 'chartkick'
 # 検索機能
 gem 'ransack'
+# 環境変数
+gem 'config'

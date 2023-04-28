@@ -1,6 +1,7 @@
 ja:
   defaults:
     login: 'ログイン'
+    line_login: 'Lineでログイン'
     signin: '新規登録'
     logout: 'ログアウト'
     back: '戻る'
