@@ -41,3 +41,4 @@ dump.rdb
 /db/seeds.rb
 
 /config/credentials/production.key
+/config/certs/*
