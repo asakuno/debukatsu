@@ -22,5 +22,8 @@ application.register("newfoods", NewfoodsController)
 import NewgroupsController from "./newgroups_controller"
 application.register("newgroups", NewgroupsController)
 
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
 import SignupController from "./signup_controller"
 application.register("signup", SignupController)
