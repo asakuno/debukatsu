@@ -60,6 +60,18 @@ ja:
     nav:
       new_group: '食べ合わせを作る'
       foods: '食品一覧へ'
+  mypage:
+    calendars:
+      show:
+        title: 'のカレンダー'
+    likes:
+      index:
+        title: 'いいね一覧'
+    profiles:
+      show:
+        title: 'のプロフィール'
+      edit:
+        title: 'の編集'
   guest_sessions:
     create:
       created: 'ゲストユーザーでログインしました'

@@ -1,3 +1,4 @@
+<% content_for(:title, @user.name+t('.title')) %>
 <div class="max-w-md mx-auto bg-white">
   <h1 class="text-3xl font-bold mb-8">プロフィールを編集する</h1>
 <%= form_with(model: @user, url: mypage_profile_path, local: true) do |form| %>
