@@ -91,5 +91,3 @@ gem 'chartkick'
 gem 'ransack'
 # 環境変数
 gem 'config'
-# csv読み取り
-gem "roo"
