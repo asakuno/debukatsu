@@ -39,8 +39,9 @@ class GroupsController < ApplicationController
       end
     end
     if @group.save
-      redirect_to group_path(@group)
+      redirect_to group_path(@group), success: t('.success')
     else
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end

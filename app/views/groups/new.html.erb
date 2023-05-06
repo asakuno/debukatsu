@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <%= render 'foods/modal' %>
 <div class="form-control">
   <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups checkbox", action: "input->newgroups#validSubmit" } ) do |form| %>

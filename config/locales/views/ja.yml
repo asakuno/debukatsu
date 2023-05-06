@@ -47,8 +47,11 @@ ja:
       fail: '食品の編集に失敗しました'
   groups:
     index:
+      title: 'みんなの食べ合わせ'
       new_group: '食べ合わせを作る'
       foods: '食品一覧へ'
+    new:
+      title: '食べ合わせ作成'
     create:
       success: '作成に成功しました'
       fail: '作成に失敗しました'
