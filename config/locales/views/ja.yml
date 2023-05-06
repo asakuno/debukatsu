@@ -30,16 +30,21 @@ ja:
     destroy:
       success: 'ログアウトしました'
   foods:
-    index: 
+    index:
+      title: '食品一覧' 
       new_food: '食品を追加する'
       groups: 'みんなの食べ合わせを見てみる'
     new:
+      title: '食品追加'
       back: '戻る'
     create:
       success: '食品を追加しました'
       fail: '食品の追加に失敗しました'
     destroy:
       success: '食品を削除しました'
+    update:
+      success: '食品を編集しました'
+      fail: '食品の編集に失敗しました'
   groups:
     index:
       new_group: '食べ合わせを作る'
