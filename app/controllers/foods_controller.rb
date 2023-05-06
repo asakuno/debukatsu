@@ -33,7 +33,7 @@ class FoodsController < ApplicationController
   def update
     @food = Food.find(params[:id])
     if @food.update(food_params)
-      redirect_to foods_path, success: '更新に成功しました'
+      redirect_to foods_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
       render :edit

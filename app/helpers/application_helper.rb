@@ -8,4 +8,10 @@ module ApplicationHelper
     uri.query = URI.encode_www_form(query_hash)
     uri.to_s
   end
+
+  def page_title(page_title = '')
+    base_title = 'デブかつApp'
+
+    page_title.empty? ? base_title : page_title + ' - ' + base_title
+  end
 end

@@ -14,6 +14,10 @@ ja:
   homes:
     index:
       title: 'デブかつApp'
+    privacy:
+      title: 'プライバシーポリシー'
+    service:
+      title: '利用規約'
   users:
     new:
       title: 'ユーザー新規登録'
@@ -30,20 +34,28 @@ ja:
     destroy:
       success: 'ログアウトしました'
   foods:
-    index: 
+    index:
+      title: '食品一覧' 
       new_food: '食品を追加する'
       groups: 'みんなの食べ合わせを見てみる'
     new:
+      title: '食品追加'
       back: '戻る'
     create:
       success: '食品を追加しました'
       fail: '食品の追加に失敗しました'
     destroy:
       success: '食品を削除しました'
+    update:
+      success: '食品を編集しました'
+      fail: '食品の編集に失敗しました'
   groups:
     index:
+      title: 'みんなの食べ合わせ'
       new_group: '食べ合わせを作る'
       foods: '食品一覧へ'
+    new:
+      title: '食べ合わせ作成'
     create:
       success: '作成に成功しました'
       fail: '作成に失敗しました'
@@ -52,6 +64,18 @@ ja:
     nav:
       new_group: '食べ合わせを作る'
       foods: '食品一覧へ'
+  mypage:
+    calendars:
+      show:
+        title: 'のカレンダー'
+    likes:
+      index:
+        title: 'いいね一覧'
+    profiles:
+      show:
+        title: 'のプロフィール'
+      edit:
+        title: 'の編集'
   guest_sessions:
     create:
       created: 'ゲストユーザーでログインしました'

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   root to: 'homes#index'
   get 'login', to: 'user_sessions#new'
-  post "oauth/callback", to: "oauths#callback"
-  get "oauth/callback", to: "oauths#callback"
-  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+  post 'oauth/callback', to: 'oauths#callback'
+  get 'oauth/callback', to: 'oauths#callback'
+  get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
   resource :homes, only: %i[index] do
     collection do
