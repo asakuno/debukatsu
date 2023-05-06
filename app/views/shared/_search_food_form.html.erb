@@ -1,8 +1,8 @@
 <div class="flex justify-center">
   <%= search_form_for @q, url: url, html: { data: { controller: "search", action: "input->search#submit" }} do |f| %>
-    <%= f.search_field :calorie_gteq, class:"border rounded-l py-2 px-4 bg-gray-200", placeholder:"カロリーを入力" %>
-    <%= f.search_field :price_gteq, class:"border rounded-l py-2 px-4 bg-gray-200", placeholder:"値段を入力" %>
-    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" id="sort-select">
+    <%= f.number_field :calorie_gteq, class:"rounded-l py-2 px-4 bg-gray-200", placeholder:"カロリーを入力" %>
+    <%= f.number_field :price_gteq, class:"rounded-l py-2 px-4 bg-gray-200", placeholder:"値段を入力" %>
+    <select class="select select-bordered bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" id="sort-select">
       <option value="">並び替え</option>
       <option value="<%= sort_by_sort_url(sort_url(@q, :updated_at), 'updated_at+desc') %>">新着順</option>
       <option value="<%= sort_by_sort_url(sort_url(@q, :food_name), 'food_name+desc') %>">食品名:降順</option>
