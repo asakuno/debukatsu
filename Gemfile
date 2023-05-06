@@ -91,3 +91,5 @@ gem 'chartkick'
 gem 'ransack'
 # 環境変数
 gem 'config'
+# OGP, メタタグの設定
+gem "meta-tags"
