@@ -9,6 +9,10 @@ module ApplicationHelper
     uri.to_s
   end
 
+  def active_class(link_path)
+    current_page?(link_path) ? 'underline border-l border-t border-r rounded-t bg-gray-200' : 'bg-gray-100'
+  end
+
   def page_title(page_title = '')
     base_title = 'デブかつApp'
 

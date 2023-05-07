@@ -1,0 +1,12 @@
+<ul class="flex border-b bg-original">
+  <li class="mr-1">
+    <%= link_to "プロフィール", mypage_profile_path, class: "inline-block #{active_class(mypage_profile_path)} py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold text-gray-900 dark:text-white hover:underline" %>
+  </li>
+  <li class="-mb-px mr-1">
+    <%= link_to "いいね一覧", mypage_likes_path, class: "inline-block #{active_class(mypage_likes_path)} py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold text-gray-900 dark:text-white hover:underline" %>
+  </li>
+  <li class="mr-1">
+    <%= link_to "カレンダー", mypage_calendars_path, class: "inline-block #{active_class(mypage_calendars_path)} py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold text-gray-900 dark:text-white hover:underline" %>
+  </li>
+</ul>
+
