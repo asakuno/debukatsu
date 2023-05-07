@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div class="flex justify-center bg-original">
   <%= search_form_for @q, url: url, html: { data: { controller: "search", action: "input->search#submit" }} do |f| %>
     <%= f.number_field :calorie_gteq, class:"rounded-l py-2 px-4 bg-gray-200", placeholder:"カロリーを入力" %>
     <%= f.number_field :price_gteq, class:"rounded-l py-2 px-4 bg-gray-200", placeholder:"値段を入力" %>
