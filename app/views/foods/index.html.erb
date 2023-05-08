@@ -9,5 +9,7 @@
   <div class="grid w-full grid-cols-1 gap-2 mx-auto lg:grid-cols-3 z-10">
     <%= render @foods %>
   </div>
-  <%= paginate @foods %>
+  <div class="flex justify-center items-center pt-4">
+    <%= paginate @foods %>
+  </div>
 </div>
