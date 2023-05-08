@@ -37,10 +37,10 @@ module ApplicationHelper
         type: 'website',
         url: 'https://www.debukatsu.net/',
         image: image_url('site_logo.jpg'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
-        card: 'summary_large_image',
+        card: 'summary_large_image'
       }
     }
   end
