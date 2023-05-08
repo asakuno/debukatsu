@@ -1,43 +1,41 @@
 <div class="hidden fixed z-30 inset-0 overflow-y-auto" data-modal-target="modal">
   <div>
-<%# Background %> 
+  <%# Background %> 
     <div class="opacity-0 fixed inset-0 transition-opacity" data-modal-target="background">
       <div class="absolute inset-0 bg-gray-700 bg-opacity-75">
-<%# top left slide labels %>
+      <%# top left slide labels %>
         <div class="sm:block absolute top-0 left-0 pt-4 pl-4">
           <span class="text-white font-medium"><!-- will hold the slide name --></span>
         </div>
-
 <%# X-close icon in top-right corner %>
       </div>
     </div>
-
 <%# Trick the browser into centering modal contents %>
-<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-<div class="fixed z-10 inset-0 overflow-y-auto">
-  <div class="flex items-center justify-center min-h-screen px-4">
-    <div class="bg-white rounded-lg overflow-hidden shadow-xl max-w-3xl w-full">
-      <div class="relative">
-        <%= image_tag('', data: { "modal-target": "imagePreview" }, class: "w-full h-80 object-cover") %>
-        <div class="absolute top-0 right-0 m-3">
-          <%= link_to "#", class: "text-gray-500", data: {action: "click->modal#handleClose"} do %>
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-          <% end %>
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    <div class="fixed z-10 inset-0 overflow-y-auto">
+      <div class="flex items-center justify-center min-h-screen px-4">
+        <div class="bg-white rounded-lg overflow-hidden shadow-xl max-w-3xl w-full">
+          <div class="relative">
+            <%= image_tag('', data: { "modal-target": "imagePreview" }, class: "w-full h-80 object-cover") %>
+            <div class="absolute top-0 right-0 m-3">
+              <%= link_to "#", class: "text-gray-500", data: {action: "click->modal#handleClose"} do %>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              <% end %>
+            </div>
+          </div>
+          <div class="px-6 py-4">
+            <div data-modal-target="foodName" class="font-bold text-xl mb-2"></div>
+              <p data-modal-target="foodCalorie" class="text-gray-700 text-base"></p>
+              <p data-modal-target="foodPrice" class="text-gray-700 text-base"></p>
+            </div>
+            <div class="px-6 py-4">
+              <div data-modal-target="foodTags" class="flex flex-wrap">
+              <%# individual tags will be added dynamically here %>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-      <div class="px-6 py-4">
-        <div data-modal-target="foodName" class="font-bold text-xl mb-2"></div>
-          <p data-modal-target="foodCalorie" class="text-gray-700 text-base"></p>
-          <p data-modal-target="foodPrice" class="text-gray-700 text-base"></p>
-        </div>
-        <div class="px-6 py-4">
-  <div data-modal-target="foodTags" class="flex flex-wrap">
-    <%# individual tags will be added dynamically here %>
-  </div>
-</div>
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>

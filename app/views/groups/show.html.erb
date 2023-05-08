@@ -34,13 +34,4 @@
 <div class="px-4">
   <%= link_to '戻る', groups_path, class: "btn btn-primary" %>
 </div>
-<script>
-  $(document).ready(function(){
-  $('#js-comment-icon').on('click', function(event){
-    event.preventDefault();
-    $('html, body').animate({
-      scrollTop: $('#js-new-comment-body').offset().top
-    }, 500);
-  });
-});
-</script>
+<%= javascript_pack_tag 'groups/show' %>
