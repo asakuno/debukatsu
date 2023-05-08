@@ -31,7 +31,6 @@ RSpec.describe 'UserSessions', type: :system do
     context 'ログアウトボタンをクリック' do
       it 'ログアウト処理が成功する' do
         login_as(user)
-        find('label#menu-button').click
         click_link 'ログアウト'
         begin
         page.accept_confirm do
