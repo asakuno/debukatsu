@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @foods = @group.foods.includes(%i[taggings user groups]).references(:all).page(params[:page])
+    @foods = @group.foods.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
     @comment = Comment.new
     @comments = @group.comments.includes(:user).order(created_at: :desc)
   end
@@ -19,9 +19,9 @@ class GroupsController < ApplicationController
     @tags = Food.tags_on(:tags)
     @group = Group.new
     if params[:tag_name].present?
-      @foods = Food.tagged_with(params[:tag_name].to_s).includes(%i[taggings user groups]).references(:all).page(params[:page])
+      @foods = Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).order(created_at: :desc).references(:all).page(params[:page])
     else
-      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
+      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
     end
   end
 
