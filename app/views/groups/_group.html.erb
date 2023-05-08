@@ -5,6 +5,7 @@
     </h2>
     <div class="flex flex-wrap items-center justify-center relative container px-4 mx-auto">
       <div class="w-full lg:w-1/2 text-center lg:text-left">
+        <p class="font-bold">合計</p>
         <p class="text-lg font-medium mb-4"><%= group.foods.sum { |hash| hash[:price]} %>円</p>
         <p class="text-lg font-medium mb-2"><%= group.foods.sum { |hash| hash[:calorie]} %>kcal</p>
       </div>

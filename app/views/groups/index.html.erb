@@ -2,8 +2,10 @@
 <div class="mb-10">
   <%= render 'nav', { groups: @groups }%>
 </div>
-<%= link_to t('.new_group'), new_group_path, class:"btn btn-primary"%>
+<div class="w-screen flex justify-center items-center mb-10">
+  <%= link_to t('.new_group'), new_group_path, class:"btn btn-primary mr-10"%>
 <%= link_to t('.foods'), foods_path, class:"btn btn-secondary" %>
+</div>
 <div class="md:flex flex-col gap-6 ml-6">
   <ui class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
     <%= render @groups %>

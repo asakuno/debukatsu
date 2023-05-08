@@ -28,7 +28,11 @@
   </div>
   <h3 class="text-lg font-bold mb-4">コメント一覧</h3>
   <ul class="comment-list">
-    <%= render @comments %>
+    <% if @comments.present? %>
+      <%= render @comments %>
+    <% else %>
+    <p class="mb-3">まだコメントはありません</p>
+    <% end %>
   </ul>
 </div>
 <div class="px-4">
