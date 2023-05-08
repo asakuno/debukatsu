@@ -1,32 +1,46 @@
+<%= render 'foods/modal' %>
 <% content_for(:title, @group.group_name) %>
-<div class="container flex flex-wrap h-64 overflow-y-scroll">
-    <div class="comments w-1/3">
-      <h1 class="font-bold text-2xl"><%= @group.group_name %></h1>
-      <p>合計: <%= @group.foods.sum { |hash| hash[:calorie]} %>kcal</p>
+<div class="flex flex-col h-64 overflow-y-scroll px-4 bg-gray-100 rounded-lg shadow-lg">
+  <div class="flex justify-between items-center py-4">
+    <h1 class="font-bold text-3xl"><%= @group.group_name %></h1>
+    <button class="border border-gray-400 rounded-lg inline-flex items-center px-2 py-1 hover:bg-blue-200" id="js-comment-icon">
       <% if @group.comments.present? %>
-        <i class="fa fa-commenting"></i><%= @group.comments.count %>
+        <i class="fas fa-comment-alt text-xl"></i><span class="ml-2"><%= @group.comments.count %></span>
       <% else %>
-        <i class="fa fa-comment"></i><%= @group.comments.count %>
+        <i class="fas fa-comment text-xl"></i><span class="ml-2"><%= @group.comments.count %></span>
       <% end %>
-    </div>
+    </button>
   </div>
-<div class="grid grid-cols-3 flex flex-row-reverse gap-4">
-  <%= render partial: "foods/food", collection: @foods %>
+  <p class="pb-4">合計: <%= @group.foods.sum { |hash| hash[:calorie]} %>kcal</p>
 </div>
-<div class="comment-form mt-8">
+<div>
+  <ul role="list" class="divide-y divide-gray-100">
+    <%= render partial: "groups/food", collection: @foods %>
+  </ul>
+</div>
+<div class="flex justify-center items-center pt-4">
+  <%= paginate @foods %>
+</div>
+<div class="comment-form mt-8 px-4">
   <h3 class="text-lg font-bold mb-4">コメント投稿</h3>
   <div class="form-group mb-4">
     <%= render partial: 'comments/comment_form', locals: { group: @group, comment: @comment } %>
   </div>
-<div>
-<div class="comments mt-8">
   <h3 class="text-lg font-bold mb-4">コメント一覧</h3>
   <ul class="comment-list">
     <%= render @comments %>
   </ul>
 </div>
-
-<%= paginate @foods %>
-<%= link_to '戻る', groups_path, class: "btn btn-primary" %>
-
-
+<div class="px-4">
+  <%= link_to '戻る', groups_path, class: "btn btn-primary" %>
+</div>
+<script>
+  $(document).ready(function(){
+  $('#js-comment-icon').on('click', function(event){
+    event.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('#js-new-comment-body').offset().top
+    }, 500);
+  });
+});
+</script>

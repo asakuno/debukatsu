@@ -51,7 +51,7 @@
             <label class="block text-gray-700 font-bold mb-2" for="created-at">
               あなたの1日に必要なカロリー
             </label>
-            <span class="text-gray-700"><%= @user.profile.momentum * 240 + @user.required_calories %>kcal</span>
+            <span class="text-gray-700"><%= @user.target_calories %>kcal</span>
           </div>
         <% else %>
           <span class="text-gray-700">＋0kg</span>

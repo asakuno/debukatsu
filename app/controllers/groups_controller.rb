@@ -1,10 +1,10 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.includes(%i[user foods comments]).references(:all).where(publish: true).order(created_at: :desc).page(params[:page])
+    @groups = Group.includes(:foods, :comments, user: :profile).references(:all).where(publish: true).order(created_at: :desc).page(params[:page])
   end
 
   def mine
-    @groups = current_user.groups.includes(%i[user foods comments]).references(:all).order(created_at: :desc).page(params[:page])
+    @groups = current_user.groups.includes(:foods, :comments, user: :profile).references(:all).order(created_at: :desc).page(params[:page])
     render :index
   end
 
