@@ -1,41 +1,45 @@
 <% content_for(:title, t('.title')) %>
 <%= render 'foods/modal' %>
-<div class="form-control">
+<div class="py-6 mx-10">
   <%= form_with(model: @group, local: true, group_id: @group.id, data: { controller: "newgroups checkbox", action: "input->newgroups#validSubmit" } ) do |form| %>
-  <div class="input-group-md">
-    <%= form.label :group_name %>
+  <div class="mb-6">
+    <%= form.label :group_name, class: "block text-gray-700 font-bold mb-2" %>
     <%= form.text_field :group_name, class: "input input-bordered w-full max-w-xs", data: { newgroups_target: "group_name", action: "input->newgroups#group_nameValidation" } %>
     <p data-newgroups-target="error_group_name"></p>
   </div>
 
-  <div data-action="input->newgroups#maximum_amountValidation">
-    <div class="input-group-md">
-      <%= form.label :maximum_amount %>
-      <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...30001, step: 100, data: { newgroups_target: "maximum_amount" } %>円
+  <div class="mb-6" data-action="input->newgroups#maximum_amountValidation">
+    <%= form.label :maximum_amount, class: "block text-gray-700 font-bold mb-2" %>
+    <div class="flex items-center">
+      <%= form.number_field :maximum_amount, id: "maximum_amount_value", class: "input input-bordered w-full max-w-xs", in: 100...30001, data: { newgroups_target: "maximum_amount" } %>
+      <p class="ml-1">円</p>
+    </div>
       <p data-newgroups-target="error_maximum_amount"></p>
-      <%= form.range_field :maximum_amount, in: 100...30001, id: 'maximum_amount_input',class: "range range-xs range-primary", step: 100, data: { newgroups_target: "maximum_amount" } %>
+      <%= form.range_field :maximum_amount, in: 100...30001, id: 'maximum_amount_input', class: "range range-xs range-primary mt-5", data: { newgroups_target: "maximum_amount" } %>
+  </div>
+
+  <div class="mb-6">
+    <p class="block text-gray-700 font-bold mb-2">公開設定</p>
+    <div class="flex items-center">
+      <%= form.radio_button :publish, true,class:"radio" %>
+      <%= form.label :publish, '公開', class: "ml-2 mr-4" %>
+      <%= form.radio_button :publish, false, class:"radio" %>
+      <%= form.label :publish, '非公開', value: false, class: "ml-2 mr-4" %>
     </div>
   </div>
 
-  <div>
-    <%= form.radio_button :publish, true,class:"radio" %>
-    <%= form.label :publish, '公開' %>
-    <%= form.radio_button :publish, false, class:"radio" %>
-    <%= form.label :publish, '非公開', value: false %>
-  </div>
 
-
-  <div class="actions">
+  <div class="mb-6">
     <%= form.submit class:"btn btn-primary", disabled: true, data: { newgroups_target: "submit" } %>
   </div>
 
-  <div>
+  <div class="mb-8">
     <button type="button" data-action="click->checkbox#clearAll" class="bg-red-500 hover:bg-red-700 text-gray-200 font-bold py-2 px-4 rounded my-2">全クリア</button>
     <button type="button" data-action="click->checkbox#checkAll" class="bg-blue-500 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded my-2">全チェック</button>
   </div>
 
-  <div>
-    <p>タグで絞り込み</p>
+  <div class="mb-8">
+    <p class="block text-gray-700 font-bold mb-2">タグで絞り込み</p>
     <%= link_to "全て", new_group_path(nil), class: "inline-block items-center justify-center py-1 px-2 rounded-md mr-2 bg-white text-red-600 text-xs uppercase shadow-sm transition duration-300 hover:translate-y-0.5 hover:shadow-sm border border-red-500" %>
     <% if @tags.present? %>
       <% @tags.each do |tag| %>
@@ -44,7 +48,7 @@
     <% end %>
   </div>
 
-  <div class="input-group-md">
+  <div>
     <div class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
       <%= form.collection_check_boxes(:food_ids, @foods, :id, :food_name) do |food| %>
       <div class="card w-96 bg-base-100 shadow-xl">
@@ -61,13 +65,14 @@
                                                                         "modal-tags-param": food.object.tag_list,
                                                                         action: "click->modal#handleOpen" }%>
             <% else %>
-              <%= image_tag 'no_image.jpg', :size =>'300x300', data: {"modal-source-param": food.object.image_url(:medium),
+              <%= image_tag 'no_image.jpg', :size =>'270x270', data: {"modal-source-param": food.object.image_url(:medium),
                                                                         "modal-name-param": food.object.food_name,
                                                                         "modal-calorie-param": food.object.calorie,
                                                                         "modal-price-param": food.object.price,
                                                                         "modal-tags-param": food.object.tag_list,
                                                                         action: "click->modal#handleOpen" }%>
             <% end %>
+            
           <div>
             <%= food.object.calorie%>kcal<br>
             <%= food.object.price %>円
