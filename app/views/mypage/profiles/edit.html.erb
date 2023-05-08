@@ -26,27 +26,27 @@
       </div>
     </div>
 
-  <div class="mb-6">
-    <%= form.label :gender, class: "block text-gray-700 font-bold mb-2" %>
-    <div class="relative inline-block w-full text-gray-700">
-      <%= form.enum_select :gender, class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-  </div>
-
-  <div class="mb-6">
-    <%= form.label :weight, class: "block text-gray-700 font-bold mb-2" %>
-    <div class="relative inline-block w-full text-gray-700">
-      <%= form.enum_select :weight, class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-  </div>
-
-  <%= form.fields_for :profile do |profile_form| %>
     <div class="mb-6">
-      <%= profile_form.label :momentum, class: "block text-gray-700 font-bold mb-2" %>
-      <%= profile_form.number_field :momentum, in: 1...100, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <%= form.label :gender, class: "block text-gray-700 font-bold mb-2" %>
+      <div class="relative inline-block w-full text-gray-700">
+        <%= form.enum_select :gender, class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
     </div>
+
+    <div class="mb-6">
+      <%= form.label :weight, class: "block text-gray-700 font-bold mb-2" %>
+      <div class="relative inline-block w-full text-gray-700">
+        <%= form.enum_select :weight, class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+    </div>
+
+    <%= form.fields_for :profile do |profile_form| %>
+      <div class="mb-6">
+        <%= profile_form.label :momentum, class: "block text-gray-700 font-bold mb-2" %>
+        <%= profile_form.number_field :momentum, in: 1...100, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+    <%= form.submit '更新する', class: "btn btn-primary" %>
   <% end %>
-  <%= form.submit '更新する', class: "btn btn-primary" %>
-<% end %>
-</div>
+  </div>
 </div>

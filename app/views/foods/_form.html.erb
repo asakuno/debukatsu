@@ -1,68 +1,86 @@
-<%= form_with(model: food, data: { controller: "newfoods", action: "input->newfoods#validSubmit" }) do |form| %>
-  <p class="text-red-500 test-sm">*は必須です</p>
-  <div class="input-group-md">
-    <%= form.label :food_name %>
-    <span class="text-red-500 required-dot">*</span>
-    <%= form.text_field :food_name, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "food_name", action: "input->newfoods#food_nameValidation" }  %>
-    <p data-newfoods-target="error_food_name"></p>
-  </div>
+<div class="max-w-md mx-auto mt-10">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <h1 class="underline text-3xl font-bold mb-8">食品追加</h1>
+  <%= form_with(model: food, data: { controller: "newfoods", action: "input->newfoods#validSubmit" }) do |form| %>
+    <p class="text-red-500 test-sm">*は必須です</p>
 
-  <div class="input-group-md">
-    <%= form.label :calorie %>
-    <span class="text-red-500 required-dot">*</span>
-    <%= form.number_field :calorie, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "calorie", action: "input->newfoods#calorieValidation" }, in: 0...30000 %>kcal
-    <p data-newfoods-target="error_calorie"></p>
-  </div>
+    <div class="mb-6">
+      <div class="flex items-center">
+        <%= form.label :food_name, class: "block text-gray-700 font-bold mb-2" %>
+        <span class="text-red-500 required-dot">*</span>
+      </div>
+      <%= form.text_field :food_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", data: { newfoods_target: "food_name", action: "input->newfoods#food_nameValidation" }  %>
+      <p data-newfoods-target="error_food_name"></p>
+    </div>
 
-  <div class="input-group-md">
-    <%= form.label :price %>
-    <span class="text-red-500 required-dot">*</span>
-    <%= form.number_field :price, class: "input input-bordered w-full max-w-xs", data: { newfoods_target: "price", action: "input->newfoods#priceValidation" }, in: 0...300000 %>円
-    <p data-newfoods-target="error_price"></p>
-  </div>
+    <div class="mb-6">
+      <div class="flex items-center">
+        <%= form.label :calorie, class: "block text-gray-700 font-bold mb-2" %>
+        <span class="text-red-500 required-dot">*</span>
+      </div>
+      <div class="flex items-center">
+        <%= form.number_field :calorie, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", data: { newfoods_target: "calorie", action: "input->newfoods#calorieValidation" }, in: 0...30000 %>
+        <p>kcal</p>
+      </div>
+      <p data-newfoods-target="error_calorie"></p>
+    </div>
 
-  <div class="input-group-md">
-    <%= form.label :protein %>
-    <%= form.number_field :protein, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
-  </div>
+    <div class="mb-6">
+      <div class="flex items-center">
+        <%= form.label :price, class: "block text-gray-700 font-bold mb-2" %>
+        <span class="text-red-500 required-dot">*</span>
+      </div>
+      <div class="flex items-center">
+        <%= form.number_field :price, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", data: { newfoods_target: "price", action: "input->newfoods#priceValidation" }, in: 0...300000 %>
+        <p>円</p>
+      </div>
+      <p data-newfoods-target="error_price"></p>
+    </div>
 
-  <div class="input-group-md">
-    <%= form.label :lipid %>
-    <%= form.number_field :lipid, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
-  </div>
+    <div class="mb-6">
+      <%= form.label :protein, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.number_field :protein, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", in: 0...3000, step: 0.1 %>
+    </div>
 
-  <div class="input-group-md">
-    <%= form.label :sugar %>
-    <%= form.number_field :sugar, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
-  </div>
+    <div class="mb-6">
+    <%= form.label :lipid, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.number_field :lipid, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", in: 0...3000, step: 0.1 %>
+    </div>
 
-  <div class="input-group-md">
-    <%= form.label :dietary_fiber %>
-    <%= form.number_field :dietary_fiber, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
-  </div>
+    <div class="mb-6">
+      <%= form.label :sugar, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.number_field :sugar, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", in: 0...3000, step: 0.1 %>
+    </div>
 
-  <div class="input-group-md">
-    <%= form.label :table_salt %>
-    <%= form.number_field :table_salt, class: "input input-bordered w-full max-w-xs", in: 0...3000, step: 0.1 %>
-  </div>
+    <div class="mb-6">
+      <%= form.label :dietary_fiber, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.number_field :dietary_fiber, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", in: 0...3000, step: 0.1 %>
+    </div>
 
-  <div class="input-group-md">
-    <%= form.label :tags %>
-    <%= content_tag(:div, id:"app", data:{tag_list: Food.tags_on(:tags).pluck(:name), my_tag_list: food.tag_list}) do %>
-      <multiselect v-model="myTagList" tag-placeholder="Add this as new tag" placeholder="Search or add a tag"  :options="tagList" :multiple="true" :taggable="true" @tag="addTag" id="vue-tag-input" @remove="alertRemove"></multiselect>
-      <pre class="language-json" hidden="hidden">
-        <input type="text" name="food[tag_list]" id="food_tag_list" v-model="myTagList">
-      </pre>
-    <% end %>
-  </div>
+    <div class="mb-6">
+      <%= form.label :table_salt, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.number_field :table_salt, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", in: 0...3000, step: 0.1 %>
+    </div>
 
-  <div class="file">
-    <%= form.label :image_data %>
-    <%= form.hidden_field :image, value: @food.cached_image_data, class:"file hover:bg-gray-100" %>
-    <%= form.file_field :image, class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
-  </div>
+    <div class="mb-6">
+      <%= form.label :tags, class: "block text-gray-700 font-bold mb-2" %>
+      <%= content_tag(:div, id:"app", data:{tag_list: Food.tags_on(:tags).pluck(:name), my_tag_list: food.tag_list}) do %>
+        <multiselect v-model="myTagList" tag-placeholder="Add this as new tag" placeholder="Search or add a tag"  :options="tagList" :multiple="true" :taggable="true" @tag="addTag" id="vue-tag-input" @remove="alertRemove"></multiselect>
+        <pre class="language-json" hidden="hidden">
+          <input type="text" name="food[tag_list]" id="food_tag_list" v-model="myTagList">
+        </pre>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit class:"btn btn-primary", disabled: true, data: { newfoods_target: "submit" } %>
+    <div class="file">
+      <%= form.label :image_data, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.hidden_field :image, value: @food.cached_image_data, class:"file hover:bg-gray-100" %>
+      <%= form.file_field :image, class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
+    </div>
+
+    <div class="mt-2 text-right">
+      <%= form.submit class:"btn btn-primary", disabled: true, data: { newfoods_target: "submit" } %>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>

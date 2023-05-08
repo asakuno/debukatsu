@@ -4,7 +4,7 @@
   <%= render 'shared/search_food_form', url: foods_path %>
   <%= link_to t('.new_food'), new_food_path, class:"btn btn-primary"%>
   <%= link_to t('.groups'), groups_path, class:"btn btn-secondary" %>
-  <div class="flex flex-wrap">
+  <div class="grid w-full grid-cols-1 gap-2 mx-auto lg:grid-cols-3 z-10">
     <%= render @foods %>
   </div>
   <%= paginate @foods %>

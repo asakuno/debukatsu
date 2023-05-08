@@ -8,7 +8,7 @@ class Food < ApplicationRecord
 
   acts_as_taggable
 
-  validates :food_name, presence: true
+  validates :food_name, presence: true,length: { maximum: 20 }
   validates :calorie, presence: true
   validates :price, presence: true
   validates :protein, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
