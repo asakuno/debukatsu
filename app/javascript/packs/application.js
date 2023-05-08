@@ -11,7 +11,6 @@ import "channels"
 import '@fortawesome/fontawesome-free/js/all'
 import "stylesheets/application.css"
 import "jquery"
-import "@vueform/multiselect"
 import "vue"
 import "./tags.js"
 import "../calendar"

@@ -1,0 +1,33 @@
+<li class="flex justify-between gap-x-6 py-5 mx-10 shadow">
+  <div class="flex gap-x-4">
+    <% if food.image.present? %>
+      <%= image_tag food.image_url(:small).to_s, :size =>'50x50', data: {"modal-source-param": food.image_url(:medium),
+                                                                        "modal-name-param": food.food_name,
+                                                                        "modal-calorie-param": food.calorie,
+                                                                        "modal-price-param": food.price,
+                                                                        "modal-tags-param": food.tag_list,
+                                                                        action: "click->modal#handleOpen" },
+                                                                        class: "hover:translate-y-0.5" %>
+    <% else %>
+      <%= image_tag 'no_image.jpg', :size =>'50x50', data: {"modal-source-param": food.image_url(:medium),
+                                                                        "modal-name-param": food.food_name,
+                                                                        "modal-calorie-param": food.calorie,
+                                                                        "modal-price-param": food.price,
+                                                                        "modal-tags-param": food.tag_list,
+                                                                        action: "click->modal#handleOpen" },
+                                                                        class: "hover:translate-y-0.5" %>
+    <% end %>
+    <div class="min-w-0 flex-auto">
+      <p class="text-1xl font-semibold leading-6 text-gray-900"><%= food.food_name %></p>
+      <p class="mt-1 truncate text-xs leading-5 text-gray-500">
+        <%= food.price %>円
+        <%= food.calorie %>kcal
+      </p>
+    </div>
+  </div>
+  <div class="hidden sm:flex sm:items-center">
+    <% food.tag_list.each do |tag| %>
+      <%= link_to tag, foods_path(food, tag_name: tag), class: "inline-block items-center justify-center py-1 px-2 rounded-md mr-2 bg-white text-red-600 text-xs uppercase shadow-sm transition duration-300 hover:translate-y-0.5 hover:shadow-sm border border-red-500" %>
+    <% end %>
+  </div>
+</li>

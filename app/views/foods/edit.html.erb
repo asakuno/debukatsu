@@ -1,11 +1,4 @@
 <% content_for(:title, @food.food_name) %>
-<div class="max-w-md mx-auto justify-center">
-  <div class="bg-white shadow-md rounded px-15 pt-6 pb-8 mb-4 mt-5">
-    <div class="mb-4">
-      <h1 class="text-3xl font-bold">食品の編集</h1>
-    </div>
-  <%= render 'form', food: @food %>
-  </div>
-</div>
+<%= render 'form', food: @food %>
 
 <%= link_to '戻る', foods_path, class: "btn btn-primary" %>

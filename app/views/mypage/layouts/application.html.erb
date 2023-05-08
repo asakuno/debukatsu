@@ -28,8 +28,9 @@
   <body class="bg-gray-200" data-controller="modal">
     <%= render 'shared/header' %>
     <%= render 'shared/flash_message' %>
-    <%= render 'mypage/shared/sidebar' %>
+    <%= render 'mypage/shared/nav' %>
     <%= yield %>
+    <%= render 'shared/nav' %>
     <%= render 'shared/footer' %>
   </body>
 </html>

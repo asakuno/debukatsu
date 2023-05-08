@@ -1,7 +1,7 @@
 <header>
-<div class="navbar bg-original">
+<!--<div class="navbar bg-original">
   <div class="flex-1">
-    <%= link_to "デブかつApp", root_path,  class: "btn btn-ghost normal-case text-xl" %>
+    <%= link_to (t'defaults.title'), root_path,  class: "btn btn-ghost normal-case text-xl" %>
   </div>
   <div class="flex-none">
     <div class="dropdown dropdown-end">
@@ -16,6 +16,66 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
+<div class="navbar bg-original">
+  <div class="flex-1">
+    <%= link_to (t'defaults.title'), root_path,  class: "btn btn-ghost normal-case text-xl" %>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li class="flex items-center flex-wrap justify-center">
+        <%= link_to mypage_profile_path, class: 'nav-link' do %>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <i class="fa-solid fa-user" style="color: #050505;"></i>
+            <p style="margin-top: 5px;">プロフィール</p>
+          </div>
+        <% end %>
+      <li>
+        <a>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <i class="fa-solid fa-utensils" style="color: #000000;"></i>
+            <p style="margin-top: 5px;">食べ合わせ</p>
+          </div>
+        </a>
+        <ul class="p-2 bg-base-100">
+          <li>
+            <%= link_to groups_path, class: 'nav-link' do %>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <p style="margin-top: 5px;">食べ合わせ一覧</p>
+            </div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_group_path, class: 'nav-link' do %>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <p style="margin-top: 5px;">食べ合わせ作成</p>
+            </div>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li tabindex="0">
+        <a>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <i class="fa-solid fa-bowl-rice"></i>
+            <p style="margin-top: 5px;">食品</p>
+          </div>
+        </a>
+        <ul class="p-2 bg-base-100">
+          <li><%= link_to "食品一覧", foods_path, class: 'nav-link' %></li>
+          <li><%= link_to "食品作成", new_food_path, class: 'nav-link' %></li>
+        </ul>
+      </li>
+      <li class="flex items-center flex-wrap justify-center">
+        <%= link_to logout_path, method: :delete, id: "logout_button", class: 'nav-link mr-2', data: { confirm: t('defaults.message.logout_confirm') }  do %>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
+          <p style="margin-top: 5px;"><%= (t'defaults.logout') %></p>
+        </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
 </header>

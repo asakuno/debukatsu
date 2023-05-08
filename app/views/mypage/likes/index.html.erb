@@ -2,5 +2,11 @@
 <%= render 'foods/modal' %>
 <%= render 'shared/search_food_form', url: mypage_likes_path %>
 <div class="flex flex-wrap">
-  <%= render partial: 'food', collection: @likes %>
+  <% if @likes.present? %>
+    <%= render partial: 'foods/food', collection: @likes %>
+  <% else %>
+    <div class="max-w-md mx-auto my-10">
+      <p class="font-bold">条件に合う食品がありません</p>
+    </div>
+  <% end %>
 </div>

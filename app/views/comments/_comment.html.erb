@@ -1,11 +1,11 @@
-<li class="comment mb-4">
-  <div class="comment-meta flex justify-between mb-1">
+<li class="comment mb-4 bg-yellow-100 rounded-lg shadow-md">
+  <div class="comment-meta flex justify-between mb-1 px-2">
     <div class="comment-author font-bold">
       <%= comment.user.name %>
     </div>
     <span class="comment-date text-gray-400"><%= l comment.created_at %></span>
   </div>
-  <div class="comment-text bg-gray-100 p-4 rounded-lg">
+  <div class="comment-text bg-white p-4 rounded-lg">
     <%= comment.body %>
     <div class="flex justify-end">
       <% if current_user.own?(comment) %>

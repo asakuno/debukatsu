@@ -2,10 +2,14 @@
 <div class="mx-auto max-w-screen-lg">
   <%= render 'modal' %>
   <%= render 'shared/search_food_form', url: foods_path %>
-  <%= link_to t('.new_food'), new_food_path, class:"btn btn-primary"%>
+  <div class="w-screen flex justify-center items-center my-10">
+    <%= link_to t('.new_food'), new_food_path, class:"btn btn-primary mr-10"%>
   <%= link_to t('.groups'), groups_path, class:"btn btn-secondary" %>
-  <div class="flex flex-wrap">
+  </div>
+  <div class="grid w-full grid-cols-1 gap-2 mx-auto lg:grid-cols-3 z-10">
     <%= render @foods %>
   </div>
-  <%= paginate @foods %>
+  <div class="flex justify-center items-center pt-4">
+    <%= paginate @foods %>
+  </div>
 </div>

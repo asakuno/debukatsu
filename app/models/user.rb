@@ -53,6 +53,10 @@ class User < ApplicationRecord
     age.present? && gender.present? && weight.present?
   end
 
+  def target_calories
+    profile.momentum * 240 + required_calories
+  end
+
   def required_calories
     calorie_table = {
       school_child: {
