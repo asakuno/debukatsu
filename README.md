@@ -1,6 +1,7 @@
 <h1>デブかつApp</h1>
-# デブかつApp
-[![Image from Gyazo](https://i.gyazo.com/91b1ee3b8d5b9e91d127408963c34afc.png)](https://gyazo.com/91b1ee3b8d5b9e91d127408963c34afc)
+
+<a href="https://gyazo.com/91b1ee3b8d5b9e91d127408963c34afc"><img src="https://i.gyazo.com/91b1ee3b8d5b9e91d127408963c34afc.png" alt="Image from Gyazo" width="1282"/></a>
+
 ### [サービスリンク](https://www.debukatsu.net/)
 
 ## サービス概要
