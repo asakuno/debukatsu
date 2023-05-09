@@ -66,8 +66,8 @@ gem 'sorcery'
 # ページネーション
 gem 'kaminari'
 # ActiveJob
-#gem 'sidekiq'
-#gem 'redis-rails'
+gem 'sidekiq'
+gem 'redis-rails'
 # 画像アップロード
 gem 'shrine'
 gem 'aws-sdk-s3'
