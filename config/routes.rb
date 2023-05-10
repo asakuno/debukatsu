@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
+    resources :foods, only: %i[index]
     namespace :mine do
       resources :groups, only: %i[index]
     end

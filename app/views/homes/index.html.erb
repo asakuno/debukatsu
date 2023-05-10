@@ -95,3 +95,79 @@
     </div>
   </div>
 </div>
+<div class=page>
+    <div class="heading">
+        <h1>サイゼリヤ</h1>
+        <h1>1000円ガチャ</h1>
+    </div>
+
+    <div class="buttonarea">
+      <a href="#" class="btn" onclick="runGacha()">ガチャを回す</a>
+      <input type="number" id="budget" name="budget" min="0" max="10000" step="100" required>
+    </div>
+    <div id="result"></div>
+</div>
+<script>
+const fetchFoods = async () => {
+  try {
+    const response = await fetch("/api/foods/");
+    const data = await response.json();
+    const MENUS = data.foods.map(food => {
+      return {
+        id: food.id,
+        name: food.name,
+        calorie: food.calorie,
+        price: food.price,
+      };
+    });
+    console.log(MENUS); // MENU配列をコンソールに表示する
+    return MENUS;
+  } catch {
+    const message = "エラーが発生しました。";
+    alert(message);
+    throw new Error(message);
+  }
+};
+
+const result = document.getElementById('result');
+
+const runGacha = async () => {
+  try {
+    const MENUS = await fetchFoods();
+    let budget = 1000;
+    let totalPrice = 0;
+    let totalCalorie = 0;
+
+    while (budget >= 0) {
+      var rand2 = Math.floor(Math.random() * MENUS.length);
+      var food = MENUS[rand2];
+      if (budget - food.price < 0) {
+        break;
+      }
+      result.innerHTML +=
+        '<div class="box menu"><h2>' +
+        food.name +
+        '</h2><p>' +
+        food.price +
+        '円' +
+        food.calorie +
+        'kcal</p></div>';
+      totalPrice += food.price;
+      totalCalorie += food.calorie;
+      budget -= food.price;
+    }
+
+    result.innerHTML +=
+      '<div class="box rst"><h2>計 ' +
+      totalPrice +
+      '円' +
+      totalCalorie +
+      'kcal</h2></div>';
+    const scrollPosition =
+    result.getBoundingClientRect().top + window.pageYOffset - 20;
+    window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+  } catch (error) {
+    console.error(error);
+  }
+};
+</script>
