@@ -1,6 +1,7 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import googleCalendarApi from '@fullcalendar/google-calendar';
 
 const fetchGroups = () => {
     return new Promise(async (resolve, reject) => {
@@ -22,7 +23,7 @@ if (!calendarEl) return;
 
 const { groups } = await fetchGroups()
 const calendar = new Calendar(calendarEl, {
-    plugins: [ interactionPlugin, dayGridPlugin],
+    plugins: [interactionPlugin, dayGridPlugin, googleCalendarApi],
     headerToolbar: {
         right: 'prev,next today',
         center: 'title',
@@ -31,6 +32,7 @@ const calendar = new Calendar(calendarEl, {
     initialDate: new Date(),
     dayMaxEvents: true,
     locale: 'ja',
+    timeZone: 'Asia/Tokyo',
     events: groups
 });
 calendar.render();
