@@ -1,0 +1,12 @@
+foods = @foods.map do |food|
+  {
+    id: food.id,
+    name: food.food_name,
+    calorie: food.calorie,
+    price: food.price
+  }
+end
+
+{
+  foods:
+}
