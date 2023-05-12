@@ -69,7 +69,7 @@ RSpec.describe "Groups", type: :system do
         expect(page).to have_content('0kcal')
       end
       context 'タイトルが未入力' do
-        it '食べ合わせの新規作成が成功しない' do
+        it '食べ合わせの新規作成が失敗する' do
           visit new_group_path
           fill_in 'group_group_name', with: ""
           fill_in 'maximum_amount_value', with: 1100
@@ -84,7 +84,7 @@ RSpec.describe "Groups", type: :system do
         end
       end
       context '金額上限が未入力' do
-        it '食べ合わせの新規作成が成功しない' do
+        it '食べ合わせの新規作成が失敗する' do
           visit new_group_path
           fill_in 'group_group_name', with: "testケース失敗"
           fill_in 'maximum_amount_value', with: ''
@@ -99,7 +99,7 @@ RSpec.describe "Groups", type: :system do
         end
       end
       context '公開設定が未入力' do
-        it '食べ合わせの新規作成が成功しない' do
+        it '食べ合わせの新規作成が失敗する' do
           visit new_group_path
           fill_in 'group_group_name', with: "testケース失敗"
           fill_in 'maximum_amount_value', with: 1000
@@ -117,7 +117,7 @@ RSpec.describe "Groups", type: :system do
   describe '食べ合わせの削除' do
     let!(:group) { create(:group, user: user) }
     context '正常系' do
-      it '自分の食べ合わせが削除できる' do
+      it '自分の食べ合わせの削除が成功する' do
         login_as(group.user)
         visit groups_path
         expect(page).to have_content(group.group_name)
@@ -129,7 +129,7 @@ RSpec.describe "Groups", type: :system do
         expect(current_path).to eq groups_path
         expect(page).not_to have_content group.group_name
       end
-      it '他人の食べ合わせが削除できない' do
+      it '他人の食べ合わせの削除が失敗する' do
         another_user = FactoryBot.create(:user)
         login_as(another_user)
         visit groups_path
