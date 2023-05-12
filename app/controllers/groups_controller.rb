@@ -19,9 +19,9 @@ class GroupsController < ApplicationController
     @tags = Food.tags_on(:tags)
     @group = Group.new
     if params[:tag_name].present?
-      @foods = Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).order(created_at: :desc).references(:all).page(params[:page])
+      @foods = Food.tagged_with("#{params[:tag_name]}").includes(%i[taggings user groups]).order(created_at: :desc).references(:all)
     else
-      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc).page(params[:page])
+      @foods = Food.includes(%i[taggings user groups]).references(:all).order(created_at: :desc)
     end
   end
 
