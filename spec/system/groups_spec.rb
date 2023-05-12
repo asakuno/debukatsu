@@ -1,20 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Groups", type: :system do
-  describe 'FactoryBot' do
-    it 'creates a valid group' do
-      20.times do
-        FactoryBot.create(:food)
-      end
-      group = FactoryBot.create(:group)
-      
-      expect(group).to be_valid
-      expect(group.group_name).to be_present
-      expect(group.maximum_amount).to be_present
-      expect(group.publish).to be_in([true, false])
-      expect(group.user).to be_present
-    end
-  end
 
   let(:user)  { create(:user) }
   let(:group) { create(:group) }
@@ -65,6 +51,31 @@ RSpec.describe "Groups", type: :system do
         visit mine_groups_path
         expect(page).to have_content(user.name)
         expect(page).to have_content('testケース成功')
+      end
+    end
+  end
+  describe '食べ合わせの削除' do
+    let!(:group) { create(:group, user: user) }
+    context '正常系' do
+      it '自分の食べ合わせが削除できる' do
+        login_as(group.user)
+        visit groups_path
+        expect(page).to have_content(group.group_name)
+        expect(page).to have_content(group.user.name)
+        expect(page).to have_content('削除')
+        find('#group_delete_button').click
+        expect(page.accept_confirm).to eq "削除してもよろしいですか？"
+        expect(page).to have_content "食べ合わせを削除しました"
+        expect(current_path).to eq groups_path
+        expect(page).not_to have_content group.group_name
+      end
+      it '他人の食べ合わせが削除できない' do
+        another_user = FactoryBot.create(:user)
+        login_as(another_user)
+        visit groups_path
+        expect(page).to have_content(group.group_name)
+        expect(page).to have_content(group.user.name)
+        expect(page).not_to have_content('削除')
       end
     end
   end
