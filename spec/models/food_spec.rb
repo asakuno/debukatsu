@@ -73,6 +73,5 @@ RSpec.describe Food, type: :model do
         expect(food_without_table_salt.errors).to be_empty
       end
     end
-
   end
 end

@@ -10,7 +10,7 @@ RSpec.describe "Groups", type: :system do
   describe '食べ合わせの新規登録' do
     before { login_as(user) }
     context 'フォームの入力値が正常' do
-      it '食べ物の新規作成が成功し、groupsでも確認できる' do
+      it '食べ合わせの新規作成が成功し、groupsでも確認できる' do
         visit new_group_path
         fill_in 'group_group_name', with: "testケース成功"
         fill_in 'maximum_amount_value', with: 1100
@@ -24,7 +24,7 @@ RSpec.describe "Groups", type: :system do
         expect(page).to have_content(user.name)
         expect(page).to have_content('testケース成功')
       end
-      it '食べ物の新規作成が成功し、groupsでも確認できない(no_publish)' do
+      it '食べ合わせの新規作成が成功し、groupsでも確認できない(非公開)' do
         visit new_group_path
         fill_in 'group_group_name', with: "testケース成功"
         fill_in 'maximum_amount_value', with: 1100
@@ -38,7 +38,7 @@ RSpec.describe "Groups", type: :system do
         expect(page).not_to have_content(user.name)
         expect(page).not_to have_content('testケース成功')
       end
-      it '食べ物の新規作成が成功し、groups/mineで確認できる(no_publish)' do
+      it '食べ合わせの新規作成が成功し、groups/mineで確認できる(非公開)' do
         visit new_group_path
         fill_in 'group_group_name', with: "testケース成功"
         fill_in 'maximum_amount_value', with: 1100
@@ -51,6 +51,66 @@ RSpec.describe "Groups", type: :system do
         visit mine_groups_path
         expect(page).to have_content(user.name)
         expect(page).to have_content('testケース成功')
+      end
+      it '全クリアボタンを押しても食べ合わせの新規作成が成功する' do
+        visit new_group_path
+        fill_in 'group_group_name', with: "testケース成功"
+        fill_in 'maximum_amount_value', with: 1100
+        choose "group_publish_true"
+        click_button '全クリア'
+        click_button '登録する'
+        expect(page).to have_content('作成に成功しました')
+        expect(page).to have_content('testケース成功')
+
+        visit groups_path
+        expect(page).to have_content(user.name)
+        expect(page).to have_content('testケース成功')
+        expect(page).to have_content('0円')
+        expect(page).to have_content('0kcal')
+      end
+      context 'タイトルが未入力' do
+        it '食べ合わせの新規作成が成功しない' do
+          visit new_group_path
+          fill_in 'group_group_name', with: ""
+          fill_in 'maximum_amount_value', with: 1100
+          choose "group_publish_true"
+          click_button '全チェック'
+          expect(page).to have_no_selector("登録する")
+          expect(current_path).to eq new_group_path
+  
+          visit groups_path
+          expect(page).not_to have_content(user.name)
+          expect(page).not_to have_content('testケース失敗')
+        end
+      end
+      context '金額上限が未入力' do
+        it '食べ合わせの新規作成が成功しない' do
+          visit new_group_path
+          fill_in 'group_group_name', with: "testケース失敗"
+          fill_in 'maximum_amount_value', with: ''
+          choose "group_publish_true"
+          click_button '全チェック'
+          expect(page).to have_no_selector("登録する")
+          expect(current_path).to eq new_group_path
+  
+          visit groups_path
+          expect(page).not_to have_content(user.name)
+          expect(page).not_to have_content('testケース失敗')
+        end
+      end
+      context '公開設定が未入力' do
+        it '食べ合わせの新規作成が成功しない' do
+          visit new_group_path
+          fill_in 'group_group_name', with: "testケース失敗"
+          fill_in 'maximum_amount_value', with: 1000
+          click_button '全チェック'
+          expect(page).to have_no_selector("登録する")
+          expect(current_path).to eq new_group_path
+  
+          visit groups_path
+          expect(page).not_to have_content(user.name)
+          expect(page).not_to have_content('testケース失敗')
+        end
       end
     end
   end
