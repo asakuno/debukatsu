@@ -60,7 +60,7 @@ ja:
       success: '作成に成功しました'
       fail: '作成に失敗しました'
     destroy:
-      success: '削除しました'
+      success: '食べ合わせを削除しました'
     nav:
       new_group: '食べ合わせを作る'
       foods: '食品一覧へ'
