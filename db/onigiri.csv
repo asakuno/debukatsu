@@ -10,34 +10,34 @@ Id,food_name,Price,Image,tag,calorie,protein,lipid,sugar,dietary_fiber,table_sal
 8,"金しゃり 塩にぎりセット",333,"https://www.lawson.co.jp/recommend/original/detail/img/l697433.png","おにぎり,ローソン",364,10.3,4.2,70.5,1.6,3.24
 9,"手巻おにぎり 熟成紀州南高梅",125,"https://www.lawson.co.jp/recommend/original/detail/img/l668245.png","おにぎり,ローソン",169,3.6,0.8,36.4,1.0,1.87
 10,"手巻おにぎり 追い鰹製法おかか",116,"https://www.lawson.co.jp/recommend/original/detail/img/l650862.png","おにぎり,ローソン",179,4.5,1.4,36.5,1.1,1.11
-11,手巻おにぎり 北海道産日高昆布,120,"https://www.lawson.co.jp/recommend/original/detail/img/l650861.png","おにぎり,ローソン",176,3.6,0.9,37.8,1.2,1.23
-12,手巻おにぎり 熟成紅鮭,160,"https://www.lawson.co.jp/recommend/original/detail/img/l697447.png","おにぎり,ローソン",174,4.6,1.7,34.2,1.5,1.24
-13,手巻おにぎり 半生炙りたらこ,160,"https://www.lawson.co.jp/recommend/original/detail/img/l668171.png","おにぎり,ローソン",176,4.1,1.9,35.3,0.8,1.02
-14,手巻おにぎり 明太子マヨネーズ,149,"https://www.lawson.co.jp/recommend/original/detail/img/l697436.png","おにぎり,ローソン",193,4.1,3.7,35.1,1.3,1.39
-15,手巻おにぎり 熟成辛子明太子,160,"https://www.lawson.co.jp/recommend/original/detail/img/l680794.png","おにぎり,ローソン",170,4.6,1.1,34.8,1.4,1.06
-16,手巻おにぎり シーチキンマヨネーズ,135,"https://www.lawson.co.jp/recommend/original/detail/img/l680965.png","おにぎり,ローソン",226,4.3,7.0,35.8,1.1,1.23
-17,鶏五目おにぎり,138,"https://www.lawson.co.jp/recommend/original/detail/img/l668176.png","おにぎり,ローソン",171,4.3,1.3,35.0,0.9,1.35
-18,胡麻さけおにぎり,138,"https://www.lawson.co.jp/recommend/original/detail/img/l680969.png","おにぎり,ローソン",185,7.0,2.5,33.2,0.6,1.46
-19,わかめごはんおにぎり,138,"https://www.lawson.co.jp/recommend/original/detail/img/l680970.png","おにぎり,ローソン",174,3.1,1.2,37.3,0.8,1.27
-20,北海道十勝産小豆使用 赤飯おこわおにぎり,149,"https://www.lawson.co.jp/recommend/original/detail/img/l680967.png","おにぎり,ローソン",209,4.9,1.1,43.4,3.1,0.8
-21,食物繊維が摂れる 梅しそごはんおにぎり,138,"https://www.lawson.co.jp/recommend/original/detail/img/l680968.png","おにぎり,ローソン",182,3.7,1.9,35.3,4.3,2.25
-22,食物繊維が摂れる 枝豆と塩昆布おにぎり,138,"https://www.lawson.co.jp/recommend/original/detail/img/l680757.png","おにぎり,ローソン",173,4.5,2.0,31.8,4.7,1.06
-23,たんぱく質が摂れる カオマンガイ風おにぎり,203,"https://www.lawson.co.jp/recommend/original/detail/img/l697552.png","おにぎり,ローソン",188,12.1,3.1,25.0,6.0,2.84
-24,チャーシューマヨネーズおにぎり,149,"https://www.lawson.co.jp/recommend/original/detail/img/l680966.png","おにぎり,ローソン",212,4.5,4.2,38.7,0.4,1.23
-25,北海道十勝産小豆使用 赤飯おこわおにぎり,149,"https://www.lawson.co.jp/recommend/original/detail/img/l680967.png","おにぎり,ローソン",209,4.9,1.1,43.4,3.1,0.8
-26,おにぎり2個入り(鮭・日高昆布),214,"https://www.lawson.co.jp/recommend/original/detail/img/l697553.png","おにぎり,ローソン",297,6.2,2.4,62.0,1.5,1.88
-27,おにぎりおかずセット(さけ・シーチキンマヨネーズ),387,"https://www.lawson.co.jp/recommend/original/detail/img/l680793.png","おにぎり,ローソン",525,18.8,18.2,69.9,3.0,2.33
-28,鶏ごぼう,203,"https://www.lawson.co.jp/recommend/original/detail/img/l122chubo.png","おにぎり,ローソン,まちかど厨房",223,,,,,
-29,ソーセージマヨ,203,"https://www.lawson.co.jp/recommend/original/detail/img/n27chubo.png","おにぎり,ローソン,まちかど厨房",334,,,,,
-30,博多辛子明太子,203,"https://www.lawson.co.jp/recommend/original/detail/img/n30chubo.png","おにぎり,ローソン,まちかど厨房",219,,,,,
-31,紀州南高梅,203,"https://www.lawson.co.jp/recommend/original/detail/img/n33chubo.png","おにぎり,ローソン,まちかど厨房",208,,,,,
-32,焼豚,203,"https://www.lawson.co.jp/recommend/original/detail/img/l20210817chubo0002.png","おにぎり,ローソン,まちかど厨房",253,,,,,
-33,からあげマヨ,203,"https://www.lawson.co.jp/recommend/original/detail/img/n28chubo.png","おにぎり,ローソン,まちかど厨房",325,,,,,
-34,北海道さけ,203,"https://www.lawson.co.jp/recommend/original/detail/img/n29chubo.png","おにぎり,ローソン,まちかど厨房",230,,,,,
-35,昆布,203,"https://www.lawson.co.jp/recommend/original/detail/img/n32chubo.png","おにぎり,ローソン,まちかど厨房",212,,,,,
-36,玉子焼と昆布,203,"https://www.lawson.co.jp/recommend/original/detail/img/l20221129chubo0002.png","おにぎり,ローソン,まちかど厨房",233,,,,,
-37,タルタル海老カツ,203,"https://www.lawson.co.jp/recommend/original/detail/img/l20230124chubo0001.png","おにぎり,ローソン,まちかど厨房",262,,,,,
-38,とんかつ,225,"https://www.lawson.co.jp/recommend/original/detail/img/l20211116chubo0001.png","おにぎり,ローソン,まちかど厨房",359,,,,,
-39,チキン南蛮,225,"https://www.lawson.co.jp/recommend/original/detail/img/l20210629chubo0004.png","おにぎり,ローソン,まちかど厨房",271,,,,,
-40,炭火焼チキンマヨ,279,"https://www.lawson.co.jp/recommend/original/detail/img/l123chubo.png","おにぎり,ローソン,まちかど厨房",449,,,,,
-41,さけ昆布,279,"https://www.lawson.co.jp/recommend/original/detail/img/l20220809chubo0002.png","おにぎり,ローソン,まちかど厨房",321,,,,,
+11,"手巻おにぎり 北海道産日高昆布",120,"https://www.lawson.co.jp/recommend/original/detail/img/l650861.png","おにぎり,ローソン",176,3.6,0.9,37.8,1.2,1.23
+12,"手巻おにぎり 熟成紅鮭",160,"https://www.lawson.co.jp/recommend/original/detail/img/l697447.png","おにぎり,ローソン",174,4.6,1.7,34.2,1.5,1.24
+13,"手巻おにぎり 半生炙りたらこ",160,"https://www.lawson.co.jp/recommend/original/detail/img/l668171.png","おにぎり,ローソン",176,4.1,1.9,35.3,0.8,1.02
+14,"手巻おにぎり 明太子マヨネーズ",149,"https://www.lawson.co.jp/recommend/original/detail/img/l697436.png","おにぎり,ローソン",193,4.1,3.7,35.1,1.3,1.39
+15,"手巻おにぎり 熟成辛子明太子",160,"https://www.lawson.co.jp/recommend/original/detail/img/l680794.png","おにぎり,ローソン",170,4.6,1.1,34.8,1.4,1.06
+16,"手巻おにぎり シーチキンマヨネーズ",135,"https://www.lawson.co.jp/recommend/original/detail/img/l680965.png","おにぎり,ローソン",226,4.3,7.0,35.8,1.1,1.23
+17,"鶏五目おにぎり",138,"https://www.lawson.co.jp/recommend/original/detail/img/l668176.png","おにぎり,ローソン",171,4.3,1.3,35.0,0.9,1.35
+18,"胡麻さけおにぎり",138,"https://www.lawson.co.jp/recommend/original/detail/img/l680969.png","おにぎり,ローソン",185,7.0,2.5,33.2,0.6,1.46
+19,"わかめごはんおにぎり",138,"https://www.lawson.co.jp/recommend/original/detail/img/l680970.png","おにぎり,ローソン",174,3.1,1.2,37.3,0.8,1.27
+20,"北海道十勝産小豆使用 赤飯おこわおにぎり",149,"https://www.lawson.co.jp/recommend/original/detail/img/l680967.png","おにぎり,ローソン",209,4.9,1.1,43.4,3.1,0.8
+21,"食物繊維が摂れる 梅しそごはんおにぎり",138,"https://www.lawson.co.jp/recommend/original/detail/img/l680968.png","おにぎり,ローソン",182,3.7,1.9,35.3,4.3,2.25
+22,"食物繊維が摂れる 枝豆と塩昆布おにぎり",138,"https://www.lawson.co.jp/recommend/original/detail/img/l680757.png","おにぎり,ローソン",173,4.5,2.0,31.8,4.7,1.06
+23,"たんぱく質が摂れる カオマンガイ風おにぎり",203,"https://www.lawson.co.jp/recommend/original/detail/img/l697552.png","おにぎり,ローソン",188,12.1,3.1,25.0,6.0,2.84
+24,"チャーシューマヨネーズおにぎり",149,"https://www.lawson.co.jp/recommend/original/detail/img/l680966.png","おにぎり,ローソン",212,4.5,4.2,38.7,0.4,1.23
+25,"北海道十勝産小豆使用 赤飯おこわおにぎり",149,"https://www.lawson.co.jp/recommend/original/detail/img/l680967.png","おにぎり,ローソン",209,4.9,1.1,43.4,3.1,0.8
+26,"おにぎり2個入り(鮭・日高昆布)",214,"https://www.lawson.co.jp/recommend/original/detail/img/l697553.png","おにぎり,ローソン",297,6.2,2.4,62.0,1.5,1.88
+27,"おにぎりおかずセット(さけ・シーチキンマヨネーズ)",387,"https://www.lawson.co.jp/recommend/original/detail/img/l680793.png","おにぎり,ローソン",525,18.8,18.2,69.9,3.0,2.33
+28,"鶏ごぼう",203,"https://www.lawson.co.jp/recommend/original/detail/img/l122chubo.png","おにぎり,ローソン,まちかど厨房",223,,,,,
+29,"ソーセージマヨ",203,"https://www.lawson.co.jp/recommend/original/detail/img/n27chubo.png","おにぎり,ローソン,まちかど厨房",334,,,,,
+30,"博多辛子明太子",203,"https://www.lawson.co.jp/recommend/original/detail/img/n30chubo.png","おにぎり,ローソン,まちかど厨房",219,,,,,
+31,"紀州南高梅",203,"https://www.lawson.co.jp/recommend/original/detail/img/n33chubo.png","おにぎり,ローソン,まちかど厨房",208,,,,,
+32,"焼豚",203,"https://www.lawson.co.jp/recommend/original/detail/img/l20210817chubo0002.png","おにぎり,ローソン,まちかど厨房",253,,,,,
+33,"からあげマヨ",203,"https://www.lawson.co.jp/recommend/original/detail/img/n28chubo.png","おにぎり,ローソン,まちかど厨房",325,,,,,
+34,"北海道さけ",203,"https://www.lawson.co.jp/recommend/original/detail/img/n29chubo.png","おにぎり,ローソン,まちかど厨房",230,,,,,
+35,"昆布",203,"https://www.lawson.co.jp/recommend/original/detail/img/n32chubo.png","おにぎり,ローソン,まちかど厨房",212,,,,,
+36,"玉子焼と昆布",203,"https://www.lawson.co.jp/recommend/original/detail/img/l20221129chubo0002.png","おにぎり,ローソン,まちかど厨房",233,,,,,
+37,"タルタル海老カツ",203,"https://www.lawson.co.jp/recommend/original/detail/img/l20230124chubo0001.png","おにぎり,ローソン,まちかど厨房",262,,,,,
+38,"とんかつ",225,"https://www.lawson.co.jp/recommend/original/detail/img/l20211116chubo0001.png","おにぎり,ローソン,まちかど厨房",359,,,,,
+39,"チキン南蛮",225,"https://www.lawson.co.jp/recommend/original/detail/img/l20210629chubo0004.png","おにぎり,ローソン,まちかど厨房",271,,,,,
+40,"炭火焼チキンマヨ",279,"https://www.lawson.co.jp/recommend/original/detail/img/l123chubo.png","おにぎり,ローソン,まちかど厨房",449,,,,,
+41,"さけ昆布",279,"https://www.lawson.co.jp/recommend/original/detail/img/l20220809chubo0002.png","おにぎり,ローソン,まちかど厨房",321,,,,,

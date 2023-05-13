@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :food do
-    food_name { Faker::Food.ingredient[0,20] }
+    food_name { Faker::Food.ingredient[0,30] }
     calorie { Faker::Number.between(from: 100, to: 1000) }
     price { Faker::Number.between(from: 100, to: 1000) }
     protein { Faker::Number.between(from: 1) }
