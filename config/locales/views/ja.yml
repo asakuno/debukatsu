@@ -64,6 +64,14 @@ ja:
     nav:
       new_group: '食べ合わせを作る'
       foods: '食品一覧へ'
+  comments:
+    create: 
+      success: 'コメントの作成に成功しました'
+      fail: 'コメントの投稿に失敗しました'
+    destroy:
+      success: 'コメントの削除に成功しました'
+    destroy:
+      success: 'コメントの削除に成功しました'
   mypage:
     calendars:
       show:
