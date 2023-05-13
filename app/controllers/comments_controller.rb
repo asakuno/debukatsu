@@ -3,8 +3,9 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
 
     if @comment.save
-      redirect_to group_path(@comment.group)
+      redirect_to group_path(@comment.group), success: t('.success')
     else
+      flash.now[:danger] = t('.fail')
       redirect_to group_path(@comment.group)
     end
   end
@@ -12,7 +13,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy!
-    redirect_to group_path(@comment.group)
+    redirect_to group_path(@comment.group), success: t('.success')
   end
 
   private
