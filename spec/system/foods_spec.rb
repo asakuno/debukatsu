@@ -37,10 +37,10 @@ RSpec.describe "Foods", type: :system do
       end
     end
 
-    context '食品名が20文字以上' do
+    context '食品名が30文字以上' do
       it '食べ物の新規作成が失敗する' do
         visit new_food_path
-        fill_in 'food_food_name', with: "これは20文字以上が弾かれるかどうかを確認するテストです。"
+        fill_in 'food_food_name', with: "これは30文字以上が弾かれるかどうかを確認するテストです。30文字以上なので弾かれるはずです"
         fill_in 'food_calorie', with: 110
         fill_in 'food_price', with: 100
         fill_in 'food_protein', with: 10
