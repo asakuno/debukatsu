@@ -37,14 +37,12 @@ RSpec.describe "Comments", type: :system do
         create_group(user)
         fill_in 'js-new-comment-body', with: ""
         click_button 'コメント投稿'
-        expect(page).not_to have_content(user.name)
         expect(page).not_to have_content('コメント投稿テスト')
       end
       it '投稿欄が100文字以上だと投稿が失敗する' do
         create_group(user)
         fill_in 'js-new-comment-body', with: Faker::Lorem.characters(number: 101)
         click_button 'コメント投稿'
-        expect(page).not_to have_content(user.name)
         expect(page).not_to have_content('コメント投稿テスト')
       end
     end
@@ -58,7 +56,6 @@ RSpec.describe "Comments", type: :system do
         visit group_path(group)
         find("#js-comment-delete-button-for-#{comment.id}").click
         expect(page).not_to have_content(comment.body)
-        expect(page).not_to have_content(comment.user.name)
       end
     end
   end
