@@ -97,4 +97,5 @@
 [Figma](https://www.figma.com/file/FdSL8iq7NFYdhNdAKCz9vu/debukatsu?node-id=0%3A1&t=sFwcyd81H5tvgpQ6-0)
 
 ## ER図
+![ER図 drawio](https://github.com/asakuno/debukatsu/assets/102037623/2b2070b6-67c1-48be-aab8-24b094c8989d) <br>
 [ER図](https://drive.google.com/file/d/1jpRPIF0Nu2khecZdIuPp6b5VGalITEMo/view?usp=sharing)
