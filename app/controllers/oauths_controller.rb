@@ -12,12 +12,12 @@ class OauthsController < ApplicationController
       return
     end
     if (@user = login_from(provider))
-      redirect_to root_path, success: "#{provider.titleize}でログインしました"
+      redirect_to mypage_profile_path, success: "#{provider.titleize}でログインしました"
     else
       @user = create_from(provider)
       reset_session
       auto_login(@user)
-      redirect_to root_path, success: "#{provider.titleize}でログインしました"
+      redirect_to mypage_profile_path, success: "#{provider.titleize}でログインしました"
     end
   end
 
