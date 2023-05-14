@@ -11,7 +11,7 @@ require "open-uri"
 
 user = User.find_by(name: 'Admin', role: 2)
 
-CSV.foreach('db/rice.csv', headers: true) do |row|
+CSV.foreach('db/sandwich.csv', headers: true) do |row|
   Food.create!(
     food_name: row['food_name'],
     image: URI.open(row['Image']),
@@ -26,7 +26,7 @@ CSV.foreach('db/rice.csv', headers: true) do |row|
     user_id: user.id
   )
 end
-CSV.foreach('db/onigiri.csv', headers: true) do |row|
+CSV.foreach('db/pasta.csv', headers: true) do |row|
   Food.create!(
     food_name: row['food_name'],
     image: URI.open(row['Image']),
@@ -41,4 +41,3 @@ CSV.foreach('db/onigiri.csv', headers: true) do |row|
     user_id: user.id
   )
 end
-

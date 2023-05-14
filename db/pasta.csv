@@ -1,0 +1,11 @@
+Id,food_name,Price,Image,tag,calorie,protein,lipid,sugar,dietary_fiber,table_salt
+1,"大盛 ガーリックトマトミートボール",648,"https://www.lawson.co.jp/recommend/original/detail/img/l723471.png","パスタ,ローソン",833,40.8,26.0,104.8,8.3,6.01
+2,"大盛 じっくり煮込んだミートソース",559,"https://www.lawson.co.jp/recommend/original/detail/img/l720370.png","パスタ,ローソン",725,35.4,16.6,105.1,6.9,4.88
+3,"大盛 香ばしにんにくのぺぺロンチーノ",599,"https://www.lawson.co.jp/recommend/original/detail/img/l720369.png","パスタ,ローソン",910,35.1,41.9,94.1,8.2,5.61
+4,"大盛 こってり仕立てのナポリタン",559,"https://www.lawson.co.jp/recommend/original/detail/img/l724474.png","パスタ,ローソン",710,28.8,21.6,96.1,8.0,3.64
+5,"絶望パスタ 〜アンチョビトマトガーリック〜",538,"https://www.lawson.co.jp/recommend/original/detail/img/l721016.png","パスタ,ローソン",446,23.0,10.7,61.8,5.2,3.84
+6,"たっぷりあさりの和風生姜パスタ",497,"https://www.lawson.co.jp/recommend/original/detail/img/l720342.png","パスタ,ローソン",523,25.8,15.6,67.3,5.0,4.49
+7,"つぶつぶたらこの和風パスタ",497,"https://www.lawson.co.jp/recommend/original/detail/img/l676893.png","パスタ,ローソン",501,24.2,15.3,64.4,4.4,3.42
+8,"喫茶店の味！ナポリタン",430,"https://www.lawson.co.jp/recommend/original/detail/img/l721014_1.png","パスタ,ローソン",499,21.3,10.7,76.4,5.7,2.50
+9,"濃厚クリームの生パスタカルボナーラ",497,"https://www.lawson.co.jp/recommend/original/detail/img/l721015.png","パスタ,ローソン",532,22.8,15.5,74.0,2.7,3.81
+10,"ピリ辛トマトスープパスタ",430,"https://www.lawson.co.jp/recommend/original/detail/img/l556290_1.png","パスタ,ローソン",307,15.3,8.4,40.6,3.7,3.09
