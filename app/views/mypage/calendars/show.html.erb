@@ -5,6 +5,6 @@
   <% else %>
     <h1 class="font-bold">あなたに必要なカロリーは一日<%= @user.target_calories %> kcalです</h1>  
   <% end %>
-  <%= bar_chart @weak_chart, title: "今週の総カロリーは#{@weak_total_calories}kcalです" %>
+  <%= bar_chart @week_chart, title: "今週の総カロリーは#{@week_total_calories}kcalです" %>
   <div id='calendar' class="my-10 bg-white px-10 py-5"></div>
 </div>
