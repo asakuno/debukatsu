@@ -1,12 +1,15 @@
 <% content_for(:title, t('.title')) %>
 <%= render 'foods/modal' %>
 <%= render 'shared/search_food_form', url: mypage_likes_path %>
+<% if @likes.present? %>
 <div class="flex flex-wrap">
-  <% if @likes.present? %>
-    <%= render partial: 'foods/food', collection: @likes %>
-  <% else %>
-    <div class="max-w-md mx-auto my-10">
-      <p class="font-bold">条件に合う食品がありません</p>
-    </div>
-  <% end %>
+  <%= render partial: 'foods/food', collection: @likes %>
 </div>
+<div class="flex justify-center items-center pt-4">
+  <%= paginate @likes %>
+</div>
+<% else %>
+<div class="max-w-md mx-auto my-10">
+  <p class="font-bold">条件に合う食品がありません</p>
+</div>
+<% end %>
