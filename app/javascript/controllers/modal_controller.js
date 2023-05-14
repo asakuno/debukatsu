@@ -19,7 +19,7 @@ export default class extends Controller {
       tagDiv.textContent = tag;
       tagDiv.className = 'inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2';
       foodTagsTarget.appendChild(tagDiv);
-  });
+    });
   }
 
   handleOpen(event) {
