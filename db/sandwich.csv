@@ -1,0 +1,30 @@
+Id,food_name,Price,Image,tag,calorie,protein,lipid,sugar,dietary_fiber,table_salt
+1,"トルティーヤ ハム&5種のチーズ",268,"https://www.lawson.co.jp/recommend/original/detail/img/l657744.png","サンドウィッチ,ローソン",316,12.2,16.9,28.1,1.4,1.6
+2,"トルティーヤ ベーコン&とろ〜りチーズ",300,"https://www.lawson.co.jp/recommend/original/detail/img/l657739.png","サンドウィッチ,ローソン",296,9.7,16.0,27.7,1.3,1.6
+3,"ピザロール もちもちWウインナー&チリビーンズ",279,"https://www.lawson.co.jp/recommend/original/detail/img/l689526.png","サンドウィッチ,ローソン",273,11.1,12.3,28.0,2.9,1.8
+4,"ピザロール もちもち濃厚クアトロフォルマッジ",279,"https://www.lawson.co.jp/recommend/original/detail/img/l696762.png","サンドウィッチ,ローソン",259,9.7,9.7,31.7,2.8,1.5
+5,"ピザロール もちもちモッツァレラチーズのマルゲリータ",257,"https://www.lawson.co.jp/recommend/original/detail/img/l695015.png","サンドウィッチ,ローソン",223,9.9,7.1,27.8,4.3,1.4
+6,"ピザロール 全粒粉入り！ハムとモッツァレラとゴーダチーズ",279,"https://www.lawson.co.jp/recommend/original/detail/img/l667347.png","サンドウィッチ,ローソン", 253,13.8,9.7,24.1,6.8,1.8
+7,"サラダラップ 根菜とチキン",354,"https://www.lawson.co.jp/recommend/original/detail/img/l725894.png","サンドウィッチ,ローソン",300,10.1,18.2,20.8,6.3,1.66
+8,"こだわりビーフのダブルチーズバーガー",451,"https://www.lawson.co.jp/recommend/original/detail/img/l725893.png","サンドウィッチ,ローソン",421,26.4,22.0,27.9,2.9,3.26
+9,"チーズバーガー",246,"https://www.lawson.co.jp/recommend/original/detail/img/l721148.png","サンドウィッチ,ローソン",303,15.4,14.5,26.4,2.5,1.77
+11,"パリッとジューシーなホットドッグ",214,"https://www.lawson.co.jp/recommend/original/detail/img/l674730.png","サンドウィッチ,ローソン",271,10.1,15,5,22.2,1.2,1.56
+12,"たんぱく質が摂れる ブロッコリーサラダチキンロール",387,"https://www.lawson.co.jp/recommend/original/detail/img/l725895.png","サンドウィッチ,ローソン",311,18.4,13.7,25.8,5.4,2.57
+13,"フルーツサンドBOX",343,"https://www.lawson.co.jp/recommend/original/detail/img/l725556.png","サンドウィッチ,ローソン",204,4.4,9.1,25.5,1.3,0.38
+14,"海老かつ・ひれかつBOX",451,"https://www.lawson.co.jp/recommend/original/detail/img/l726391.png","サンドウィッチ,ローソン",420,13.0,23.1,39.1,1.8,3.08
+15,"ひれかつBOX",451,"https://www.lawson.co.jp/recommend/original/detail/img/l725175.png","サンドウィッチ,ローソン",378,13.5,17.4,41.0,1.8,2.8
+16,"ハムとたまごBOX",346,"https://www.lawson.co.jp/recommend/original/detail/img/l725557.png","サンドウィッチ,ローソン",226,9.3,11.1,21.7,1,2,1.87
+17,"たんぱく質が摂れる ローストチキンと野菜",408,"https://www.lawson.co.jp/recommend/original/detail/img/l725661.png","サンドウィッチ,ローソン",302,19.1,13.6,23.4,4.7,2.16
+18,"照焼チキンたまごサンド",333,"https://www.lawson.co.jp/recommend/original/detail/img/l725554.png","サンドウィッチ,ローソン",240,12.9,9.3,25.7,1.0,1.9
+19,"チキンカツサンド",387,"https://www.lawson.co.jp/recommend/original/detail/img/l721920.png","サンドウィッチ,ローソン",359,14.1,16.8,37.0,1.7,2.33
+20,"ハムカツサンド",343,"https://www.lawson.co.jp/recommend/original/detail/img/l725555.png","サンドウィッチ,ローソン",400,11.6,20.7,40.7,2.0,3.15
+21,"肉肉!こだわり2種のポテトサラダサンド",397,"https://www.lawson.co.jp/recommend/original/detail/img/l726390.png","サンドウィッチ,ローソン",259,11.7,12.2,24.6,2.0,2.22
+22,"ツナポテトサラダサンド",322,"https://www.lawson.co.jp/recommend/original/detail/img/l726392.png","サンドウィッチ,ローソン",268,9.4,12.0,29.4,2.5,1.82
+23,"ハムチーズたまごサンド",322,"https://www.lawson.co.jp/recommend/original/detail/img/l725552.png","サンドウィッチ,ローソン",252,12.4,11.8,23.4,1.4,2.04
+24,"ジューシーハムサンド",322,"https://www.lawson.co.jp/recommend/original/detail/img/l721138.png","サンドウィッチ,ローソン",260,11.1,12.9,24.1,1.4,2.55
+25,"彩りトマトの野菜ミックスサンド",387,"https://www.lawson.co.jp/recommend/original/detail/img/l721137.png","サンドウィッチ,ローソン",262,7.0,14.1,25.8,2.1,1.54
+26,"シャキシャキレタスサンド",311,"https://www.lawson.co.jp/recommend/original/detail/img/l721136.png","サンドウィッチ,ローソン",215,8.5,11.2,19.3,1.3,1.81
+27,"ミックスサンド",297,"https://www.lawson.co.jp/recommend/original/detail/img/l721135.png","サンドウィッチ,ローソン",315,11.5,18.0,26.0,1.6,1.87
+28,"ツナ＆たまごサンド",279,"https://www.lawson.co.jp/recommend/original/detail/img/l725550.png","サンドウィッチ,ローソン",336,10.9,23.3,20.2,0.8,1.52
+29,"たまごサンド",279,"https://www.lawson.co.jp/recommend/original/detail/img/l721139.png","サンドウィッチ,ローソン",296,9.3,19.3,20.7,1.1,1.39
+30,"もちもちベーグルサンド ごろごろポテトとベーコン",365,"https://www.lawson.co.jp/recommend/original/detail/img/l727674.png","サンドウィッチ,ローソン",225,7.2,9.9,25.8,2.0,1.46
