@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_to foods_path, success: t('.success')
+      redirect_to mypage_profile_path, success: t('.success')
     else
       flash.now[:alert] = t('.fail')
       render :new
