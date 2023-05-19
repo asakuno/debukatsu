@@ -26,9 +26,9 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = current_user.groups.new(group_params)
+    @group = current_user.groups.build(group_params)
 
-    if @group.maximum_amount <= Food.where(id: @group.food_ids).sum(:price)
+    if @group.maximum_amount <= @group.foods.sum(:price)
       @group.high_calorie(@group.maximum_amount, @group.food_ids)
       group_params[:food_ids].each do |groupg|
         foods = @group.foods.pluck(:food_id)

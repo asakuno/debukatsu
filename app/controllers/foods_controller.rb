@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :set_food, only: [:show, :edit, :update, :destroy]
   def index
     @q = Food.ransack(params[:q])
     @foods = if params[:tag_name].present?
@@ -9,7 +10,6 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @food = Food.find(params[:id])
   end
 
   def new
@@ -27,11 +27,9 @@ class FoodsController < ApplicationController
   end
 
   def edit
-    @food = Food.find(params[:id])
   end
 
   def update
-    @food = Food.find(params[:id])
     if @food.update(food_params)
       redirect_to foods_path, success: t('.success')
     else
@@ -41,7 +39,6 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food = current_user.foods.find(params[:id])
     @food.destroy!
     redirect_to foods_path, success: t('.success')
   end
@@ -50,5 +47,9 @@ class FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit(:food_name, :calorie, :price, :image, :protein, :lipid, :sugar, :dietary_fiber, :table_salt, :tag_list)
+  end
+
+  def set_food
+    @food = current_user.foods.find(params[:id])
   end
 end
