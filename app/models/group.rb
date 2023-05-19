@@ -29,12 +29,17 @@ class Group < ApplicationRecord
     price_calorie.each_with_index do |(price, calorie), i|
       (0..maximum_amount).each do |j|
         # 商品i+1を選ばない場合
+        # 前のカロリーと同じ
         dp[i + 1][j] = dp[i][j]
+        # 何もないので0を入れる
         selection[i + 1][j] = "#{selection[i][j]}0"
+        # 上限金額を金額が下回る場合と、選んだ場合のカロリーの合計が既存の最大値よりも大きくならない場合
         next unless j - price >= 0 && (dp[i + 1][j] < dp[i][j - price] + calorie)
 
         # 商品i+1を選ぶ場合
+        # 前のカロリーに選んだカロリーを加える
         dp[i + 1][j] = dp[i][j - price] + calorie
+        # 商品を選んだので1を入れる
         selection[i + 1][j] = "#{selection[i][j - price]}1"
       end
     end
