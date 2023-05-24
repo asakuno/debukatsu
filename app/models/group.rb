@@ -20,7 +20,6 @@ class Group < ApplicationRecord
       price_calorie[i] << Food.find(id).calorie
     end
 
-    # if文で分岐させたほうがいいかも？ maxamount >= price.sum
     # dpと選んだ食べ物を記憶する配列を作成
     dp = Array.new(quantity + 1) { Array.new(maximum_amount + 1, 0) }
     selection = Array.new(quantity + 1) { Array.new(maximum_amount + 1, '') }
