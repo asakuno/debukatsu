@@ -93,6 +93,9 @@
 - CSS
 <br>
 
+## アプリでこだわった点
+[Notion](https://www.notion.so/App-dde3e5a3dc4b48c6bdbebf54b801c4dc?pvs=4)
+
 ## 画面遷移図
 [Figma](https://www.figma.com/file/FdSL8iq7NFYdhNdAKCz9vu/debukatsu?node-id=0%3A1&t=sFwcyd81H5tvgpQ6-0)
 
